@@ -95,6 +95,30 @@ parrot('a millon', 'bereft of life', 'jump')
 #parrot(110, voltage=220)     # duplicate value for the same argument
 #parrot(actor='John Cleese')  # unknown keyword argument
 
+def cheeseshop(kind, *arguments, **keywords):
+    print("--Do you have any", kind, "?")
+    print("--I'm sorry, we're all out of", kind)
+    for arg in arguments:
+        print(arg)
+        print('-' * 40)
+        for kw in keywords:
+            print(kw, ":", keywords[kw])
+
+
+#it could be called like this:
+cheeseshop("Limburger", "It's very runny, sir.",
+           "It's really very, very runny, sir.",
+           shopkeeper="Michael Palin",
+           client="John Cleese",
+           sketch="Cheese Shop Sketch")
+
+def standard_arg(arg):
+    print(arg)
+
+
+
+
+
 
 
 
