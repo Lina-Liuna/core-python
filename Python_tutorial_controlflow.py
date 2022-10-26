@@ -115,11 +115,72 @@ cheeseshop("Limburger", "It's very runny, sir.",
 def standard_arg(arg):
     print(arg)
 
+def pos_only_arg(arg, /):
+    print(arg)
+
+def kwd_only_arg(*, arg):
+    print(arg)
+
+def combined_example(pos_only, /, standard, *, kwd_only):
+    print(pos_only, standard, kwd_only)
 
 
+standard_arg(2)
+standard_arg(arg=2)
+
+pos_only_arg(1)
+#pos_only_arg(arg=1)   TypeError
+
+kwd_only_arg(arg=3)
+#kwd_only_arg(3)     TypeError
+
+#combined_example(1, 2, 3)  TypeError, 3 should be kwd_only=3
+combined_example(1, 2, kwd_only=3)
+combined_example(1, standard=2, kwd_only=3)
+
+def foo(name, **kwds):
+    return 'name' in kwds
 
 
+def foo_right(name, /, **kwds):
+    return 'name' in kwds
 
+print(foo_right(1, **{'name':2}))
+
+def concat(*args, sep="/"):
+    return sep.join(args)
+
+print(concat("earth", "mars", "venus"))
+print(concat("earth", "mars", "venus", sep="."))
+
+#The reverse situation occurs when the arguments are already in a list or tupe but need to be
+#unpacked for a function call requiring separate positional arguments.
+#the build-in range() function expectes separate start and stop arguments.
+#if they are available separtely, write the function call with *-operator to unpack  the arguments out of a list or tuple:
+print(list(range(3,6)))
+args = [3, 6]
+print(list(range(*args)))
+
+def parrot(voltage, state='a stiff', action='voom'):
+    print("--This parrot wouldn't", action, end=' ')
+    print("if you put", voltage, "volts through it.", end=' ')
+    print("E's", state, "!")
+
+d = {"voltage": "four million", "state":"bleedin demised", "action": "voom"}
+parrot(**d)
+
+
+def make_incrementor(n):
+    return lambda x: x + n
+
+f = make_incrementor(43)
+print(f(1))
+print(f(2))
+
+#example uses a lambda expression to return a function. Another use is to pass a small function as an argument
+pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+pairs.sort(key=lambda pair: pair[1])
+print(pairs)
 
 
 
