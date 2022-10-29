@@ -79,3 +79,16 @@ print([[row[i] for row in matrix] for i in range(4)])
 #The zip() function would do a great job for this use case:
 #call the *operator to unpack the arguments out of a list or tuple
 print(list(zip(*matrix)))
+
+
+a = [-1, 1, 66.25, 333, 333, 1234.5]
+del a[0]
+print(a)
+
+del a[2:4]
+print(a)
+
+del a[:]
+print(a)
+
+del a
