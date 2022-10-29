@@ -80,7 +80,7 @@ print([[row[i] for row in matrix] for i in range(4)])
 #call the *operator to unpack the arguments out of a list or tuple
 print(list(zip(*matrix)))
 
-
+#The del statement
 a = [-1, 1, 66.25, 333, 333, 1234.5]
 del a[0]
 print(a)
@@ -92,3 +92,16 @@ del a[:]
 print(a)
 
 del a
+
+#Tuples
+t = 12345, 54321, 'hello!'
+print(t[0])
+print(t)
+u = t, (1, 3, 5, 7)
+print(u)
+# t[0] = 10000 # Tuples are immutable, tuple object does not support item assginment.
+print(t)
+
+
+
+
