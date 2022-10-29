@@ -122,7 +122,25 @@ print(a ^ b)  # letters in a or b but not both
 a = {x for x in 'abracadabra' if x not in 'abc'}
 print(a)
 
+#small examples using a dictionary
+tel = {'jacky': 4098, 'scape': 4139}
+tel['guido'] = 4127
+print(tel)
+print(tel['jacky'])
+del tel['scape']
+tel['irv'] = 4129
+print(tel)
+print(list(tel))
+print(sorted(tel))
+print('guido' in tel)
+print('jacky' not in tel)
 
+print(dict([('scape', 4139), ('guido', 4127), ('jacky', 4098)]))
+
+print({x:x**2 for x in range(6)})
+
+#when the keys are simple strings, it is sometimes earier to specify pairs using keyword arguments
+print(dict(scape=4139, guido=4127, jacky=4098))
 
 
 
