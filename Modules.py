@@ -17,3 +17,10 @@ fib.fib(500)
 
 from fibo import fib as fibonacci
 fibonacci(500)
+
+import fibo, sys
+print(dir(fibo))
+print(dir(sys))
+
+import builtins
+print(dir(builtins))
