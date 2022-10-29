@@ -143,5 +143,42 @@ print({x:x**2 for x in range(6)})
 print(dict(scape=4139, guido=4127, jacky=4098))
 
 
+#using items() method to looping through dictionaries, the key and corresponding value can be retrieved at the same time
+knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+for k,v in knights.items():
+    print(k,v)
+
+#sequence using enumerate() function to retrieve the position index and corresponding value at the same time
+for i, v in enumerate(['tic', 'tac', 'toe']):
+    print(i, v)
+
+#using zip() function to loop over two or more sequences at the same time
+questions = ['name', 'quest', 'favorite color']
+answers = ['lancelot', 'the holy grail', 'blue']
+for q, a in zip(questions, answers):
+    print('what is your {0}? It is {1}'.format(q, a))
+
+#using sorted() function to loop over a sequence in sorted order, sorted() function return a new sorted list while leaving the source unaltered
+basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+for i in sorted(basket):
+    print(i)
+print('-------set() example-------')
+#using set() function on a sequence to eliminate duplicate elements
+for f in set(basket):
+    print(f)
+
+print('----------set() and sorted() func------------')
+#using set() combine with sorted() function over a sequence is an idiomatic way to loop over unique elements in sorted order
+for f in sorted(set(basket)):
+    print(f)
 
 
+#a list may changed while you are looping over it, so, it is often simpler and safer to create a new list instead.
+import math
+raw_data = [56.2, float('NaN'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
+filtered_data = []
+for value in raw_data:
+    if not math.isnan(value):
+        filtered_data.append(value)
+
+print(filtered_data)
