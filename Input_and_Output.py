@@ -32,3 +32,21 @@ print(helloss)
 
 #the argument to repr() may be any python object:
 print(repr((x,y,('spam', 'eggs'))))
+
+import math
+print(f'The value of Pi is approximately {math.pi:.3f}.')
+
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
+for name, phone in table.items():
+    print(f'{name:10} ==> {phone:10d}')
+
+#Modifiers '!r'
+animals = 'eels'
+print(f'My hovercraft is full of {animals}.')
+print(f'My hovercraft is full of {animals!r}.')
+
+#= specifier used to expand an expression to the text of the expression
+bugs = 'roaches'
+count = 13
+area = 'living room'
+print(f'Debugging {bugs=} {count=} {area=}')
