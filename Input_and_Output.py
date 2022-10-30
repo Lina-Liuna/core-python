@@ -93,3 +93,31 @@ with open('brilliant suggestions at work.txt', 'r+', encoding='utf-8') as f:
     print(read_data)
 print(f.closed)
 
+with open('brilliant suggestions at work.txt', 'r+', encoding='utf-8') as f:
+    print(f.readline())
+    print(f.readline())
+    print(f.readline())
+    for line in f:
+        print(line, end='')
+
+#f.write
+print('----------------')
+with open('brilliant suggestions at work.txt', 'a', encoding='utf-8') as f:
+    f.write("you are doing so great!\n")
+    #print(f.read())
+
+
+#what if you want put all the lines into a list?
+with open('brilliant suggestions at work.txt', 'r', encoding='utf-8') as f:
+    line_list = list(f)
+    print(f.tell())
+    print(line_list[0])
+
+
+print('----f.seek()--------')
+#f.seek()
+with open('brilliant suggestions at work.txt', 'r', encoding='utf-8') as f:
+    f.seek(2000)
+    print(f.readline())
+
+
