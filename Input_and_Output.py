@@ -72,3 +72,18 @@ print('Jack:{Jack:d}; Sjoered:{Sjoered:d};Dcab:{Dcab:d}'.format(**table))
 
 for x in range(1, 11):
     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+
+
+#str.rjust()/str.ljust()/str.center()
+for x in range(1, 11):
+    print(str(x).rjust(2), str(x*x).rjust(3), str(x*x*x).rjust(4))
+
+
+#str.zfill()
+print('12'.zfill(5))
+print('-3.14'.zfill(7))
+print('3.14159265359'.zfill(5))
+
+#old string formatting
+import math
+print('The value of pi is approximately %5.3f.' %math.pi)
