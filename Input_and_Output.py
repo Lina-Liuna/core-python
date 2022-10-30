@@ -121,3 +121,16 @@ with open('brilliant suggestions at work.txt', 'r', encoding='utf-8') as f:
     print(f.readline())
 
 
+import json
+x = [1, 'simple', 'list']
+print(json.dumps(x))
+
+with open('test_file.txt', 'a') as f:
+    json.dump(x, f)
+
+
+with open('test_file.txt', 'r+', encoding='utf-8') as f:
+    test = f.read()
+    #x = json.load(f)  #error
+    print(x)
+    print(test)
