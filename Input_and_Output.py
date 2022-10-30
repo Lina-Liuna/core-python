@@ -87,3 +87,9 @@ print('3.14159265359'.zfill(5))
 #old string formatting
 import math
 print('The value of pi is approximately %5.3f.' %math.pi)
+
+with open('brilliant suggestions at work.txt', 'r+', encoding='utf-8') as f:
+    read_data = f.read()
+    print(read_data)
+print(f.closed)
+
