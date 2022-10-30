@@ -50,3 +50,25 @@ bugs = 'roaches'
 count = 13
 area = 'living room'
 print(f'Debugging {bugs=} {count=} {area=}')
+
+#string format() method
+print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+
+#A number in the brackets can be used to refer to the postion of the object passed into the str.format() method
+print('{0} and {1}'.format('spam', 'egg'))
+print('{1} and {0}'.format('spam', 'egg'))
+
+#if keyword arguments are used in the str.format() method, their values are referred to by using the name ofthe argument.
+print('This {food} is {adjective}.'.format(food='spam', adjective='absoluttely horrible'))
+
+#positional and keyword arguments can be arbitrarily combined:
+print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred', other='Georg'))
+
+#what to do if you have a long string and you don't want to split it up?
+#passing the dict and using square brackets [] to access the keys
+table = {'Sjoered': 4127, 'Jack': 4098, 'Dcab':8647}
+print('Jack:{0[Jack]:d}; Sjoered:{0[Sjoered]:d};Dcab:{0[Dcab]:d}'.format(table))
+print('Jack:{Jack:d}; Sjoered:{Sjoered:d};Dcab:{Dcab:d}'.format(**table))
+
+for x in range(1, 11):
+    print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
