@@ -27,3 +27,25 @@ while True:
     except (RuntimeError, TabError, NameError):
         #print('Oops! That was no valid number. Try again...')
         pass
+
+#A class in an except clause is compatible with an exception if it is the same class or a base class
+#An Except clause listing a derived class is not compatible with a base class.
+#If the except clause were reversed, it wouldd have printed B,B,B -- the first matching except clause is triggered.
+class B(Exception):
+    pass
+
+class C(B):
+    pass
+
+class D(C):
+    pass
+
+for cls in [B, C, D]:
+    try:
+        raise cls()
+    except D:
+        print("D")
+    except C:
+        print("C")
+    except B:
+        print("B")
