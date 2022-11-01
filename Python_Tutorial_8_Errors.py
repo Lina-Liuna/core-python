@@ -49,3 +49,17 @@ for cls in [B, C, D]:
         print("C")
     except B:
         print("B")
+
+
+import sys
+try:
+    with open('brilliant suggestions at work.txt', 'r') as f:
+        s = f.readline()
+        i = int(s.strip())
+except OSError as err:
+    print("OS error: {0}".format(err))
+except ValueError:
+    print("Could not convert data to an integer.")
+except BaseException as err:
+    print(f"Unexpected {err=}, {type(err)=}")
+    raise
