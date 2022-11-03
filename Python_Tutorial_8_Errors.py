@@ -97,6 +97,36 @@ try:
 except ZeroDivisionError as err:
     print('Handling run-time error:', err)
 
+#use the finally clause to do clean-up actions
+def bool_return():
+    try:
+        return True
+    finally:
+        return False
+
+print(bool_return())
+
+#use the finally clause to do clean-up actions
+def devide(x, y):
+    try:
+        result = x / y
+    except ZeroDivisionError:
+        print('division by zero!')
+    else:
+        print('result is:', result)
+    finally:
+        print('executing finally clause')
+
+devide(1, 2)
+devide(1, 0)
+devide("1", "2")
+
+#option finally clause used in try statement to define clean-up actions that must be exectuted under all circumstances
+try:
+    raise  KeyboardInterrupt
+finally:
+    print('Goodbye, world!')
+
 #allow raise statement use optional from clause to indicate that an exception is a direct consequnce of another
 #using from None allows disabling automatic exception chaining
 try:
