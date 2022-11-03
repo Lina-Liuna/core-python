@@ -97,6 +97,34 @@ try:
 except ZeroDivisionError as err:
     print('Handling run-time error:', err)
 
+#allow raise statement use optional from clause to indicate that an exception is a direct consequnce of another
+#using from None allows disabling automatic exception chaining
+try:
+    open('database.sqlite')
+except OSError:
+    raise  RuntimeError from None
+
+
+#allow raise statement use optional from clause to indicate that an exception is a direct consequnce of another
+#Useful when you are transforming exceptions
+def func():
+    raise ConnectionError
+try:
+    func()
+except ConnectionError as exec:
+    raise RuntimeError('Failed to open database') from exec
+
+#if an unhandled exception occurs inside an except section, it will have the exception being handled
+#attached to it and inclued in the error message
+try:
+    open('database.squlite')
+except OSError:
+    raise RuntimeError("unable to handle error")
+
+#to indicate that an exception is a direct consequence of another, the raise statement allows an optional from clause
+#exec must be exception instance or None.
+raise RuntimeError from exec
+
 #If you need to determine whether an exception was raised but don't intend to handle it,
 #a simpiler of the raise statement allows you to re-raise the exception
 try:
