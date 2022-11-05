@@ -38,5 +38,51 @@ class Complex:
 x = Complex(3.0, -4.5)
 print(x.r, x.i)
 xf = x.f
-while True:
-    print(xf())
+for i in range(0, 10):
+    xf()
+
+class Dog:
+    kind = 'canine'    #class variable shared by all instances of the class.
+
+    def __init__(self, name):
+        self.name = name #instance variables are for data unique to each instance.
+
+d = Dog('Fido')
+e = Dog('Buddy')
+print(d.kind, e.kind)     #class variable shared by all dogs
+print(d.name, e.name)     #instance variables unique to the specific instance.
+
+#Shared variables in class can be tricky, if shared variables type is list or dictionary
+class Dog:
+
+    tricks = []
+
+    def __init__(self, name):
+        self.name = name
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+d = Dog('Fido')
+e = Dog('Buddy')
+d.add_trick('roll over')
+e.add_trick('play dead')
+print(d.tricks)  #class variables unexpectedly shared by all dogs!!!!!
+
+#Correct design of the class should use an instance variable instead:
+class Dog:
+
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []   #creates a new empty list for each dog
+
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+d = Dog('Fido')
+e = Dog('Buddy')
+d.add_trick('roll over')
+e.add_trick('play dead')
+
+print(d.tricks)
