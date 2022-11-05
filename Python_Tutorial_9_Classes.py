@@ -86,3 +86,17 @@ d.add_trick('roll over')
 e.add_trick('play dead')
 
 print(d.tricks)
+
+
+#what happened if the same attribute name occurs in both an instance and in a class?
+#attribute lookup prioritizes the instance.
+class Warehouse:
+    purpose = 'storage'
+    region = 'west'
+
+w1 = Warehouse()
+print(w1.purpose, w1.region)
+
+w2 = Warehouse()
+w2.region = 'east'
+print(w2.region, w2.purpose)
