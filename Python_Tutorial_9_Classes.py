@@ -22,3 +22,15 @@ def scope_test():
 
 scope_test()
 print('In global scope:', spam)
+
+#class may define __init__() to specific initial state
+#when a class defines an __init__()method, class instantiation automatically invokes __init__() for the newly created class instance.
+#__init__() may have arguments for greater flexibility.
+#arguments given to the class instantiation operator are passed on to __init__()
+class Complex:
+    def __init__(self, realpart, imagpart):
+        self.r = realpart
+        self.i = imagpart
+
+x = Complex(3.0, -4.5)
+print(x.r, x.i)
