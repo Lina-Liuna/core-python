@@ -32,5 +32,11 @@ class Complex:
         self.r = realpart
         self.i = imagpart
 
+    def f(self):
+        print('hellow world!')
+
 x = Complex(3.0, -4.5)
 print(x.r, x.i)
+xf = x.f
+while True:
+    print(xf())
