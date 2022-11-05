@@ -100,3 +100,38 @@ print(w1.purpose, w1.region)
 w2 = Warehouse()
 w2.region = 'east'
 print(w2.region, w2.purpose)
+
+#Assigning a function object to a local variable in the class is ok
+def f1(self, x, y):
+    return min(x, x+y)
+
+#f, g and h are all attributes of class C that refer to function objects,
+#f, g and h are all methods of instances of C
+#this is bad practice however
+class C:
+    f = f1
+
+    def g(self):
+        return 'hello world'
+
+    h = g
+
+tc = C()
+print(tc.h())
+print(tc.f(1, 3))
+
+#Methods may call other methods by using method attributes of the self argument
+class Bag:
+    def __init__(self):
+        self.data = []
+
+    def add(self, x):
+        self.data.append(x)
+
+    def addtwice(self,x):
+        self.add(x)
+        self.add(x)
+
+b = Bag()
+b.addtwice(5)
+print(b.data)
