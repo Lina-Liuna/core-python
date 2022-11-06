@@ -226,6 +226,20 @@ for char in reverse('golf'):
     print(char)
 
 
+#using generator expressions
+print(sum(i*i for i in range(10)))
+
+xvec = [10, 20, 30]
+yvec = [7, 5, 3]
+print(sum(x*y for x, y in zip(xvec, yvec)))
+
+
+#unique_words = set(word for line in page for word in line.split() )
+
+#valedictionrian = max((student.gpa, student.name) for student in graduates)
+
+data = 'golf'
+print(list(data[i] for i in range(len(data) - 1, -1, -1)))
 
 
 
