@@ -175,6 +175,21 @@ john.salary = 2000
 print(john.name)
 
 
+#How for statement works?
+#calls iter() on the container object, iter() function returns an iterator object taht defines the method __next__()
+#__next__() accesses elements in the container one at a time.
+#when there are no more elements, __next__() raises a StopIteration exception which tells the for loop to terminate
+#you can call __next__() method using the next() built-in function
+s = 'abc'
+it = iter(s)
+print(it)
+print(next(it))
+print(next(it))
+print(next(it))
+print(next(it))
+
+
+
 
 
 
