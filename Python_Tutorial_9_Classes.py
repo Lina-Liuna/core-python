@@ -135,3 +135,36 @@ class Bag:
 b = Bag()
 b.addtwice(5)
 print(b.data)
+
+#name mangling, Any identifier of the form __spam(at least two leading underscores) is textually replaced with _classname__spam
+#the mangling is done without regard to the syntactic position of the identifier
+#Name mangling is helpful for letting subclasses override methods without breaking intraclass method calls.
+class Mapping:
+    def __init__(self, iterable):
+        self.items_list = []
+        self.__update(iterable)
+
+    def update(self, iterable):
+        for item in iterable:
+            self.items_list.append(item)
+
+
+    __update = update      #private copy of original update() method
+
+class MappingSubclass(Mapping):
+
+    def update(self, keys, values):
+        #provides new signature for update() but does not break __init__()
+        for item in zip(keys, values):
+            self.items_list.append(item)
+
+#Above example worked
+
+
+
+
+
+
+
+
+
