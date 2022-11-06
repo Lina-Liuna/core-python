@@ -158,8 +158,21 @@ class MappingSubclass(Mapping):
         for item in zip(keys, values):
             self.items_list.append(item)
 
-#Above example worked
 
+
+#python's data type similar to C 'struct', bunding together a few named data items
+#An empty class definition
+class Employee:
+    pass
+
+john = Employee()    #Create an empty employee record
+
+#Fill the fields of the record
+john.name = 'John Doe'
+john.dept = 'Computer lab'
+john.salary = 2000
+
+print(john.name)
 
 
 
