@@ -212,6 +212,20 @@ for char in rev:
     print(char)
 
 
+#How to create iterators?
+#Generator are a simple and powerful tool for creating iterators.
+#they are written like functions but use the yield statement whenever they want to return data.
+#Each time next() is called on it, the generator resumes where it left off.
+
+#An example shows that generators can be trivially easy to create:
+def reverse(data):
+    for index in range(len(data) - 1, -1, -1):
+        yield  data[index]
+
+for char in reverse('golf'):
+    print(char)
+
+
 
 
 
