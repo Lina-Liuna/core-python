@@ -26,4 +26,8 @@ shutil.move('today.txt', audiodir +'/today/')
 os.system('rm yesterday.txt')
 os.system('rm -rvf today')
 
+# glob module provide a function for making file lists from directory wildcard searches
+import glob
+print(glob.glob('/Users/kc/code/*/*.py'))
+
 
