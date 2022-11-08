@@ -30,4 +30,18 @@ os.system('rm -rvf today')
 import glob
 print(glob.glob('/Users/kc/code/*/*.py'))
 
+#Command Line Arguments, storeed in sys.argv attributes as a list
+import sys
+print(sys.argv)
+
+#argparse module provide a more sophisticated mechanism to process cmd line argument.
+import argparse
+parser = argparse.ArgumentParser(
+    prog='top',
+    description='Show top lines from each file')
+
+parser.add_argument('filename', nargs='+')
+parser.add_argument('-1', '--lines', type=int, default=10)
+args = parser.parse_args()
+print(args)
 
