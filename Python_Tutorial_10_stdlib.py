@@ -55,4 +55,13 @@ while True:
     cnt = cnt + 1
     print("hello world")
     if cnt == 10:
-        sys.exit()
+        #sys.exit()
+        break
+
+
+#re module provides regular expression tools for advanced string processing.
+import re
+print(re.findall(r'\bf[a-z]*', "which foot or hand fell faster"))
+print(re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat'))
+
+print('tea for too'.replace('too', 'two'))
