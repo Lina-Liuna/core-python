@@ -88,3 +88,23 @@ print(statistics.median(data))
 print(statistics.variance(data))
 
 #modules in SciPy project for numerical computations.
+
+
+#use urllib.request module to retrieving data from URLs
+from urllib.request import urlopen
+with urlopen('http://worldtimeapi.org/api/timezone/etc/UTC.txt') as response:
+    for line in response:
+        line = line.decode()     #convert bytes to a string
+        if line.startswith('datetime'):
+            print(line.rstrip())  #remove trailing newline
+
+
+#use smtplib module for sending mail
+import smtplib
+#server = smtplib.SMTP('localhost')      #Why it not worked?
+#server.sendmail('liuna.lina@gmail.com', 'liuna.lina@gmail.com',
+#                """To: liuna.lina@gmail.com
+#                From: liuna.lina@gmail.com
+#                Winter time and rainny days
+#                """)
+#server.quit()
