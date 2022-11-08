@@ -42,6 +42,17 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('filename', nargs='+')
 parser.add_argument('-1', '--lines', type=int, default=10)
-args = parser.parse_args()
-print(args)
+#args = parser.parse_args()
+#print(args)
 
+#sys module has attributes for stdin, stdout, stderr.
+#using stderr to emitting warnings and error messages
+sys.stderr.write("warning, log file not found starting a new one")
+
+#most direct way to terminate a script is to use sys.exit()
+cnt = 0
+while True:
+    cnt = cnt + 1
+    print("hello world")
+    if cnt == 10:
+        sys.exit()
