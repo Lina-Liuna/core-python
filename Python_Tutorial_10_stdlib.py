@@ -65,3 +65,26 @@ print(re.findall(r'\bf[a-z]*', "which foot or hand fell faster"))
 print(re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat'))
 
 print('tea for too'.replace('too', 'two'))
+
+#use math module to handle floating point math
+import math
+print(math.cos(math.pi / 4))
+print(math.log(1024, 2))
+
+
+#use random moudle to making random selections
+import random
+print(random.choice(['apple', 'pear', 'banana']))
+print(random.sample(range(100), 10))
+print(random.random())    # random float
+print(random.randrange(6)) #random integer chosen from range(6)
+
+#use statistics module to calculate basic statistical properties
+#Is there something wrong with the result?
+import statistics
+data = [2.75, 1.75, 1.25, 0.25, 0.5, 1,25, 3.5]
+print(statistics.mean(data))
+print(statistics.median(data))
+print(statistics.variance(data))
+
+#modules in SciPy project for numerical computations.
