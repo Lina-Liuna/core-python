@@ -118,3 +118,13 @@ print(now.strftime('%m-%d-%y. %d %b %Y is a %A on the %d day of %B'))
 birthday = date(1990, 1, 1)
 age = now - birthday
 print(age)
+
+#Data Compression
+import zlib
+s = b'why witch? but wizard of oz wondered which wizard wrist watch'
+print(len(s))
+
+t = zlib.compress(s)
+len(t)
+print(zlib.decompress(t))
+print(zlib.crc32(s))
