@@ -141,3 +141,11 @@ print('The main program continues to run in foreground.')
 
 background.join()      # wait for the background task to finish
 print('Main program waited until background was done.')
+
+
+import logging
+logging.debug('Debugging Info')
+logging.info('Information msg')
+logging.warning('Warning: config file %s not found', 'server.conf')
+logging.error('Error occurred')
+logging.critical('Critical error -- shutting down')
