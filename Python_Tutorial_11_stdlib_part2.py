@@ -54,7 +54,7 @@ from PIL import Image
 from pathlib import Path
 
 
-dir = '/Users/lina/books/raz-kids/bypython/'
+dir = '/Users/kc/books/raz-kids/bypython/'
 pic_ext = '.jpg'
 
 
@@ -92,7 +92,7 @@ for i, filename in enumerate(photo_files):
 # using pack() and unpack() functions in struct module
 import struct
 
-with open('/Users/lina/code/core-python/test_file.txt.zip', 'rb') as f:
+with open('/Users/kc/code/core-python/test_file.txt.zip', 'rb') as f:
     data = f.read()
 
 start = 0
@@ -100,14 +100,44 @@ for i in range(3):
     start += 14
     # H and I represent two and four byte unsigned numbers respectively
     # < indicate that they are standard size and in little-endian byte order.
-    fields = struct.unpack('<IIIHH', data[start:start+16])
-    crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+   # fields = struct.unpack('<IIIHH', data[start:start+16])
+   # crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
 
-    start += 16
-    filename = data[start:start+filenamesize]
-    start += filenamesize
-    extra = data[start:start+extra_size]
-    print(filename, hex(crc32), comp_size, uncomp_size)
+   # start += 16
+   # filename = data[start:start+filenamesize]
+  #  start += filenamesize
+  #  extra = data[start:start+extra_size]
+   # print(filename, hex(crc32), comp_size, uncomp_size)
 
-    start += extra_size + comp_size
+  #  start += extra_size + comp_size
 
+
+# use threading module for multi-threading, can run tasks in background while the main program continues to run
+# what the challenge of the multi-threaded application:
+# 1. coordinating threads that share data or other resources, including locks, event, condition  variables, semahpores
+# 2. how to coordinate resources between tasks?
+# concentrate all access to a resource in a single thread and then use queue module to feed that thread with request from other thread.
+
+import threading, zipfile
+
+
+class AsyncZip(threading.Thread):
+    def __init__(self, infile, outfile):
+        threading.Thread.__init__(self)
+        self.infile = infile
+        self.outfile = outfile
+
+
+    def run(self):
+        f = zipfile.ZipFile(self.outfile, 'w', zipfile.ZIP_DEFLATED)
+        f.write(self.infile)
+        f.close()
+        print('Finished background zip of:', self.infile)
+
+dir ='/Users/kc/code/core-python/'
+background = AsyncZip(dir + 'test_file.txt', dir + 'mytar.zip')
+background.start()
+print('The main program continues to run in foreground.')
+
+background.join()      # wait for the background task to finish
+print('Main program waited until background was done.')
