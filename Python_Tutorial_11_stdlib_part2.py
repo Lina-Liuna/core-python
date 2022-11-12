@@ -172,6 +172,41 @@ del a
 gc.collect()
 
 
+# array.arry() stores only homogeneous data and stores it more compactly.
+from array import array
+a = array('H', [4000, 10, 700, 22222])
+print(sum(a))
+print(a[1:3])
+
+# coolections.deque() with faster appends and pops from the left side but slower loopups in the middle.
+from collections import deque
+d = deque(['t1', 't2', 't3'])
+d.append('t4')
+print('handling', d.popleft())
+
+# collections.deque are well suited for implementing queues and breath first tree searches
+unsearched = deque(['t1', 't2', 't3', 't4'])
+def breath_first_search(unsearched):
+    node = unsearched.popleft()
+    #for m in gen_moves(nodes)
+    #???????????????????
+
+# bisect module for manipulating sorted list.
+import bisect
+scores = [(100, 'perl'), (200, 'tcl'), (400, 'lua'), (500, 'python')]
+
+bisect.insort(scores, (300, 'ruby'))
+print(scores)
+
+
+# heapq module for implementing heaps based on regular lists, th valued entry is always kept at position zero.
+from heapq import heapify, heappop, heappush
+data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
+print(heapify(data))
+print(data)
+
+heappush(data, -5)
+print([heappop(data) for i in range(3)])
 
 
 
