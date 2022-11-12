@@ -54,7 +54,7 @@ from PIL import Image
 from pathlib import Path
 
 
-dir = '/Users/ln/books/raz-kids/bypython/'
+dir = '/Users/lina/books/raz-kids/bypython/'
 pic_ext = '.jpg'
 
 
@@ -77,12 +77,37 @@ class BatchRename(Template):
     delimiter = '%'
 
 
-fmt = input('Enter rename style (%d-date %n-seqnum %%f-format):')
+fmt = input('Enter rename style (%d-date %n-seqnum %f-format):')
 
-
+# AMAZING AMAZING
 t = BatchRename(fmt)
 date = time.strftime('%d%b%y')
 for i, filename in enumerate(photo_files):
     base, ext = os.path.splitext(filename)
     newname = t.substitute(d=date, n=i, f=ext)
     print('{0} --> {1}'.format(filename, newname))
+
+
+# How to loop through header information in a zip file without using zipfile module by
+# using pack() and unpack() functions in struct module
+import struct
+
+with open('/Users/lina/code/core-python/test_file.txt.zip', 'rb') as f:
+    data = f.read()
+
+start = 0
+for i in range(3):
+    start += 14
+    # H and I represent two and four byte unsigned numbers respectively
+    # < indicate that they are standard size and in little-endian byte order.
+    fields = struct.unpack('<IIIHH', data[start:start+16])
+    crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+
+    start += 16
+    filename = data[start:start+filenamesize]
+    start += filenamesize
+    extra = data[start:start+extra_size]
+    print(filename, hex(crc32), comp_size, uncomp_size)
+
+    start += extra_size + comp_size
+
