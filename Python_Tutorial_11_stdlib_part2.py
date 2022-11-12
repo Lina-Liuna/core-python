@@ -149,3 +149,40 @@ logging.info('Information msg')
 logging.warning('Warning: config file %s not found', 'server.conf')
 logging.error('Error occurred')
 logging.critical('Critical error -- shutting down')
+
+
+# weakref module
+# python does automatic memory management, the memory is freed shortly after the last reference to it has been eliminated.
+# what if we want to track objects? just tracking them creates a reference that makes them permanent.
+# weakref module provides tools for tracking objects without creating a reference.
+
+import weakref, gc
+class A:
+    def __init__(self, value):
+        self.value = value
+    def __repr__(self):
+        return str(self.value)
+
+a = A(10)
+d = weakref.WeakValueDictionary()
+d['primary'] = a
+print(d['primary'])
+
+del a
+gc.collect()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
