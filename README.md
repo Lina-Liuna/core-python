@@ -1,9 +1,9 @@
 # core-python
 1. Python Tutorial.key & Python Tutorial.pdf is not for presentatioon(there is no graphs and it's not pretty enough, but real useful notes), it's only a note summary.
 
-python3 this: The Zen of Python, by Tim Peters
+    python3 this: The Zen of Python, by Tim Peters
 
-Beautiful is better than ugly.
+    Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
 Complex is better than complicated.
