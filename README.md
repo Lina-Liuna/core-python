@@ -22,3 +22,19 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
+
+
+2. The Python Standard Library
+
+What Pythons's Standard Library Provide?
+
+1. Wide Range of facilities
+
+2. built-in modules(written in C) to access to system functionality such as file I/O
+
+3. Standardized solutions for many problems that occur in everyday programming
+
+4. Modules designed to abstracting away platforms —neutral APIs
+
+5. Provides as a collection of packages, Collections of packages: python package index website
+          https://pypi.org/
