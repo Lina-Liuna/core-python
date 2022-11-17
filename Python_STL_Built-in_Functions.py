@@ -1,9 +1,13 @@
 # bin() convert an integer number to a binary string prefixed with 0b
 print(bin(11))
 print(bin(-11))
+print(hex(255))
+print(hex(-250))
 
 print(format(11, '#b'))
 print(format(11, 'b'))
+print(format(11, '#x'))
+print(format(11, 'x'))
 
 # dir()
 import struct
@@ -31,5 +35,16 @@ def enumerate_new(sequences, start=0):
 
 print(list(enumerate_new(seasons)))
 
+
+x = 5
+y = 10
+print(eval('x*x + y*y'))
+print(eval('sum([2,4,6,8,10])'))
+
+print(float('2.1415926'))
+
+
+s = input('please enter your name:')
+print(s)
 
 
