@@ -106,3 +106,11 @@ for item in zip([1, 2, 3,], ['berry', 'apple', 'cucumber'], ['favorite No. 1', '
     print(item)
 
 print(list(zip([1, 2, 3,], ['berry', 'apple', 'cucumber'], ['favorite No. 1', 'favorite No. 2', 'favorite No. 3'])))
+print(list(zip(range(3), ['berry', 'apple', 'cucumber'], ['favorite No. 1', 'favorite No. 2', 'favorite No. 3'] )))
+
+#zip() in conjunction with the *operator can be used to unzip a list
+zl = list(zip([1, 2, 3,], ['berry', 'apple', 'cucumber'], ['favorite No. 1', 'favorite No. 2', 'favorite No. 3']))
+x,y,z = zip(*zl)
+print(x)
+print(y)
+print(z)
