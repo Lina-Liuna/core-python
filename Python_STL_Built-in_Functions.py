@@ -47,4 +47,32 @@ print(float('2.1415926'))
 s = input('please enter your name:')
 print(s)
 
+#iter() example
+fruit = ['blueberry', 'raspberry', 'apple']
+fruit_iter = iter(fruit)
+print(next(fruit_iter))
+print(next(fruit_iter))
+print(next(fruit_iter))
 
+#implement iter() for custom object
+class PrintNumber:
+    def __init__(self, max):
+        self.max = max
+
+    def __iter__(self):
+        self.num = 0
+        return self
+
+    def __next__(self):
+        if self.num >= self.max:     #funny things happens if you remove "="
+            raise StopIteration
+        self.num += 1
+        return self.num
+
+pn = PrintNumber(4)
+pn_iter = iter(pn)
+print(next(pn_iter))
+print(next(pn_iter))
+print(next(pn_iter))
+print(next(pn_iter))
+print(next(pn_iter))
