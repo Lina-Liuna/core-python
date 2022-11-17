@@ -3,11 +3,15 @@ print(bin(11))
 print(bin(-11))
 print(hex(255))
 print(hex(-250))
+print(oct(255))
+print(oct(-250))
 
 print(format(11, '#b'))
 print(format(11, 'b'))
 print(format(11, '#x'))
 print(format(11, 'x'))
+print(format(11, '#o'))
+print(format(11, 'o'))
 
 # dir()
 import struct
@@ -54,7 +58,7 @@ print(next(fruit_iter))
 print(next(fruit_iter))
 print(next(fruit_iter))
 
-#implement iter() for custom object
+# implement iter() for custom object
 class PrintNumber:
     def __init__(self, max):
         self.max = max
@@ -75,4 +79,18 @@ print(next(pn_iter))
 print(next(pn_iter))
 print(next(pn_iter))
 print(next(pn_iter))
-print(next(pn_iter))
+#print(next(pn_iter))
+
+
+# So funny, NotImplementedError: dir_fd unavailable on this platform!!!!!!!
+import os
+dir_fd = os.open('/Users/lina/code/core-python/', os.O_RDONLY)
+def operner(path, flags):
+    print('not implemented!')
+    #return os.open(path, flags, dir_fd=dir_fd)
+
+#with open('test_file.txt', 'a', opener=operner) as f:
+with open('test_file.txt', 'a') as f:
+    print('This will be written to xxxx/test_file.txt', file=f)
+
+os.close(dir_fd)
