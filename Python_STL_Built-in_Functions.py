@@ -13,6 +13,11 @@ print(format(11, 'x'))
 print(format(11, '#o'))
 print(format(11, 'o'))
 
+# pow example
+print(pow(2,4))
+print(pow(3,3))
+
+
 # dir()
 import struct
 print(dir())
@@ -83,14 +88,21 @@ print(next(pn_iter))
 
 
 # So funny, NotImplementedError: dir_fd unavailable on this platform!!!!!!!
-import os
-dir_fd = os.open('/Users/lina/code/core-python/', os.O_RDONLY)
-def operner(path, flags):
-    print('not implemented!')
+#import os
+#dir_fd = os.open('/Users/lina/code/core-python/', os.O_RDONLY)
+#def operner(path, flags):
+    #print('not implemented!')
     #return os.open(path, flags, dir_fd=dir_fd)
 
 #with open('test_file.txt', 'a', opener=operner) as f:
-with open('test_file.txt', 'a') as f:
-    print('This will be written to xxxx/test_file.txt', file=f)
+#with open('test_file.txt', 'a') as f:
+    #print('This will be written to xxxx/test_file.txt', file=f)
 
-os.close(dir_fd)
+#os.close(dir_fd)
+
+# zip(*iterables, strict=False)
+# iterate over several iterables in parallel, producing tuples with an item from each one
+for item in zip([1, 2, 3,], ['berry', 'apple', 'cucumber'], ['favorite No. 1', 'favorite No. 2', 'favorite No. 3']):
+    print(item)
+
+print(list(zip([1, 2, 3,], ['berry', 'apple', 'cucumber'], ['favorite No. 1', 'favorite No. 2', 'favorite No. 3'])))
