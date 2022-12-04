@@ -21,13 +21,9 @@ def get_movielist(url, dir):
         pic_ext = '.' + img_url.split(".")[-1][0:3]
         if 'https' not in img_url:
             continue
-        if '.cn' in img_url:
-            continue
         if '<em>' in movie_name:
-            print('hooked')
             movie_name = movie_name.replace('<em>', '')
         if '</em>' in movie_name:
-            print('hooked')
             movie_name = movie_name.replace('</em>', '')
         print(pic_ext)
         img_data = requests.get(img_url).content
