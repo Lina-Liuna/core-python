@@ -5,10 +5,6 @@ from pathlib import Path
 video_path = '/Users/linaliu/Movies/youtube/temp/'
 file = "game"
 
-
-# command = "ffmpeg -i /Users/kc/books/librarybooks/audlt/audio/The_Subtle_art_of_not_giving_a_fuck.MP4 -ab 160k -ac 2 -ar 44100 -vn /Users/kc/books/librarybooks/audlt/audio/The_Subtle_art_of_not_giving_a_fuck.wav"
-
-
 def extract_audio(dir_path, filename):
     command = "ffmpeg -i " + dir_path + filename + " -ab 160k -ac 2 -ar 44100 -vn " + dir_path + file + ".wav"
     subprocess.call(command, shell=True)
