@@ -26,3 +26,21 @@ print(listss)
 print(listss[0])
 listss[0].append(3)
 print(listss)
+
+#Common Sequence operations
+l1 = ['apple', 'orange', 'banbana']
+l2 = ['berry', 'cherry', 'merry']
+
+l3 = l1 + l2
+print(l3)
+
+
+
+l3 = l1[0:1:2]
+print(l3)
+
+l3 = l1 * 3
+print(l3)
+
+print(min(l1), max(l1))
+print(l3.count('apple'))
