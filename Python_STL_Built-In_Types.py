@@ -98,6 +98,14 @@ print(s4)
 s4.reverse()
 print(s4)
 
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket)  #show that duplicates have been removed
+
+b = basket.copy()
+print(b)
+b.clear()
+print(b)
+
 
 
 
