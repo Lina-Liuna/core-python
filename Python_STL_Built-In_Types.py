@@ -74,7 +74,7 @@ s3[0] = 'good morning, Lina'
 s3.insert(0, 'Hello')
 print(s3)
 
-# QUESTIONS: why [[]] and [] follows the different rule? tricky and funny.
+# QUESTIONS: why [[]] * n and [] * n follows the different rule? tricky and funny.
 listss = [[]] * 3
 listss[0].append(3)
 listss[1].append(5)
@@ -83,6 +83,21 @@ print(listss)
 s4 = [] * 3
 s4.append('test')
 print(s4)
+
+s4 *= 10
+print(s4)
+n1 = [1, 2, 3, 4, 5]
+s4[0:10:2] = n1
+print(s4)
+s4.pop()
+print(s4)
+s4.pop(0)
+print(s4)
+s4.remove('test')  #remove the first item from s.
+print(s4)
+s4.reverse()
+print(s4)
+
 
 
 
