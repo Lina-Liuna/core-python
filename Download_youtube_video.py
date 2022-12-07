@@ -3,7 +3,7 @@ import youtube_dl
 
 ydl_opts = {
     'nocheckcertificate': True,
-    'outtmpl': '/Users/linaliu/Movies/youtube/'
+    'outtmpl': '/Users/linaliu/Movies/youtube/game_of_throne'
 } #
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     ydl.download(['https://www.youtube.com/watch?v=iN8PKcNGcuI'])
