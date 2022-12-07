@@ -44,3 +44,25 @@ print(l3)
 
 print(min(l1), max(l1))
 print(l3.count('apple'))
+
+# mutable sequence types operations
+s = []
+# s[0] = 'peach' list assignment index out of range
+s.append('love')
+s[0] = 'peach'
+s[1:4] = l2
+s.append('hary')
+print(s)
+
+s2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+s2[0:10:2] = s
+print(s2)
+
+s3 = s2.copy()
+print(s3)
+
+del s3[0:10:2]
+print(s2, s3)
+
+
+
