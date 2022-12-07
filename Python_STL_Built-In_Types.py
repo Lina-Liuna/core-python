@@ -64,5 +64,27 @@ print(s3)
 del s3[0:10:2]
 print(s2, s3)
 
+s3.clear()
+print(s3)
+s3 = ['morning lina']
+s3 *= 3
+print(s3)
+
+s3[0] = 'good morning, Lina'
+s3.insert(0, 'Hello')
+print(s3)
+
+# QUESTIONS: why [[]] and [] follows the different rule? tricky and funny.
+listss = [[]] * 3
+listss[0].append(3)
+listss[1].append(5)
+print(listss)
+
+s4 = [] * 3
+s4.append('test')
+print(s4)
+
+
+
 
 
