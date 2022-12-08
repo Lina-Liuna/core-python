@@ -121,6 +121,14 @@ print(l)
 l.sort(reverse=True)
 print(l)
 
+l = list(range(10))
+print(l)
+
+l = list(range(0,-11,3))
+print(l)
+
+l = list(range(0,-11,-3))
+print(l)
 
 
 
