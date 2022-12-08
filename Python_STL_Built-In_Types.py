@@ -118,6 +118,9 @@ print(l)
 l = sorted('aecba')
 print(l)
 
+l.sort(reverse=True)
+print(l)
+
 
 
 
