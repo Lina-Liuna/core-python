@@ -106,6 +106,15 @@ print(b)
 b.clear()
 print(b)
 
+l = ['a'], ['a', 'b', 'c']
+print(l)
+
+l = [i for i in range(0, 20)]
+print(l)
+
+l = list(range(1, 10, 2))
+print(l)
+
 
 
 
