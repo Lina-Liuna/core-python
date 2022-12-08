@@ -115,6 +115,9 @@ print(l)
 l = list(range(1, 10, 2))
 print(l)
 
+l = sorted('aecba')
+print(l)
+
 
 
 
