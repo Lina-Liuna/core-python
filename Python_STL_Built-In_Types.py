@@ -131,6 +131,18 @@ l = list(range(0,-11,-3))
 print(l)
 
 
+s = '''this triple quote test
+        span multi lines'''
+print(s)
+
+# only whitespace between them will be implicitly converted to a single string literal
+s = "boiled" " eggs"
+print(s)
+
+s = str('abc')
+print(s)
+
+
 
 
 
