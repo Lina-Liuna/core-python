@@ -142,6 +142,53 @@ print(s)
 s = str('abc')
 print(s)
 
+s = str('this morning I will eat\t toast and yogurt!')
+print(s.capitalize())
+print(s.casefold())
+print(s.center(len(s) + 10, '*')) # original strsing is returned if width is less than or equal to len(s)
+
+print(s.count('i'))
+print(s.count('and'))
+
+print(s.endswith("!"))
+
+print(s.expandtabs(tabsize=16)) # default tabsize is 8, giving tab positions at colums 0, 8, 16
+
+print('01\t012\t0123\t01234'.expandtabs())
+print('01\t012\t0123\t01234'.expandtabs(4))
+print('01\t012\t0123\t01234'.expandtabs(16))
+
+
+print(s.find('!'))
+print('the sum of 1 + 2 is {0}'.format(1+2))
+
+print(s.index('I'))
+
+print(s.isdigit())
+print(s.islower())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
