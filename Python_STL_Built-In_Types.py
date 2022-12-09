@@ -147,6 +147,7 @@ print(s.capitalize())
 print(s.casefold())
 print(s.center(len(s) + 10, '*')) # original strsing is returned if width is less than or equal to len(s)
 
+
 print(s.count('i'))
 print(s.count('and'))
 
@@ -166,11 +167,31 @@ print(s.index('I'))
 
 print(s.isdigit())
 print(s.islower())
+print('     test lstrip funciton'.lstrip())
+print('www.linaliu.com'.lstrip('xyz'))
+print('www.linaliu.com'.lstrip('xyz.'))
+print('www.linaliu.com'.lstrip('xyw.'))
+print(' test rstrip  '.rstrip())
+print('linaliu'.rstrip('liu'))
+
+print('MyNameisNa na na na na'.removeprefix('My'))
+print('MyNameisNa na na na'.removesuffix('na na na'))
 
 
 
+print('1,2,3'.split(','))
+print('1,2,3,4'.split(',',maxsplit=2))
+print('1 2 3'.split())
 
+print('ab c\n de fg \r kl\r\n'.splitlines())
+print('ab c\n de fg \r kl\r\n'.splitlines(keepends=True))
 
+print('#........Book title #32........'.strip('.#!  '))
+
+print('this is book is dangerous'.title())
+
+print('33'.zfill(5))
+print('-33'.zfill(5))
 
 
 
