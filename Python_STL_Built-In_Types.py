@@ -193,7 +193,18 @@ print('this is book is dangerous'.title())
 print('33'.zfill(5))
 print('-33'.zfill(5))
 
+s = {c for c in 'magic words abra-ca-da-bra' if c not in 'abc'}
+print(s)
 
+s = {'rainny', 'dayff'}
+print(s)
+
+# s = set('a', 'b', 'c')  # TypeError: set expected at most 1 argument, got 3
+s = set('abc')
+print(s)
+
+s = set(['a', 'b'])
+print(s)
 
 
 
