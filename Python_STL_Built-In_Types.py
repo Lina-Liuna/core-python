@@ -228,7 +228,14 @@ print(s1)
 s1.clear()
 print(s1)
 
+d = dict([('car', 6), ('bar', 3), ('tar', 4)])
+print(d)
 
+d = {x: x ** 2 for x in range(10)}
+print(d)
+
+d = {'my': 2, 'name': 4, 'is': 6, 'sker':8}
+print(d)
 
 
 
