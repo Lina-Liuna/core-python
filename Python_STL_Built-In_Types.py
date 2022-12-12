@@ -199,12 +199,36 @@ print(s)
 s = {'rainny', 'dayff'}
 print(s)
 
-# s = set('a', 'b', 'c')  # TypeError: set expected at most 1 argument, got 3
-s = set('abc')
+s = set(['a', 'b', 'c'])
 print(s)
 
-s = set(['a', 'b'])
+# s = set('a', 'b', 'c')  # TypeError: set expected at most 1 argument, got 3
+s = set('abcdefghijklmn')
 print(s)
+
+print(len(s))
+print('x' in s)
+print(s.isdisjoint('lmn'))
+print(s.isdisjoint('xyz'))
+print(s.issubset('abc'))
+
+s1 = set('lina')
+s2 = set('linaliu')
+print(s1 <= s2)
+print(s2 - s1)
+
+s1 = set('morning')
+print(s1 | s2)
+
+print(s1.copy())
+s1.add('!!!')
+print(s1)
+s1.remove('!!!')
+print(s1)
+s1.clear()
+print(s1)
+
+
 
 
 
