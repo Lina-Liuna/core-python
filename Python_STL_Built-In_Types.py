@@ -251,7 +251,19 @@ d3 = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
 print(d3)
 print(d1 == d2 == d3)
 
+#dictionary operations
+print(list(d1))
+print(len(d1))
+print(d1['one'])
 
+d1['two'] = 2
+d1['three'] = 3
+print(d1)
+
+print('four' in d1)
+i = iter(d1)
+print(i)  #how to print iterator values?
+print(list(i))
 
 
 
