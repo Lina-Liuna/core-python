@@ -252,9 +252,15 @@ print(d3)
 print(d1 == d2 == d3)
 
 #dictionary operations
+print('dictionary operations here:')
 print(list(d1))
+print(d1.values())
+print(d1.keys())
+print(list(d1.values()))
+print(list(d1.keys()))
 print(len(d1))
 print(d1['one'])
+print(d1.get('one'))
 
 d1['two'] = 2
 d1['three'] = 3
@@ -264,6 +270,12 @@ print('four' in d1)
 i = iter(d1)
 print(i)  #how to print iterator values?
 print(list(i))
+ri = reversed(d1)
+print(list(ri))
+
+i2 = d1.items()
+print(i2)
+print(list(reversed(i2)))
 
 
 
