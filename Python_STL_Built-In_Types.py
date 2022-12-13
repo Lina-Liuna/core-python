@@ -237,6 +237,13 @@ print(d)
 d = {'my': 2, 'name': 4, 'is': 6, 'sker':8}
 print(d)
 
+s = str('abc')
+k = list()
+k.append(1)
+k *= 3
+
+d = dict(zip(s, k))
+print(d)
 
 
 
