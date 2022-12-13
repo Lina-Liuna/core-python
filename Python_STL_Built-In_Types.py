@@ -245,7 +245,11 @@ k *= 3
 d = dict(zip(s, k))
 print(d)
 
-
+d1 = dict(one=1, two=2, three=3)
+d2 = {'one': 1, 'two': 2, 'three': 3}
+d3 = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+print(d3)
+print(d1 == d2 == d3)
 
 
 
