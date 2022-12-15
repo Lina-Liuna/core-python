@@ -280,9 +280,12 @@ i2 = d1.items()
 print(i2)
 print(list(reversed(i2)))
 
+pairs = zip(d1.values(), d1.keys())
+print(pairs)
+print(list(pairs))
 
-
-
+pairs = [(v, k) for (k, v) in d1.items()]
+print(list(pairs))
 
 
 
