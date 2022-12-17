@@ -287,7 +287,17 @@ print(list(pairs))
 pairs = [(v, k) for (k, v) in d1.items()]
 print(list(pairs))
 
+# Other built-in Types
+class test:
+    value = 0
 
+t = test()
+print(dir(t))
+print(t.__dict__)
+
+# length limitations
+import sys
+### sys.set_int_max_str_digits(4300)  #no this function anymore
 
 
 
