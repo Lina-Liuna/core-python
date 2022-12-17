@@ -299,6 +299,19 @@ print(t.__dict__)
 import sys
 ### sys.set_int_max_str_digits(4300)  #no this function anymore
 
+# derive(excs) returns an exception group with the sam message, but which wraps the exceptions in excs
+class MyGroup(Exception):
+    def derive(self, exc):
+        return MyGroup(self.message, exec)
+
+e = MyGroup('eg', [ValueError(1), TypeError(2)])
+
+try:
+    raise e
+except Exception as e:
+    exc = e
+
+print(dir(exc))
 
 
 
