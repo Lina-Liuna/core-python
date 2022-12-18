@@ -17,3 +17,15 @@ right_aligned = 'Student Mark'
 print("{0:<15}{1:^10}{2:>15}".format(left_aligned, center, right_aligned))
 for left_aligned,center,right_aligned in zip('12345', 'abcde', '!@#$%'):
     print("{0:<15}{1:^10}{2:>17}".format(left_aligned, center, right_aligned))
+
+# str.format_map(mapping)
+# similar to str.format(**mapping), except that mapping is used directly and not copied to a dict.
+# this is useful if mapping is a dict subclass
+
+class Coordinate(dict):
+    def __missing__(self, key):
+        return key
+
+for i, j in zip(range(10), reversed(range(10))):
+    print('({x}, {y})'.format_map(Coordinate(x=i, y=j)))
+
