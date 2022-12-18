@@ -3,6 +3,14 @@
 
 #1.  text sequence type - str
 
+text = "Manipulation is when they find fault in your reaction instead of their disrespect"
+print(text.upper())
+print(text.lower())
+print(text.title())
+print(text.capitalize())
+print(text.swapcase())
+
+
 print('student id\tstudent name\tstudent grade\t student GPA'.expandtabs())
 print('student id\tstudent name\tstudent grade\t student GPA'.expandtabs(4))
 
@@ -29,3 +37,17 @@ class Coordinate(dict):
 for i, j in zip(range(10), reversed(range(10))):
     print('({x}, {y})'.format_map(Coordinate(x=i, y=j)))
 
+# str.lstrip(chars)
+print('www.lina.github.com'.lstrip('zow'))
+print('      apple:  hoppo'.lstrip())
+print('apple:  hoppo'.lstrip('t app'))
+
+# LOVE this website: https://stackabuse.com/python-remove-the-prefix-and-suffix-from-a-string/
+line = 'xyyyyxyxyxy'
+print(line.lstrip('xy'))
+
+line = 'xy'*5 + '|' + 'yz' * 5
+prefix = 'xy'
+line_new = line.removeprefix(prefix)
+print('before:', line, line.count(prefix))
+print('after:', line_new, line_new.count(prefix))
