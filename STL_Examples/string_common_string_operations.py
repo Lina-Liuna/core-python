@@ -1,7 +1,7 @@
-#1.  text sequence type - str
-#2. String common string operations
+# 1.  text sequence type - str
+# 2. String common string operations
 
-#1.  text sequence type - str
+# 1.  text sequence type - str
 
 text = "Manipulation is when they find fault in your reaction instead of their disrespect"
 print(text.upper())
@@ -9,7 +9,6 @@ print(text.lower())
 print(text.title())
 print(text.capitalize())
 print(text.swapcase())
-
 
 print('student id\tstudent name\tstudent grade\t student GPA'.expandtabs())
 print('student id\tstudent name\tstudent grade\t student GPA'.expandtabs(4))
@@ -23,8 +22,9 @@ left_aligned = 'Student ID'
 center = 'Student Name'
 right_aligned = 'Student Mark'
 print("{0:<15}{1:^10}{2:>15}".format(left_aligned, center, right_aligned))
-for left_aligned,center,right_aligned in zip('12345', 'abcde', '!@#$%'):
+for left_aligned, center, right_aligned in zip('12345', 'abcde', '!@#$%'):
     print("{0:<15}{1:^10}{2:>17}".format(left_aligned, center, right_aligned))
+
 
 # str.format_map(mapping)
 # similar to str.format(**mapping), except that mapping is used directly and not copied to a dict.
@@ -33,6 +33,7 @@ for left_aligned,center,right_aligned in zip('12345', 'abcde', '!@#$%'):
 class Coordinate(dict):
     def __missing__(self, key):
         return key
+
 
 for i, j in zip(range(10), reversed(range(10))):
     print('({x}, {y})'.format_map(Coordinate(x=i, y=j)))
@@ -46,7 +47,7 @@ print('apple:  hoppo'.lstrip('t app'))
 line = 'xyyyyxyxyxy'
 print(line.lstrip('xy'))
 
-line = 'xy'*5 + '|' + 'yz' * 5
+line = 'xy' * 5 + '|' + 'yz' * 5
 prefix = 'xy'
 line_new = line.removeprefix(prefix)
 print('before:', line, line.count(prefix))
@@ -64,29 +65,45 @@ l = text.split()
 for item in l:
     print(item)
 
-
 import datetime
+
 d = datetime.datetime.now()
 print(d)
 print(d.strftime('%b %d %Y'))
 
-#Use "%" to convert the number into a percentage format:
+# Use "%" to convert the number into a percentage format:
 print('{:%m %d %Y}'.format(d))
 print('{:%d-date %m-month %Y-year}'.format(d))
 
-#Use "<" to left-align the value:
+# Use "<" to left-align the value:
 text = "We have {:<8} Christmas Juice."
 print(text.format(7))
 
-#Use ">" to right-align the value:
+# Use ">" to right-align the value:
 text = "We have {:>4} Christmas Juice."
 print(text.format(7))
 
-#Use "^" to center-align the value:
+# Use "^" to center-align the value:
 text = "We have {:^4} Christmas Juice."
 print(text.format(7))
 
-#Use "=" to place the plus/minus sign at the left most position:
+# Use "=" to place the plus/minus sign at the left most position:
 text = "We have {:=4} Christmas Juice."
 print(text.format(7))
 
+# Template class
+# How to use template class
+
+# 1. import template from string
+from string import Template
+
+# 2. Create a valid template string
+temp_str = 'Hi $name, welcome to $site'
+
+# 3. Instantiate Template using the template string as an argument
+temp_obj = Template(temp_str)
+
+# 4. Perform the substitution using a substitution method
+# substitute return a new string
+temp_new_str = temp_obj.substitute(name='LinaLiu', site='github.com')
+print(temp_new_str)
