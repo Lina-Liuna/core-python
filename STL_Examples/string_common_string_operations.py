@@ -55,3 +55,12 @@ print('after:', line_new, line_new.count(prefix))
 text = "You can take my word for it, you have my word"
 print(text.split())
 print(text.split(','))
+
+# return a 3-tuple containiing the part before the separator, the separator itself, and the part after the separator.
+print(text.partition(','))
+
+# text.split() return a list of the words in the string.
+l = text.split()
+for item in l:
+    print(item)
+
