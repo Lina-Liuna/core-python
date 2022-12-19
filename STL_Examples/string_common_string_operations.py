@@ -31,6 +31,23 @@ for align, text in zip('<^>', ['left', 'center', 'right']):
 for align, text in zip('<^>', ['left', 'center', 'right']):
     print('{0:{align}16}'.format(text,  align=align))
 
+octets = [192, 168, 0, 1]
+print('{:04X}{:04X}{:04X}{:04X}'.format(*octets))
+print('{:02X}{:02X}{:02X}{:02X}'.format(*octets))
+
+width = 3
+for num in range(3, 8):
+    for base in 'dXob':
+        print('{0:{width}{base}}'.format(num, base=base, width=width))
+    print()
+
+# magic in print end attribute
+width = 3
+for num in range(3, 8):
+    for base in 'dXob':
+        print('{0:{width}{base}}'.format(num, base=base, width=width), end=' ')
+    print()
+
 # str.format_map(mapping)
 # similar to str.format(**mapping), except that mapping is used directly and not copied to a dict.
 # this is useful if mapping is a dict subclass
