@@ -51,3 +51,7 @@ prefix = 'xy'
 line_new = line.removeprefix(prefix)
 print('before:', line, line.count(prefix))
 print('after:', line_new, line_new.count(prefix))
+
+text = "You can take my word for it, you have my word"
+print(text.split())
+print(text.split(','))
