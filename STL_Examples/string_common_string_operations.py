@@ -72,6 +72,7 @@ print(d.strftime('%b %d %Y'))
 
 #Use "%" to convert the number into a percentage format:
 print('{:%m %d %Y}'.format(d))
+print('{:%d-date %m-month %Y-year}'.format(d))
 
 #Use "<" to left-align the value:
 text = "We have {:<8} Christmas Juice."
