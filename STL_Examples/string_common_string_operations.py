@@ -107,3 +107,7 @@ temp_obj = Template(temp_str)
 # substitute return a new string
 temp_new_str = temp_obj.substitute(name='LinaLiu', site='github.com')
 print(temp_new_str)
+
+invest = Template('The seed$investtype is $$$amount')
+print(invest.substitute(investtype='B', amount='5million'))
+
