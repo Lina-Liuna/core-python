@@ -64,3 +64,28 @@ l = text.split()
 for item in l:
     print(item)
 
+
+import datetime
+d = datetime.datetime.now()
+print(d)
+print(d.strftime('%b %d %Y'))
+
+#Use "%" to convert the number into a percentage format:
+print('{:%m %d %Y}'.format(d))
+
+#Use "<" to left-align the value:
+text = "We have {:<8} Christmas Juice."
+print(text.format(7))
+
+#Use ">" to right-align the value:
+text = "We have {:>4} Christmas Juice."
+print(text.format(7))
+
+#Use "^" to center-align the value:
+text = "We have {:^4} Christmas Juice."
+print(text.format(7))
+
+#Use "=" to place the plus/minus sign at the left most position:
+text = "We have {:=4} Christmas Juice."
+print(text.format(7))
+
