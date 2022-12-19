@@ -25,6 +25,11 @@ print("{0:<15}{1:^10}{2:>15}".format(left_aligned, center, right_aligned))
 for left_aligned, center, right_aligned in zip('12345', 'abcde', '!@#$%'):
     print("{0:<15}{1:^10}{2:>17}".format(left_aligned, center, right_aligned))
 
+for align, text in zip('<^>', ['left', 'center', 'right']):
+    print('{0:{fill}{align}16}'.format(text, fill=align, align=align))
+
+for align, text in zip('<^>', ['left', 'center', 'right']):
+    print('{0:{align}16}'.format(text,  align=align))
 
 # str.format_map(mapping)
 # similar to str.format(**mapping), except that mapping is used directly and not copied to a dict.
