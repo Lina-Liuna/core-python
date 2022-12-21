@@ -16,3 +16,6 @@ print(m.group())
 m = re.search(r'(?<=-)\w+', 'spam-egg')
 print(m.group())
 
+
+m = re.split(r'\w+', 'good morning, beautiful people!')
+print(m)
