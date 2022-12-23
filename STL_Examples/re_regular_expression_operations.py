@@ -132,6 +132,8 @@ print(result.groupdict())
 
 # where is feel and understand?
 string = 'I FEEL you means I UNDERSTAND you'
+# re.search() Scan through string looking for the first location where the regular expression pattern
+# produces a match, and return a corresponding match object.
 result = re.search(r'(([A-Z]+)+)', string)
 print(result.groups())
 print(result.group(0))
