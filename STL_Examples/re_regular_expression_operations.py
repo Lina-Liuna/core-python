@@ -114,8 +114,28 @@ result = re.sub('-{1,2}',dashrepl, 'pro----gram-files')
 print(result)
 
 
+# what is pattern groups mean?
+pattern = re.compile('-')
+result = re.search(pattern, 'pro----gram-files')
+print(result.group(0))
+# print(result.group(1))
+print(result.groupdict())
 
+# What is Group in Regex?
+# A group is part of regex pattern enclosed in parentheses() metacharacter.
+# example
+# (cat) create a single group containing the letter c a t.
+# ((\w)(\s\d)), there are three such groups:
+# ((\w)(\s\d))
+# (\w)
+# (\s\d)
 
+# where is feel and understand?
+string = 'I FEEL you means I UNDERSTAND you'
+result = re.search(r'(([A-Z]+)+)', string)
+print(result.groups())
+print(result.group(0))
+print(result.group(1))
 
 
 
