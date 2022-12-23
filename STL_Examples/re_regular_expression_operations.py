@@ -86,6 +86,32 @@ coordinate = 'set width=100 height=180 length=250'
 result = re.findall(r'(\w+)=(\w+)', coordinate)
 print(result)
 
+# re.sub(pattern, replacement, string, count=0, flags=0) sub means substitute
+# return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by
+# the replacement repl.
+# replacement can be a string or a function, if a string, any backslash escapes in it are processed.
+# \n is converted to a single newline character, \r is converted to a carriage return
+# \6 are replaced with the substring matched by gorup of 6 in the pattern.
+
+result = re.sub(r'def\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
+                r'static PyObject*\npy_\1(void)\n{',
+                'def myfunc():')
+print(result)
+
+result = re.sub(r'def\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
+                r'static PyObject*\npy_\0(void)\n{',
+                'def myfunc():')
+print(result)
+
+# if replacement is a function, it is called for every non-overlapping occurrence of pattern.
+# The function takes a single match object argument, and returns the replacement string.
+
+def dashrepl(matchobj):
+    if matchobj.group(0) == '-': return ' '
+    else: return '-'
+
+result = re.sub('-{1,2}',dashrepl, 'pro----gram-files')
+print(result)
 
 
 
