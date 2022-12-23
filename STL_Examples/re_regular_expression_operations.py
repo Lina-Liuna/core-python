@@ -137,6 +137,8 @@ print(result.groups())
 print(result.group(0))
 print(result.group(1))
 
+result = re.findall(r'([A-Z]+)', string)
+print(result)
 
 
 
