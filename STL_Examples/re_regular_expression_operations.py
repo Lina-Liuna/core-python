@@ -48,6 +48,7 @@ pattern = re.compile('L')
 result = pattern.search('LinaLiu')
 print(result.group())
 
+# scan through string looking for the first location where this regular expression produces a match.
 result = pattern.search('LinaLiu', 1)
 print(result.group())
 
@@ -142,12 +143,36 @@ print(result.group(1))
 result = re.findall(r'([A-Z]+)', string)
 print(result)
 
+# re.escape(pattern)
+# Escap special characters in Pattern.
+# This is useful if you want to match an arbitrary literal string
+# that may have regular expression metacharacters in it.
+result = re.escape('liuna.lina@gmail.com')
+print(result)
 
 
+#match object examples
+match = re.match(r"\w+ \w+", 'I wish you were here')
+print(match.group())
 
+match = re.match(r"(\w+) (\w+)", 'I wish you were here')
+print(match.group())
 
+print(match.group(1), match.group(2))
 
+# Useful is the followings:
+match = re.match(r"(\d+)\.(\d+)", "3.1415926")
+print(match.groups())
 
+match = re.match(r"(\w+)\.(\w+)(@)(\w+)", "liuna.lina@gmail.com")
+print(match.groups())
+
+# match.start[] and match.end[]
+# Return the indices of the start and end of the substring matched by group
+
+email = 'liuna.linaremove_this@gmail.com'
+match = re.search('remove_this', email)
+print(email[:match.start()] + email[match.end():])
 
 
 
