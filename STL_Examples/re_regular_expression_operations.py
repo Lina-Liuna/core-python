@@ -255,6 +255,14 @@ print(result)
 result = re.search('^Lina cooking', "Lina booklist\nLina workout\nLina cooking", re.MULTILINE)
 print(result)
 
+text = """ Alan Lee: 11111 Arnold Street
+Brook Hook: 22222 Brooklyn Av.
+Cindy Clay: 33333 Cinnamon Dr.
+Duke Disney: 444444 Dream Blvd.
+"""
+
+entries = re.split('\n', text)
+print(entries)
 
 
 
