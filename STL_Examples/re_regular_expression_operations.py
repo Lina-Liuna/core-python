@@ -214,6 +214,27 @@ print(pair.match('77755').groups())
 print(pair.match('77755').group(1))
 
 
+# search() va. match()
+# Python offers different primitive operations based on regular expressions:
+# re.match() checks for a match only at the beginning of the string
+# re.search() checks for a match anywhere in the string
+# re.fullmatch() checks for entire string to be a match
+result = re.match('c', 'abcdef')
+print(result)
+
+result = re.search('c', 'abcdef')
+print(result)
+
+result = re.match('K.*p', 'I will Keep it under my hat')
+print(result)
+result = re.search('K.*p', 'I will Keep it under my hat')
+print(result)
+result = re.fullmatch('K.*p', 'I will Keep it under my hat')
+print(result)
+
+result = re.fullmatch('I(.*)K.*p(.*)', 'I will Keep it under my hat')
+print(result)
+
 
 
 
