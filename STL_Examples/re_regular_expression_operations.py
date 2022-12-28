@@ -174,6 +174,32 @@ email = 'liuna.linaremove_this@gmail.com'
 match = re.search('remove_this', email)
 print(email[:match.start()] + email[match.end():])
 
+# Regular Expression Examples
+# Checking for a Pair
+
+def displaymatch(match):
+    if match is None:
+        print('Invalid, no match')
+        return None
+    print('Match: %r, gorups\%r>' %(match.group(), match.groups()))
+    return 'Match: %r, gorups\%r>' %(match.group(), match.groups())
+
+# a poker program where a player's hand is represented as a 5-character string with
+# each character representing a card,
+# 'a' for ace
+# 'k' for king
+# 'q' for queen
+# 'j' for jack
+# 't' for 10
+# '2-9' representing the card with that value
+
+# to see if a given string is a valid hand, one could do the following:
+valid = re.compile(r"^[a2-9tjqk]{5}$")
+displaymatch(valid.match('a2345'))
+displaymatch(valid.match('tjqka'))
+displaymatch(valid.match('akttt'))
+displaymatch(valid.match('aaa'))
+
 
 
 
