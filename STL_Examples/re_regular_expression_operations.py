@@ -235,10 +235,25 @@ print(result)
 result = re.fullmatch('I(.*)K.*p(.*)', 'I will Keep it under my hat')
 print(result)
 
+# Regular expressions beginning with '^' can be used with search() to restrict the match at the beginning of the string
+result = re.match('Na', 'Lina Liu another name is Na Na Na Na')
+print(result)
 
+result = re.search('^Na', 'Lina Liu another name is Na Na Na Na')
+print(result)
 
+result = re.match('Lina', 'Lina Liu another name is Na Na Na Na')
+print(result)
+result = re.search('^Lina', 'Lina Liu another name is Na Na Na Na')
+print(result)
 
+# !!!!!!! In multiline mode match() only matches at the beginning of the string, whereas using search() with a regular expression
+# beginning with '^' will match at the beginning of each line !!!!!!!!!!
+result = re.match('Lina cooking', "Lina booklist\nLina workout\nLina cooking", re.MULTILINE)
+print(result)
 
+result = re.search('^Lina cooking', "Lina booklist\nLina workout\nLina cooking", re.MULTILINE)
+print(result)
 
 
 
