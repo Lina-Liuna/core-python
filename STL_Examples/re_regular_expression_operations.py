@@ -255,7 +255,7 @@ print(result)
 result = re.search('^Lina cooking', "Lina booklist\nLina workout\nLina cooking", re.MULTILINE)
 print(result)
 
-text = """ Alan Lee: 11111 Arnold Street
+text = """Alan Lee: 11111 Arnold Street
 Brook Hook: 22222 Brooklyn Av.
 Cindy Clay: 33333 Cinnamon Dr.
 Duke Disney: 444444 Dream Blvd.
@@ -264,5 +264,20 @@ Duke Disney: 444444 Dream Blvd.
 entries = re.split('\n', text)
 print(entries)
 
+# Then, split each entry into a list with first name, last name, telephone number, and address.
+# We use the maxsplit parameter of split() because the address has spaces
+
+
+# ? Cause the resulting RE to match 0 or 1 repetitions of the preceding RE. ab? will match either 'a' or 'ab'
+# :? pattern matches the colon after the last name, so that is does not occur in the result llist.
+# with a maxsplit of 4, we could separate the house number from the street name:
+phonelist = [re.split(':? ', entry, 4) for entry in entries]
+print(phonelist)
+
+phonelist = [re.split(':? ', entry, 3) for entry in entries]
+print(phonelist)
+
+phonelist = [re.split(':? ', entry, 2) for entry in entries]
+print(phonelist)
 
 
