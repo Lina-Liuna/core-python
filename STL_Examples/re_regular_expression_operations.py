@@ -200,6 +200,14 @@ displaymatch(valid.match('tjqka'))
 displaymatch(valid.match('akttt'))
 displaymatch(valid.match('aaa'))
 
+# Check if contained a pair, or two of the same valued cards.
+# dot in the default mode, this matches any character except a newline
+# * matches 0 or more repetitions of the preceding RE, ab* will match a, ab,
+pair = re.compile(r".*(.).*\1")
+displaymatch(pair.match('77755'))
+displaymatch(pair.match('12345'))
+displaymatch(pair.match('aakkjj'))
+
 
 
 
