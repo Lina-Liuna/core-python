@@ -208,6 +208,11 @@ displaymatch(pair.match('77755'))
 displaymatch(pair.match('12345'))
 displaymatch(pair.match('aakkjj'))
 
+# To find out what card the pair consists of, one could use the group() method of the match object
+print(pair.match('77755').groups())
+
+print(pair.match('77755').group(1))
+
 
 
 
