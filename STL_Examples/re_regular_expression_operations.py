@@ -280,4 +280,23 @@ print(phonelist)
 phonelist = [re.split(':? ', entry, 2) for entry in entries]
 print(phonelist)
 
+# Text Munging
+# sub() replaces every occurrence of a pattern with a string or the result of a function.
+# Finding all Adverbs
+text = """I ran quickly to get inside wholefoods. 
+He smiled cheerfully.
+She spoke boldly in front of a huge audience
+I got here easily
+She dressed elegantly for his birthday party
+I barely knew the guy next door.
+This dress fit you perfectly well
+"""
 
+# \b matches the empty string, but only at the beginning or end of a word.
+# r'\bfoo\b' matches 'foo', 'foo.' '(foo)' 'bar foo baz' but not 'foobar' or 'foo3'.
+
+# \B matched the empty string, but only when it is not at the beginning or end of a word
+# r'\py\B' matches 'python' 'py3' 'py2', but not 'py', 'py.' or 'py!'
+
+result = re.findall(r'\w+ly\b', text)
+print(result)
