@@ -282,6 +282,8 @@ print(phonelist)
 
 # Text Munging
 # sub() replaces every occurrence of a pattern with a string or the result of a function.
+
+
 # Finding all Adverbs
 text = """I ran quickly to get inside wholefoods. 
 He smiled cheerfully.
@@ -300,3 +302,11 @@ This dress fit you perfectly well
 
 result = re.findall(r'\w+ly\b', text)
 print(result)
+
+# Finding all Adverbs and their positions
+# If one want more information about all matches of a pattern than the matched text,
+# finditer() is useful as it provides match objects instead of strings.
+
+result = re.finditer(r'\w+ly\b', text)
+for m in result:
+    print('%02d-%02d: %s' % (m.start(), m.end(), m.group(0)))
