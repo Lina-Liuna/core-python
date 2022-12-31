@@ -38,3 +38,26 @@ list = difflib.get_close_matches('else', keyword.kwlist)
 print(list)
 list = difflib.get_close_matches('el', keyword.kwlist)
 print(list)
+
+
+# SequenceMatcher object
+s = difflib.SequenceMatcher(None, 'abcd', 'abcd abcd')
+
+print(s.find_longest_match(0, 4, 0, 8))
+
+s = difflib.SequenceMatcher(None, 'Liuna', 'Lina')
+print(s.ratio())
+s = difflib.SequenceMatcher(None, 'Lina', 'Liuna')
+print(s.ratio())
+
+s = difflib.SequenceMatcher(None, 'tide', 'diet')
+print(s.ratio())
+s = difflib.SequenceMatcher(None, 'diet', 'tide')
+print(s.ratio())
+
+# Compare Two strings, considering blanks to be 'junk':
+s = difflib.SequenceMatcher(lambda x: x == ' ',
+                            'However Moreover In addition Therefore',
+                            'Therefore However In addition Moreover')
+print(s.ratio())
+print(round(s.ratio(), 3))
