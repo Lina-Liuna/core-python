@@ -43,5 +43,5 @@ class ImageButton(tk.Button):
 root = tk.Tk()
 lbl = ImageButton(root, text='Click Me', compound=tk.TOP)
 lbl.pack()
-lbl.load('movie.gif')
+lbl.load('earth-planet.gif')
 root.mainloop()
