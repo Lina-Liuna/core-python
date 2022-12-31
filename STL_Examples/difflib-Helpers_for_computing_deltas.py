@@ -30,14 +30,15 @@ sys.stdout.writelines(difflib.unified_diff(s1, s2, fromfile='before.py', tofile=
 # possibilities is a list of sequences against which to match word
 # return a list of the best ‘good enough’ matches.
 
-list = difflib.get_close_matches('belive', ['live', 'believe', 'achieve', 'inaprpropriate'])
-print(list)
+tlist = difflib.get_close_matches('belive', ['live', 'believe', 'achieve', 'inaprpropriate'])
+print(tlist)
 
 import keyword
-list = difflib.get_close_matches('else', keyword.kwlist)
-print(list)
-list = difflib.get_close_matches('el', keyword.kwlist)
-print(list)
+tlist = difflib.get_close_matches('else', keyword.kwlist)
+print(tlist)
+tlist = difflib.get_close_matches('el', keyword.kwlist)
+print(tlist)
+
 
 
 # SequenceMatcher object
@@ -61,3 +62,40 @@ s = difflib.SequenceMatcher(lambda x: x == ' ',
                             'Therefore However In addition Moreover')
 print(s.ratio())
 print(round(s.ratio(), 3))
+
+# Differ objects
+# compare two texts
+# the texts made of sequences of individual single-line strings ending. with newlines
+
+text1 = """1. That's great!
+    2. Congratulations.
+    3. I'm so glad to hear that!
+    4. I'm very happy for you!
+    5. Wow! That's awesome!
+    6. That's very good news.
+    7. Wonderful!
+    8. Well done!
+""".splitlines(keepends=True)
+
+
+text2 = """1. That's great!
+    2. Awesome!
+    3. I'm so glad to hear about that!
+    4. I'm really happy for you!
+    5. Wow! That's Fantastic!
+    6. That's very good news.
+    7. Wonderful!
+    8. Well done!
+""".splitlines(keepends=True)
+
+d = difflib.Differ()
+result = d.compare(text1, text2)
+pr = ('\n').join(result)
+print(pr)
+
+result = list(d.compare(text1, text2))
+from pprint import pprint
+pprint(result)
+
+import sys
+sys.stdout.writelines(result)
