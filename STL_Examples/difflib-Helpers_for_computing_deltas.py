@@ -23,6 +23,8 @@ print(delta)
 # Any or all of these may be specified using strings for fromfile, tofile, fromfiledate, and tofiledate
 sys.stdout.writelines(difflib.context_diff(s1, s2, fromfile='before.py', tofile='after.py', fromfiledate='Dec. 30 2022', tofiledate='Dec. 30, 2022'))
 
+sys.stdout.writelines(difflib.unified_diff(s1, s2, fromfile='before.py', tofile='after.py', fromfiledate='Dec. 30 2022', tofiledate='Dec. 30, 2022'))
+
 # difflib.get_close_matches
 # parameters: (words, possibilities, n=3, cutoff=0.6), words: a sequence for which close matches are desired
 # possibilities is a list of sequences against which to match word
