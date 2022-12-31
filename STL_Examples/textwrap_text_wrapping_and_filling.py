@@ -14,3 +14,28 @@ s = """\
 print(s)
 print(repr(s))
 print(repr(textwrap.dedent(s)))
+
+# Add prefix to the beginning of selected lines in text.
+s = """wishing you a peaceful, 
+
+healthy and fulfilling 2023!!!
+"""
+print(s)
+print(textwrap.indent(s, '!!!'))
+print(textwrap.indent(s, '+ ', lambda line: True))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
