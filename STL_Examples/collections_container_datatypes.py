@@ -35,3 +35,9 @@ combined.update(example_answer)
 mapping_result = list(combined)
 
 print(mapping_result)
+
+# This section shows various approaches to working with chained maps.
+# Examples of simulating Pythons' internal lookup chain:
+import builtins
+pylookup = collections.ChainMap(locals(), globals(), vars(builtins))
+print(list(pylookup))
