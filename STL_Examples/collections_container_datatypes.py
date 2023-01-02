@@ -24,7 +24,7 @@ example_answer = {
     'when did you leave?': 'After finish my work',
     'How are you going to Canada?': 'By car',
     'What do you eat for breafast?': 'Chinese pancake made by myself',
-    'Which color of the car do you like?': "The White one"
+    'Which car do you like?': "The White one"
 }
 
 mapping_result = list(collections.ChainMap(example_answer, questions_meaning))
@@ -135,3 +135,13 @@ for k, v in l:
     d[k].add(v)
 
 print(sorted(d.items()))
+
+# namedtuple() Factory function for tuples with named fields
+# Named tuples assign meaning to each position in a tuple and allow for more readable, self documenting code.
+
+# Basic Examples
+Point = collections.namedtuple('Point', ['a', 'b'])
+p = Point(10, 11)
+print(p[0] + p[1])
+print(p.a + p.b)
+print(p)
