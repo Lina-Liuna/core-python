@@ -92,7 +92,7 @@ print(dir(collections.Counter))
 
 
 # deque objects
-d = collections.deque('I do not approve of this vehavior')
+d = collections.deque('I do not approve of this behavior')
 for elem in d:
     print(elem.upper())
 
@@ -103,7 +103,18 @@ print(d)
 d.pop()
 d.popleft()
 print(list(d))
-print(d.extend('hand'))
-print(d.extendleft('hand'))
+d.extend('hand')
+print(list(d))
+d.extendleft('hand')
+print(list(d))
 
+# defaultdict Examples
+# Using list as the default_factory, it is easy to group a sequence of key-value pairs into a dictionary of lists.
+s = zip('abcba','12345')
+l = list(s)
+print(l)
+d = collections.defaultdict(list)
+for k, v in l:
+    d[k].append(v)
 
+print(sorted(d.items()))
