@@ -125,3 +125,13 @@ for k in s:
     d[k] += 1
 
 print(sorted(d.items()))
+
+# setting the default factory to set makes the defaultdict useful for building a dictionary of sets
+s = zip('abcba','12345')
+l = list(s)
+print(l)
+d = collections.defaultdict(set)
+for k, v in l:
+    d[k].add(v)
+
+print(sorted(d.items()))
