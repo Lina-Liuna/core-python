@@ -79,4 +79,9 @@ for word in l:
 
 print(cnt)
 
+# Find the ten most common words in ../README.md
+import re
+words = re.findall(r'\w+', open('../README.md').read().lower())
+print(collections.Counter(words).most_common(10))
+
 
