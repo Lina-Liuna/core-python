@@ -118,3 +118,10 @@ for k, v in l:
     d[k].append(v)
 
 print(sorted(d.items()))
+
+s = 'mississippi'
+d = collections.defaultdict(int)
+for k in s:
+    d[k] += 1
+
+print(sorted(d.items()))
