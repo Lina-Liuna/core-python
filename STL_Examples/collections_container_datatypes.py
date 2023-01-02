@@ -85,3 +85,25 @@ words = re.findall(r'\w+', open('../README.md').read().lower())
 print(collections.Counter(words).most_common(10))
 
 
+# A counter is a dict subclass for counting hashable objects.
+# It is a collection where elements are stored as dictionary keys and their counts are stored as dictionary values.
+
+print(dir(collections.Counter))
+
+
+# deque objects
+d = collections.deque('I do not approve of this vehavior')
+for elem in d:
+    print(elem.upper())
+
+d = collections.deque('arm')
+d.append('s')
+d.appendleft('F')
+print(d)
+d.pop()
+d.popleft()
+print(list(d))
+print(d.extend('hand'))
+print(d.extendleft('hand'))
+
+
