@@ -22,7 +22,7 @@ example_answer = {
     'Where do you live?': 'In Bay Area',
     'why are you leaving?': 'Because I am Tired.',
     'when did you leave?': 'After finish my work',
-    'How are you going to Canada?':'By car',
+    'How are you going to Canada?': 'By car',
     'What do you eat for breafast?': 'Chinese pancake made by myself',
     'Which color of the car do you like?': "The White one"
 }
@@ -39,5 +39,32 @@ print(mapping_result)
 # This section shows various approaches to working with chained maps.
 # Examples of simulating Pythons' internal lookup chain:
 import builtins
+
 pylookup = collections.ChainMap(locals(), globals(), vars(builtins))
 print(list(pylookup))
+
+# Example of letting user specified command-line arguments take precedence over environment variables
+# which in turn take precedence over default values:
+import os, argparse
+
+defaults = {'color': 'red', 'user': 'guest'}
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-u', '--user')
+parser.add_argument('-c', '--color')
+namespace = parser.parse_args()
+command_line_args = {k: v for k, v in vars(namespace).items() if v is not None}
+
+print(command_line_args)
+combined = collections.ChainMap(command_line_args, os.environ, defaults)
+print(combined)
+print(list(combined))
+print(combined['color'])
+print(combined['user'])
+
+combined = collections.ChainMap(os.environ, defaults)
+print(combined)
+print(list(combined))
+print(combined['color'])
+print(combined['user'])
+
