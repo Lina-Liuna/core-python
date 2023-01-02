@@ -68,3 +68,15 @@ print(list(combined))
 print(combined['color'])
 print(combined['user'])
 
+# Counter Objects
+# A counter tool is provided to support convenient and rapid tallies.
+s = 'If you are not willing to learn, no one can help you. If you are determined to learn, no one can stop you.'
+cnt = collections.Counter()
+l = s.split(' ')
+print(l)
+for word in l:
+    cnt[word] += 1
+
+print(cnt)
+
+
