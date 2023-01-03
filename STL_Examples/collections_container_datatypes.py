@@ -149,7 +149,7 @@ print(p)
 # Named tuples are especially useful for assigning field names to result tuples returned by the csv or sqlite3 modules:
 import csv
 import create_csv_file_writing_content_to_it
-
+import os
 header = ['name', 'age', 'title', 'department', 'paygrade']
 data = [['Betty', '58', 'CEO', 'IT', '20'],
         ['Morgan', '68', 'CTO', 'IT', '19']
@@ -160,7 +160,7 @@ EmployeeRecord = collections.namedtuple('EmployeeRecord', 'name, age, title, dep
 csv_file_content = csv.reader(open('employees.csv', "rt", encoding='UTF8'))
 for emp in map(EmployeeRecord._make, csv_file_content):
     print(emp.name, emp.title)
-
+os.remove('employees.csv')
 import sqlite3
 import creat_database_using_sqllite3
 creat_database_using_sqllite3.create_db_sqllite3()
@@ -170,7 +170,7 @@ cursor.execute('SELECT name, age, title, department, paygrade FROM employees')
 for emp in map(EmployeeRecord._make, cursor.fetchall()):
     print(emp.name, emp.title)
 
-
+os.remove('companydata')
 # namedtuyple.fields, tuple of strings listing the field names.
 # Useful for introspection and for creating new named tuple types from existing named tuples.
 # Basic Examples
@@ -179,6 +179,12 @@ p = Point(10, 11)
 Color = collections.namedtuple('Color', 'white yellow green')
 Pixel = collections.namedtuple('Pixel', Point._fields + Color._fields)
 print(Pixel(11, 22, 255, 255, 255))
+
+
+# using _fields to simply create a new named tuple typ from the _field attributes
+Point3D = collections.namedtuple('Point3D', Point._fields + ('z',))
+
+
 
 
 
