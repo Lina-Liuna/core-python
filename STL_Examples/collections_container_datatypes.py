@@ -193,7 +193,13 @@ Book.authors.__doc__ = 'Authors'
 
 print(Book("1234567890123", 'The subtle Art of Noting Giving A F', 'Mark Manson'))
 
+# rotate string by using collections.OrderedDict
+d = collections.OrderedDict.fromkeys('LinaLiu')
+d.move_to_end('L')
+print(''.join(d))
 
+d.move_to_end('L', last=False)
+print(''.join(d))
 
 
 
