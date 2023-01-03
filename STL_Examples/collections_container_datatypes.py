@@ -161,6 +161,16 @@ csv_file_content = csv.reader(open('employees.csv', "rt", encoding='UTF8'))
 for emp in map(EmployeeRecord._make, csv_file_content):
     print(emp.name, emp.title)
 
+import sqlite3
+import creat_database_using_sqllite3
+creat_database_using_sqllite3.create_db_sqllite3()
+conn = sqlite3.connect('companydata')
+cursor = conn.cursor()
+cursor.execute('SELECT name, age, title, department, paygrade FROM employees')
+for emp in map(EmployeeRecord._make, cursor.fetchall()):
+    print(emp.name, emp.title)
+
+
 
 
 
