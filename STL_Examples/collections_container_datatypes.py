@@ -184,6 +184,14 @@ print(Pixel(11, 22, 255, 255, 255))
 # using _fields to simply create a new named tuple typ from the _field attributes
 Point3D = collections.namedtuple('Point3D', Point._fields + ('z',))
 
+# __doc__ can be customized by making direct assignments to the __doc__ fields
+Book = collections.namedtuple('Book', ['id', 'title', 'authors'])
+Book.__doc__ += ': Hardcover book'
+Book.id.__doc__ = '13-digit ISBN'
+Book.title.__doc__ = 'Title'
+Book.authors.__doc__ = 'Authors'
+
+print(Book("1234567890123", 'The subtle Art of Noting Giving A F', 'Mark Manson'))
 
 
 
