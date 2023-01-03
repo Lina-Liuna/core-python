@@ -145,3 +145,39 @@ p = Point(10, 11)
 print(p[0] + p[1])
 print(p.a + p.b)
 print(p)
+
+# Named tuples are especially useful for assigning field names to result tuples returned by the csv or sqlite3 modules:
+import csv
+import create_csv_file_writing_content_to_it
+
+header = ['name', 'age', 'title', 'department', 'paygrade']
+data = [['Betty', '58', 'CEO', 'IT', '20'],
+        ['Morgan', '68', 'CTO', 'IT', '19']
+        ]
+create_csv_file_writing_content_to_it.create_and_write('employees.csv', header, data)
+
+EmployeeRecord = collections.namedtuple('EmployeeRecord', 'name, age, title, department, paygrade')
+csv_file_content = csv.reader(open('employees.csv', "rt", encoding='UTF8'))
+for emp in map(EmployeeRecord._make, csv_file_content):
+    print(emp.name, emp.title)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
