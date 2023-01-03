@@ -171,6 +171,16 @@ for emp in map(EmployeeRecord._make, cursor.fetchall()):
     print(emp.name, emp.title)
 
 
+# namedtuyple.fields, tuple of strings listing the field names.
+# Useful for introspection and for creating new named tuple types from existing named tuples.
+# Basic Examples
+Point = collections.namedtuple('Point', ['a', 'b'])
+p = Point(10, 11)
+Color = collections.namedtuple('Color', 'white yellow green')
+Pixel = collections.namedtuple('Pixel', Point._fields + Color._fields)
+print(Pixel(11, 22, 255, 255, 255))
+
+
 
 
 
