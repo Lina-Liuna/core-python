@@ -1,5 +1,5 @@
 import pprint
-s = 'I am sorry to rain on your parade but I am have to stop thinking of you everyday and night'
+s = 'I am sorry to rain on your parade but I have to stop thinking of you everyday and night'
 stuff = s.split(' ')
 #stuff.insert(0, stuff[:])
 pp = pprint.PrettyPrinter(indent=4)
