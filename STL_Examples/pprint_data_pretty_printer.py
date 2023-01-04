@@ -24,3 +24,5 @@ with urlopen(url) as resp:
     project_info = json.load(resp)
 
 pprint.pprint(project_info)
+pprint.pprint(project_info, depth=1)
+pprint.pprint(project_info, depth=1, width=40)
