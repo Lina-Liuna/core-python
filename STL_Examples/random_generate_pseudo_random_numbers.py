@@ -22,7 +22,7 @@ random_choice = random.choice(l)
 print(random_choice)
 
 deck = s.split()
-#To shuffle an immutable sequence and return a new shuffled list
+# To shuffle an immutable sequence and return a new shuffled list
 random.shuffle(deck)
 print(deck)
 
@@ -36,5 +36,13 @@ print(random_choice)
 
 # random.choices return a k sized list of popluation elements chosen with replacement
 # [20, 0, 5] is the weighs
-random_choice = random.choices(['apple', 'orange', 'pineapple'],[20, 0, 5], k=6)
+random_choice = random.choices(['apple', 'orange', 'pineapple'], [20, 0, 5], k=6)
 print(random_choice)
+
+# Deal 20 cards without replacement from a deck of 52 playing cards
+# determine the proportion of cards with a ten-value: ten, jack, queen, or king.
+# here k is the count of populations
+# sample(['red', 'blue'], counts=[4, 2], k=5) is equal to sample(['red', 'red', 'red', 'red', 'blue', 'blue'], k=5)
+print(help(random.sample))
+dealt = random.sample(['ten, jack, queen, king','a2-9'], counts=[4, 2], k=4)
+print(dealt)
