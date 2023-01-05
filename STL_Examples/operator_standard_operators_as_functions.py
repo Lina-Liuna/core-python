@@ -1,6 +1,6 @@
 import operator
 
-s = 'test operator'
+s = 'test operator itemgetter better idea end'
 tuple_result = operator.itemgetter(1)(s)
 print(tuple_result)
 # e
@@ -8,6 +8,10 @@ tuple_result = operator.itemgetter(2, 4, 6)(s)
 print(tuple_result)
 # ('s', ' ', 'p')
 print(list(tuple_result))
+
+l = s.split()
+tuple_result = operator.itemgetter(1,3,5)(l)
+print(tuple_result)
 
 
 # ['s', ' ', 'p']
@@ -26,4 +30,14 @@ print(list(map(get_count, fruit_tuple)))
 
 print(sorted(fruit_tuple, key=get_count))
 
+a = 'good afternoon'
+operator.iadd(a, 'beautiful people')
+print(operator.iadd(a, ', beautiful people'))
+print(a)
+
+l = a.split('o')
+print(l)
+operator.iadd(l, ['beautiful people'])
+print(operator.iadd(l, [', beautiful people']))
+print(l)
 
