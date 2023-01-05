@@ -17,4 +17,7 @@ print(list(result))
 result = itertools.accumulate(data, max)
 print(list(result))
 
-
+# Amortize a 5% loan of 1000 with 4 annual payments of 90
+cashflows = [1000, -90, -90, -90, -90]
+result = itertools.accumulate(cashflows, lambda bal, pmt: bal*1.05 + pmt)
+print(list(result))
