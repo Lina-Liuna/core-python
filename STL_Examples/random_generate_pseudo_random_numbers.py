@@ -55,3 +55,17 @@ def trial():
     return random.choices('HT', cum_weights=(0.6, 1.00), k=7).count('H') >= 5
 
 print(sum(trial() for i in range(10_000)) / 10_000)
+
+# Probability of the median of 5 samples being in middle two quartiles
+def trial():
+    random_choices = random.choices(range(10_000), k=5)
+    sorted_choices =sorted(random_choices)
+    # print(sorted_choices)
+
+    # [2] here is the middle of 5 random choices [3087, 4038, 5729, 8175, 9978]
+    sorted_choices =sorted(random_choices)[2]
+    # print(sorted_choices)
+
+    return 2_500 <= sorted_choices < 7500
+
+print(sum(trial() for i in range(10_000)) / 10_000)
