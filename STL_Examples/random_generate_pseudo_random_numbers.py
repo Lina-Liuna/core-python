@@ -44,5 +44,7 @@ print(random_choice)
 # here k is the count of populations
 # sample(['red', 'blue'], counts=[4, 2], k=5) is equal to sample(['red', 'red', 'red', 'red', 'blue', 'blue'], k=5)
 print(help(random.sample))
-dealt = random.sample(['ten, jack, queen, king','a2-9'], counts=[4, 2], k=4)
+dealt = random.sample(['ten, jack, queen, king','a2-9'], counts=[9, 6], k=15)
 print(dealt)
+print(dealt.count('a2-9') / 15)
+
