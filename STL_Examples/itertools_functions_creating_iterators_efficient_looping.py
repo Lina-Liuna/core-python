@@ -21,3 +21,13 @@ print(list(result))
 cashflows = [1000, -90, -90, -90, -90]
 result = itertools.accumulate(cashflows, lambda bal, pmt: bal*1.05 + pmt)
 print(list(result))
+
+# itertools.repeat()
+# Make an iterator that returns object over and over again.
+# Runs indefinitely unless the times argument is specified
+# A common use for repeat is to supply a stream of constant values to map or zip:
+result = map(pow, range(10), itertools.repeat(2))
+print(list(result))
+
+result = map(pow, range(10), itertools.repeat(3))
+print(list(result))
