@@ -48,3 +48,10 @@ dealt = random.sample(['ten, jack, queen, king','a2-9'], counts=[9, 6], k=15)
 print(dealt)
 print(dealt.count('a2-9') / 15)
 
+
+# Estimate the probability of getting 5 or more heads from 7 spins
+# of a biased coin that settles on heads 60% of the time
+def trial():
+    return random.choices('HT', cum_weights=(0.6, 1.00), k=7).count('H') >= 5
+
+print(sum(trial() for i in range(10_000)) / 10_000)
