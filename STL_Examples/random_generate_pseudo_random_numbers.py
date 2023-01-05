@@ -29,3 +29,12 @@ print(deck)
 # Four samples without replacement
 random_sample = random.sample([10, 20, 30, 40, 50], k=4)
 print(random_sample)
+
+print(help(random.choices))
+random_choice = random.choices(['apple', 'orange', 'pineapple'], k=6)
+print(random_choice)
+
+# random.choices return a k sized list of popluation elements chosen with replacement
+# [20, 0, 5] is the weighs
+random_choice = random.choices(['apple', 'orange', 'pineapple'],[20, 0, 5], k=6)
+print(random_choice)
