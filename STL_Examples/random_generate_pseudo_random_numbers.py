@@ -69,3 +69,17 @@ def trial():
     return 2_500 <= sorted_choices < 7500
 
 print(sum(trial() for i in range(10_000)) / 10_000)
+
+
+# Example of statistical bootstrapping using resampling with replacement to estimate a
+# confidence interval for the mean of a sample
+from statistics import fmean as mean
+data = [11,22,33,44,55,66,77,88,99,00, 12,13,14,15, 16]
+random_choice = random.choices(data, k=len(data))
+mean_rc = mean(random_choice)
+print(random_choice)
+print(mean_rc)
+
+means = sorted(mean(random.choices(data, k=len(data))) for i in range(100))
+print(f'The sample mean of {mean(data):.1f} has a 90% confidence '
+      f'interval from {means[5]:.1f} to {means[94]:.1f}')
