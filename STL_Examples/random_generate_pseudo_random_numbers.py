@@ -140,6 +140,12 @@ for i in range(1_000_000):
 print(f'Mean wait: {mean(waits):.1f}   Max wait: {max(waits):.1f}')
 print('Quartiles:', [round(q, 1) for q in quantiles(waits)])
 
-# https://www.youtube.com/watch?v=Iq9DzN6mvYA
+# Statistics for Hackers: https://www.youtube.com/watch?v=Iq9DzN6mvYA
+# statistics analysis using just a few fundamental concepts including simulation, sampling,
+# shuffling, and cross-validation
+# Economics simulation: https://nbviewer.org/url/norvig.com/ipython/Economics.ipynb
+# a simulation of a marketplace shows effective use of many of the tools
+# A Concrete introduction to probability: https://nbviewer.org/url/norvig.com/ipython/Probability.ipynb
+# the basics of probability theory, how to write simulations, and how to perform data analysis using paython
 
 
