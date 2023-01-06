@@ -34,3 +34,9 @@ print(q.resolve())
 # 4. Querying path properties:
 print(q.exists(), q.is_dir())
 
+# 5. Opeing a file
+p = Path('../')
+q = p / 'STL_Examples/pathlib_object_oriented_filesystem_paths.py'
+
+with q.open() as f:
+    print(f.readline())
