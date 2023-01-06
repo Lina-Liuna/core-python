@@ -30,3 +30,7 @@ p = Path('../')
 q = p / 'STL_Examples'
 print(q)
 print(q.resolve())
+
+# 4. Querying path properties:
+print(q.exists(), q.is_dir())
+
