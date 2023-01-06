@@ -11,5 +11,22 @@ p_iterdir = [x for x in p.iterdir() if x.is_dir()]
 print(p_iterdir)
 
 # 2. listing Python source files in this directory tree
+p = Path('.')
 p_l = list(p.glob('*.py'))
 print(p_l)
+
+# 3. Navigating inside a directory tree
+p = Path('/etc')
+q = p / 'init.d' / 'reboot'
+print(q)
+print(q.resolve())
+
+p = Path('/etc')
+q = p / '*.*'
+print(q)
+print(q.resolve())
+
+p = Path('../')
+q = p / 'STL_Examples'
+print(q)
+print(q.resolve())
