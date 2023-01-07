@@ -82,7 +82,9 @@ s_glob_pattern = '**/*.py'
 p = pathlib.Path('.').glob(s_glob_pattern)
 print(str(sorted(p)))
 
-
+p = pathlib.Path('.')
+p = p.absolute()
+print(p)
 
 
 
