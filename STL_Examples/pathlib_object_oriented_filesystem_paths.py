@@ -71,3 +71,25 @@ print(p.stat().st_size)
 p = pathlib.Path('~/Booklist')
 exp_p = p.expanduser()
 print(str(exp_p))
+
+# glob the given relative pattern in the directory represented by this path, yielding all matching files
+s_glob_pattern = '*.py'
+p = pathlib.Path('.').glob(s_glob_pattern)
+print(str(sorted(p)))
+
+# Note: Using the '**' pattern in large directory trees may consume an inordinate amount of time
+s_glob_pattern = '**/*.py'
+p = pathlib.Path('.').glob(s_glob_pattern)
+print(str(sorted(p)))
+
+
+
+
+
+
+
+
+
+
+
+
