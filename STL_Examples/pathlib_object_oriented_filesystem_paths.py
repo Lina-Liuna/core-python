@@ -40,3 +40,34 @@ q = p / 'STL_Examples/pathlib_object_oriented_filesystem_paths.py'
 
 with q.open() as f:
     print(f.readline())
+
+# Pure paths:
+# Pure path objects provide path=handling operations which don't actually access a file system.
+
+import os
+import pathlib
+p = pathlib.PurePath('/etc')
+print(os.fspath(p))
+print(str(p))
+print(p.parts)
+
+p = pathlib.PureWindowsPath('c:/Program Files')
+print(str(p))
+
+# Concrete paths
+# Concrete paths are subclasses of the pure path classes.
+# In addition to operations provided by the latter, they also provided methods to do system calls on path objects.
+p = pathlib.Path.cwd()
+print(str(p))
+
+p = pathlib.Path.home()
+print(str(p))
+
+# Path.stat return os.stat_result
+p = pathlib.Path('Built-In_Types.py')
+print(p.stat().st_size)
+
+# expanduser()
+p = pathlib.Path('~/Booklist')
+exp_p = p.expanduser()
+print(str(exp_p))
