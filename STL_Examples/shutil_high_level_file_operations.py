@@ -18,4 +18,9 @@ if os.path.exists( foldername):
 print(shutil.which('os'))
 print(shutil.which('python'))
 
-
+# create a gzip'ed tar-file archive containing all files found in the .ssh directory of the user
+#archive_name = os.path.expanduser(os.path.join('~', 'myarchive'))
+archive_name = os.path.expanduser(os.path.join('~', 'code/core-python/STL_Examples/myarchive'))
+root_dir = os.path.expanduser(os.path.join('~', '.ssh'))
+print(shutil.make_archive(archive_name, 'gztar', root_dir))
+os.remove(archive_name+ '.tar.gz')
