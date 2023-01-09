@@ -50,7 +50,21 @@ name = 'Lina Liu'
 formatted = template % {'name': name}
 print(formatted)
 
+menu = {
+    'soup 1': 'Californian Clam Chowder',
+    'soup 2': 'Chilled Avocado Soup',
+    'soup 3': 'Cream of Mushroom Soup',
+    'Oyster 1': 'West Coast Oysters',
+    'Oyster 2': 'Kumamoto',
+    'Specials': 'Schnitzel',
+}
 
+template = ('Today\'s soup is %(soup 1)s,'
+            'Oyster is %(Oyster 2)s,'
+            'Special entree is %(Specials)s'
+            )
+formatted = template % menu
+print(formatted)
 
 
 
