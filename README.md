@@ -2,19 +2,18 @@
 ### 3. Effective Python 
 90 Specific ways to write better Python
 #### Chapter 1: Pythonic Thinking
-1. item 1: know which version of python you're using
+##### 1. item 1: know which version of python you're using
 
-2. item 2: follow the PEP 8 style Guide
-##### Things to Remember
-
+##### 2. item 2: follow the PEP 8 style Guide
+###### Things to Remember
 Always follow the Python Enhancement Proposal #8 (PEP 8) style
 guide when writing Python code.
 
 Sharing a common style with the larger Python community facilitates collaboration with others.
 
 Using a consistent style makes it easier to modify your own code later.
-4. item 3: Know the difference between bytes and str
-##### Things to Remember 
+##### item 3: Know the difference between bytes and str
+###### Things to Remember 
 bytes contains sequences of 8-bit values, and str contains sequences of Unicode code points.
 Use helper functions to ensure that the inputs you operate on
 are the type of character sequence that you expect (8-bit values,
@@ -28,9 +27,8 @@ the file using a binary mode (like 'rb' or 'wb').
 If you want to read or write Unicode data to/from a file, be careful about your system’s default text encoding. Explicitly pass the
 encoding parameter to open if you want to avoid surprises.
 
-5. item 4: Prefer interpolated F-Strings over C-style Format strings and str.format
-##### Things to Remember
-
+##### item 4: Prefer interpolated F-Strings over C-style Format strings and str.format
+###### Things to Remember
 C-style format strings that use the % operator suffer from a variety
 of gotchas and verbosity problems.
 
@@ -41,12 +39,12 @@ solves the biggest problems with C-style format strings.
 
 F-strings are succinct yet powerful because they allow for arbitrary Python expressions to be directly embedded within format
 specifiers.
-7. item 5: Write helper functions instead of complex expressions
-8. item 6: Prefer multiple assignment unpacking over indexing
-9. item 7: Prefer enumerate over range
-10. item 8: Use zip to process iterators in Parallel
-11. item 9: Avoid else blocks after for and while loops
-12. item 10: Prevent repetition with assignment expression
+##### item 5: Write helper functions instead of complex expressions
+##### item 6: Prefer multiple assignment unpacking over indexing
+##### item 7: Prefer enumerate over range
+##### item 8: Use zip to process iterators in Parallel
+##### item 9: Avoid else blocks after for and while loops
+##### item 10: Prevent repetition with assignment expression
 
 ### 2. The Python Standard Library
 
