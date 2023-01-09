@@ -1,6 +1,10 @@
 # Simple example presenting how persistent ID can be used to pickle
 # external objects by reference.
 
+# "pickling" is the process whereby a Python object hierarchy is converted into a byte stream.
+# "unpickling" is the inverse operation, whereby a byte stream is converted back into an object hierarchy.
+# pickling is alternatively known as "serizlization", "marshalling" or "flattening"
+
 import pickle
 import sqlite3
 from collections import namedtuple
