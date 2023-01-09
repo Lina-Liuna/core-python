@@ -5,6 +5,14 @@
 # "unpickling" is the inverse operation, whereby a byte stream is converted back into an object hierarchy.
 # pickling is alternatively known as "serizlization", "marshalling" or "flattening"
 
+# The pickle module is not secure.
+# Only unpickle data you trust.
+# It is possible to construct malicious pickle data which will execute arbitrary code during unpickling
+# Never unpickle data that could have come from an untrusted source
+# Safer serizlization formats such as json may be more appropriate if you are processing untrusted data.
+# See Comparison with json.
+
+
 import pickle
 import sqlite3
 from collections import namedtuple
