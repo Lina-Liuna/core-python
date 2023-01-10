@@ -28,6 +28,19 @@
 # pickle serialization format is guaraanteed to be backwards compatible across python releases
 # provides a compatible pickle protocol.
 
+# Pickle VS JSON
+# JSON is a text serialization format(it outputs unicode text/utf-8)
+# pickle is binary serialization format
+
+# JSON is human-readable, pickle is not
+# JSON is interoperable and widely used outside of the python ecosystem
+# pickle is python specific
+# JSON can only represent a subset of the python built-in types, and no custom classes
+# Pickle can represents an extremely large number of python types.
+# JSON does not in itself create an arbitrary code execution vulnerability.
+
+
+
 
 import pickle
 import sqlite3
