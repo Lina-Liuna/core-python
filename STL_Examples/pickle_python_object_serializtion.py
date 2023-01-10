@@ -9,8 +9,24 @@
 # Only unpickle data you trust.
 # It is possible to construct malicious pickle data which will execute arbitrary code during unpickling
 # Never unpickle data that could have come from an untrusted source
-# Safer serizlization formats such as json may be more appropriate if you are processing untrusted data.
+# Safer serialization formats such as json may be more appropriate if you are processing untrusted data.
 # See Comparison with json.
+
+# pickle VS marshal
+# marshal is a more primitive serialization module
+# pickle always be a preferred way to serialize python object
+# marshal exists primarily to support python's .pyc files
+
+# pickle module keeps track of the objects it has already serialized, so that later references to the same objects
+# won't be serialized again.
+
+# marshal cannot be used to serialize user-defined classes and their instances.
+# pickle can save and restore class instances transparently
+
+# the marshal serialization format is not guaranteed to be portable across python versions, because
+# marshal primary job in life is to support .pyc files
+# pickle serialization format is guaraanteed to be backwards compatible across python releases
+# provides a compatible pickle protocol.
 
 
 import pickle
