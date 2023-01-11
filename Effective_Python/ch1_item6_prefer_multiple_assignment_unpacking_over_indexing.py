@@ -43,7 +43,7 @@ print(first, 'and', second)
 
 lina_favorite_snacks = {
     'salty': ('pistachio', 150),
-    'sweet': ('data', 180),
+    'sweet': ('date', 180),
     'veggie':('red pepper', 30),
     'fruit':('berries', 30),
 }
@@ -58,3 +58,7 @@ lina_favorite_snacks = {
 print(f'Lina Favorite {type1} is {name1} with {cals1} calories')
 print(f'Lina Favorite {type2} is {name2} with {cals2} calories')
 print(f'Lina Favorite {type3} is {name3} with {cals3} calories')
+
+
+for rank, (type, (name, cals)) in enumerate(lina_favorite_snacks.items(), 1):
+    print(f'#{rank}: {type} {name} has {cals} calories')
