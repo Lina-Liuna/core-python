@@ -20,6 +20,7 @@
 # the dictionary keys are the unique query variable names
 # the dictionary values are the lists of values for each name.
 from urllib.parse import parse_qs
+
 my_values = parse_qs('red=5&blue=0&green=',keep_blank_values=True)
 # repr() functions return a printable representation of the given object
 print(repr(my_values))
@@ -27,4 +28,15 @@ print(my_values)
 
 print('red ', my_values.get('red'))
 print('green ', my_values.get('green'))
+# will print 'None'
 print('opacity ', my_values.get('opacity'))
+
+# how to solve the empty string None, the empty list? the zero value? not to be none?
+red = my_values.get('red', [''])[0] or 0
+green = my_values.get('green', [''])[0] or 0
+opacity = my_values.get('opacity', [''])[0] or 0
+print(f'red: {red!r}')
+print(f'green: {green!r}')
+print(f'opacity:{opacity!r}')
+
+
