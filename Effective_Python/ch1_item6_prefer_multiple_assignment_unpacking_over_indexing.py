@@ -21,3 +21,19 @@ print(items)
 
 items = tuple(lina_food_calories.items())
 print(items)
+
+# values in tuple can be accessed through numerical indexes
+item = ('cucumber', 'red round pepper')
+first = item[0]
+second = item[1]
+print(first, 'and', second)
+
+first, second = item # unpacking
+print(first, 'and', second)
+
+item = (('cucumber', 30), ('red round pepper', 20))
+first, second = item # unpacking
+print(first, 'and', second)
+
+# once a tuple is created, you can not modify it by assigning a new value to an index.
+# tuple object does not support item assignment
