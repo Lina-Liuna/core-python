@@ -14,6 +14,11 @@
 # urllib.parse focus on splitting a URL string into its components,
 # urllib.parse focus on combining URL components into a URL string.
 
+
+# what does parse_qs do?
+# parse a query string given as a  string argument. data returned as a dictionary.
+# the dictionary keys are the unique query variable names
+# the dictionary values are the lists of values for each name.
 from urllib.parse import parse_qs
 my_values = parse_qs('red=5&blue=0&green=',keep_blank_values=True)
 # repr() functions return a printable representation of the given object
