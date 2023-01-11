@@ -37,3 +37,24 @@ print(first, 'and', second)
 
 # once a tuple is created, you can not modify it by assigning a new value to an index.
 # tuple object does not support item assignment
+
+
+# unpacking works when assigning to lists, sequences, and multiple levels of arbitrary iterables with iterables
+
+lina_favorite_snacks = {
+    'salty': ('pistachio', 150),
+    'sweet': ('data', 180),
+    'veggie':('red pepper', 30),
+    'fruit':('berries', 30),
+}
+
+(
+    (type1, (name1, cals1)),
+    (type2, (name2, cals2)),
+    (type3, (name3, cals3)),
+    (type4, (name4, cals4))
+) = lina_favorite_snacks.items()
+
+print(f'Lina Favorite {type1} is {name1} with {cals1} calories')
+print(f'Lina Favorite {type2} is {name2} with {cals2} calories')
+print(f'Lina Favorite {type3} is {name3} with {cals3} calories')
