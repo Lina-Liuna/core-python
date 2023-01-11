@@ -40,6 +40,14 @@ solves the biggest problems with C-style format strings.
 F-strings are succinct yet powerful because they allow for arbitrary Python expressions to be directly embedded within format
 specifiers.
 ##### item 5: Write helper functions instead of complex expressions
+###### things to remember
+
+Things to Remember
+Python’s syntax makes it easy to write single-line expressions that are overly complicated and difficult to read.
+
+Move complex expressions into helper functions, especially if you need to use the same logic repeatedly.
+
+An if/else expression provides a more readable alternative to using the Boolean operators or and and in expressions.
 ##### item 6: Prefer multiple assignment unpacking over indexing
 ##### item 7: Prefer enumerate over range
 ##### item 8: Use zip to process iterators in Parallel
