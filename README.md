@@ -48,7 +48,16 @@ Python’s syntax makes it easy to write single-line expressions that are overly
 Move complex expressions into helper functions, especially if you need to use the same logic repeatedly.
 
 An if/else expression provides a more readable alternative to using the Boolean operators or and and in expressions.
+
 ##### item 6: Prefer multiple assignment unpacking over indexing
+###### things to remember: 
+python has special syntax called unpacking for assigning multiple values in a single statement.
+
+unpacking is generalized in python and can be applied to any iterable, including many levels of iterable within 
+iterables 
+
+using unpacking to avoid explicitly indexing into sequences.
+
 ##### item 7: Prefer enumerate over range
 ##### item 8: Use zip to process iterators in Parallel
 ##### item 9: Avoid else blocks after for and while loops

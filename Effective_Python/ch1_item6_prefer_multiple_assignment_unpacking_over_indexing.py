@@ -59,6 +59,13 @@ print(f'Lina Favorite {type1} is {name1} with {cals1} calories')
 print(f'Lina Favorite {type2} is {name2} with {cals2} calories')
 print(f'Lina Favorite {type3} is {name3} with {cals3} calories')
 
-
+# using unpacking wisely will enable you to avoid indexing when possible
+# using unpacking wisely will resulting in clearer and more pythonic code.
 for rank, (type, (name, cals)) in enumerate(lina_favorite_snacks.items(), 1):
     print(f'#{rank}: {type} {name} has {cals} calories')
+
+# things to remember:
+# python has special syntax called unpacking for assigning multiple values in a single statement.
+# unpacking is generalized in python and can be applied to any iterable, including many levels of iterable within
+# iterables
+# using unpacking to avoid explicitly indexing into sequences.
