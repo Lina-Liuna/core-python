@@ -14,3 +14,10 @@ for name, count in zip(phrasal_verbs, counts):
         max_count = count
 
 print(max_count, longest_name)
+
+# beware of zip's behavior when the input iterators are of different lengths.
+# example:
+phrasal_verbs.append('catch up')
+for name, count in zip(phrasal_verbs, counts):
+    print(name, count)   # No catch up print
+
