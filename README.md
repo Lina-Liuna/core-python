@@ -68,6 +68,15 @@ Prefer enumerate instead of looping over a range and indexing into a sequence
 you can supply a second parameter to enumerate to specify the number from which to begin counting(zero is default)
 
 ##### item 8: Use zip to process iterators in Parallel
+###### things to remember:
+the zip func can be used to iterate over multiple iterators in parallel
+
+zip create lazy generator that produces tuples, so it can be used on infinitely long inputs.
+
+zip truncates its output silently to the shortest iterator if you supply it with iterators of different lengths
+
+use the zip_longest function from itertools
+
 ##### item 9: Avoid else blocks after for and while loops
 ##### item 10: Prevent repetition with assignment expression
 

@@ -19,7 +19,7 @@ print(max_count, longest_name)
 # example:
 phrasal_verbs.append('catch up')
 for name, count in zip(phrasal_verbs, counts):
-    print(name, count)   # No catch up print
+    print(name, count)  # No catch up print
 
 # why new append item not worked?
 # because this is how zip works:
@@ -31,6 +31,12 @@ for name, count in zip(phrasal_verbs, counts):
 # zip_longest function from the itertools built-in module instead:
 
 import itertools
+
 for name, count in itertools.zip_longest(phrasal_verbs, counts):
     print(f'{name}: {count}')
 
+# things to remember:
+# the zip func can be used to iterate over multiple iterators in parallel
+# zip create lazy generator that produces tuples, so it can be used on infinitely long inputs.
+# zip truncates its output silently to the shortest iterator if you supply it with iterators of different lengths
+# use the zip_longest function from itertools
