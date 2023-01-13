@@ -14,3 +14,12 @@ print(bin(random_bits))
 for i in range(32):
     print(i, 1 << i)
 
+# when you have a data structure to iterate over, like a list of strings,
+# you can loop directly over the sequences
+flavor_list = ['pineapple', 'mango', 'strawberry', 'vanilla']
+for flavor in flavor_list:
+    print(f'{flavor} is yummy')
+
+# you'll iterate over a list by the index of the current item in the list.
+
+# but iterate over sequences or over the index looks clumsy
