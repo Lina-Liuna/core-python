@@ -29,3 +29,6 @@ it = enumerate(flavor_list)
 print(next(it))
 print(next(it))
 
+# unpacking a sequence with the enumerate function, the second parameter is the start index.
+for i, flavor in enumerate(flavor_list, 1):
+    print(f'{i} : {flavor}')
