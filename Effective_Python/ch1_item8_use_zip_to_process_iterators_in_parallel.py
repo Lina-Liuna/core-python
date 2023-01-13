@@ -27,4 +27,10 @@ for name, count in zip(phrasal_verbs, counts):
 # zip output is as long as its shortest input
 # the truncating behavior of zip is surprising and bad.
 
+# if you don't expect the lengths of the lists passed to zip to be equal, consider using
+# zip_longest function from the itertools built-in module instead:
+
+import itertools
+for name, count in itertools.zip_longest(phrasal_verbs, counts):
+    print(f'{name}: {count}')
 
