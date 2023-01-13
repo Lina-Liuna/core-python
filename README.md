@@ -59,6 +59,14 @@ iterables
 using unpacking to avoid explicitly indexing into sequences.
 
 ##### item 7: Prefer enumerate over range
+###### things to remember: 
+enumerate provides concise syntax for looping over an iterator and getting the index of each 
+item from the iterator as you go. 
+
+Prefer enumerate instead of looping over a range and indexing into a sequence
+
+you can supply a second parameter to enumerate to specify the number from which to begin counting(zero is default)
+
 ##### item 8: Use zip to process iterators in Parallel
 ##### item 9: Avoid else blocks after for and while loops
 ##### item 10: Prevent repetition with assignment expression

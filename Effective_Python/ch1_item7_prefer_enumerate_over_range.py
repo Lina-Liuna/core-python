@@ -32,3 +32,12 @@ print(next(it))
 # unpacking a sequence with the enumerate function, the second parameter is the start index.
 for i, flavor in enumerate(flavor_list, 1):
     print(f'{i} : {flavor}')
+
+# things to remember:
+# enumerate provides concise syntax for looping over an iterator and getting the index of each
+# item from the iterator as you go.
+
+# Prefer enumerate instead of looping over a range and indexing into a sequence
+
+# you can supply a second parameter to enumerate to specify the number from which to begin counting(zero is default)
+
