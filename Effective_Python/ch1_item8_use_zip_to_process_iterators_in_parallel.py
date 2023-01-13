@@ -21,3 +21,10 @@ phrasal_verbs.append('catch up')
 for name, count in zip(phrasal_verbs, counts):
     print(name, count)   # No catch up print
 
+# why new append item not worked?
+# because this is how zip works:
+# zip keeps yielding tuples until any one of the wrapped iterators is exhausted.
+# zip output is as long as its shortest input
+# the truncating behavior of zip is surprising and bad.
+
+
