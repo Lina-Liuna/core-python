@@ -313,10 +313,16 @@ except Exception as e:
 
 print(dir(exc))
 
+# difference between del and pop in list
+l = [i for i in range(0, 20)]
+print(l)
+del l[-1]
+print(l)
 
-
-
-
+l = [i for i in range(0, 20)]
+print(l)
+l.pop()
+print(l)
 
 
 
