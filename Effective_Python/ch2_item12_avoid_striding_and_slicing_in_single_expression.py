@@ -8,3 +8,14 @@ odds = rainbow[::2]
 evens = rainbow[1::2]
 print(odds)
 print(evens)
+
+# problem in stride: causes unexpected behavior that can introduce bugs.
+# common python trick for reversing a byte string:
+# slice the string with a stride of -1:
+x = '中文'
+y = x[::-1]
+print(y)
+
+x = b'mongoose'
+y = x[::-1]
+print(y)
