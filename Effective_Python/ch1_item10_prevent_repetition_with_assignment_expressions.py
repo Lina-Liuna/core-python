@@ -9,6 +9,7 @@
 
 # An assignment expression's value evaluates to whatever was assigned to the identifier on the left side of the
 # walrus operator.
+import random
 
 class fruit_juice_store:
 
@@ -35,6 +36,14 @@ class fruit_juice_store:
 
     def out_of_stock(self):
         print('out of stock')
+
+    def pick_fruit(self):
+        fruit = random.choices(list(self.fresh_fruit.keys()))
+        print(fruit)
+        return fruit
+
+    def make_juice(self, fruit, count):
+        return count * 0.5
 
 
 class OutOfBananas(Exception):
@@ -72,3 +81,27 @@ elif (count := fc.fresh_fruit.get('banana', 0)) >= 2:
     fc.make_smoothies(pieces)
 else:
     print("Nothing left")
+
+# code improvement
+
+bottles = []
+fruit = fc.pick_fruit()
+
+loop = 0
+while fruit := fc.pick_fruit():
+   if (count := fc.fresh_fruit.get(fruit[0], 0)) >= 0:
+       fc.make_juice(fruit, count)
+   if loop := 10:
+       break
+   loop += 1
+
+
+# code improvement:
+loop = 0
+while fruit := fc.pick_fruit():
+    for fruit, count in fc.fresh_fruit.items():
+        fc.make_juice(fruit, count)
+
+    if loop := 10:
+        break
+    loop += 1
