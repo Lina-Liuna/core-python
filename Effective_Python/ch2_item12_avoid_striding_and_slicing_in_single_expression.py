@@ -19,3 +19,10 @@ print(y)
 x = b'mongoose'
 y = x[::-1]
 print(y)
+
+# bugs: strides not work on UTF-8 byte string:
+w = '中文'
+x = w.encode('utf-8')
+y = x[::-1]
+# z = y.decode('utf-8') UnicodeDecodeError: 'utf-8' codec can't decode byte 0x87 in position 0: invalid start byte
+
