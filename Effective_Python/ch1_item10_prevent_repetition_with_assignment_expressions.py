@@ -95,3 +95,12 @@ while fresh_fruit := fc.pick_fruit():
     for fruit, count in fresh_fruit.items():
         print(fruit, count)
         fc.make_juice(fruit, count)
+
+
+# things to remember:
+# Assignment expressions use the walrus operator(:=) to both assign and evaluate variable names
+# in a single expression, thus reduce repetition .
+
+# when an assignment expression is a subexpression of a larger expression, it must be surrounded with parentheses.
+
+# use assignment expression makes code more clearly.

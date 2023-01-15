@@ -78,7 +78,17 @@ zip truncates its output silently to the shortest iterator if you supply it with
 use the zip_longest function from itertools
 
 ##### item 9: Avoid else blocks after for and while loops
+###### things to remember:
+Avoid using else blocks after loops because their behavior isn't intuitive and can be confusing.
+
 ##### item 10: Prevent repetition with assignment expression
+###### things to remember: 
+Assignment expressions use the walrus operator(:=) to both assign and evaluate variable names 
+in a single expression, thus reduce repetition .
+
+when an assignment expression is a subexpression of a larger expression, it must be surrounded with parentheses.
+
+use assignment expression makes code more clearly.
 
 ### 2. The Python Standard Library
 
