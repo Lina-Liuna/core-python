@@ -36,35 +36,39 @@ class fruit_juice_store:
     def out_of_stock(self):
         print('out of stock')
 
+
 class OutOfBananas(Exception):
     pass
 
-count = fruit_juice_store.fresh_fruit.get('apple', 0)
+fc = fruit_juice_store()
+
+count = fc.fresh_fruit.get('apple', 0)
 if count >= 4:
-    fruit_juice_store.make_cider(count)
+    fc.make_cider(count)
 else:
-    fruit_juice_store.out_of_stock()
+    fc.out_of_stock()
 
 
 # Improve clarity of above code by using walrus operator:
-if (count := fruit_juice_store.fresh_fruit.get('apple', 0)) >= 4:
-    fruit_juice_store.make_cider(count)
+if (count := fc.fresh_fruit.get('apple', 0)) >= 4:
+    fc.make_cider(count)
 else:
-    fruit_juice_store.out_of_stock()
+    fc.out_of_stock()
 
-if (count := fruit_juice_store.fresh_fruit.get('banana', 0)) >= 2:
-   pieces = fruit_juice_store.slice_bananas(count)
+if (count := fc.fresh_fruit.get('banana', 0)) >= 2:
+   pieces = fc.slice_bananas(count)
 else:
     pieces = 0
 try:
-    smoothies = fruit_juice_store.make_smoothies(pieces)
-except OutOfBananas:
-    fruit_juice_store.out_of_stock()
+    smoothies = fc.make_smoothies(pieces)
 
-if (count := fruit_juice_store.fresh_fruit.get('apple', 0)) >= 4:
-    fruit_juice_store.make_cider(count)
-elif (count := fruit_juice_store.fresh_fruit.get('banana', 0)) >= 2:
-    pieces = fruit_juice_store.slice_bananas(count)
-    fruit_juice_store.make_smoothies(pieces)
+except OutOfBananas:
+    fc.out_of_stock()
+
+if (count := fc.fresh_fruit.get('apple', 0)) >= 4:
+    fc.make_cider(count)
+elif (count := fc.fresh_fruit.get('banana', 0)) >= 2:
+    pieces = fc.slice_bananas(count)
+    fc.make_smoothies(pieces)
 else:
     print("Nothing left")
