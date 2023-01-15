@@ -90,7 +90,7 @@ when an assignment expression is a subexpression of a larger expression, it must
 
 use assignment expression makes code more clearly.
 
-### Ch 2
+### Ch 2: Lists and Dictionaries
 #### item 11: know how to slice sequences
 ##### things to remember:
 
@@ -99,6 +99,20 @@ avoid being verbose when slicing: don't supply 0 for the start index or the leng
 slicing is forgiving of start and end indexes that are out of bounds
 
 Assigning to a list slice replaces that range in the original sequence
+
+#### item 12: Avoid Striding and Slicing in a single expression
+
+#### item 13: Prefer Catch-All unpacking Over Slicing
+
+#### item 14: Sort by Complex Criteria Using the key parameter
+
+#### item 15: Be cautious when relying on dict insertion ordering
+
+#### item 16: Prefer get Over in and KeyError to Handle Missing Dictionary keys
+
+#### item 17: Prefer defaultdict over setdefault to handle missing items in internal state
+
+#### item 18: Know how to construct key-dependent default values with __missing__
 
 ### 2. The Python Standard Library
 
