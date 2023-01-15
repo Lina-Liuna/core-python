@@ -90,6 +90,16 @@ when an assignment expression is a subexpression of a larger expression, it must
 
 use assignment expression makes code more clearly.
 
+### Ch 2
+#### item 11: know how to slice sequences
+##### things to remember:
+
+avoid being verbose when slicing: don't supply 0 for the start index or the length of the squence for the end index
+
+slicing is forgiving of start and end indexes that are out of bounds
+
+Assigning to a list slice replaces that range in the original sequence
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

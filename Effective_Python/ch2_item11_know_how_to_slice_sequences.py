@@ -30,7 +30,7 @@ print(a)
 # grows a list
 s = 'a b c d e f g h'
 a = s.split(' ')
-a[2:3] = [11,22,33,44,55]
+a[2:3] = [11, 22, 33, 44, 55]
 print(a)
 
 s = 'a b c d e f g h'
@@ -46,3 +46,10 @@ b = a
 b[1:] = [2]
 print(a)
 
+# things to remember:
+
+# avoid being verbose when slicing: don't supply 0 for the start index or the length of the squence for the end index
+
+# slicing is forgiving of start and end indexes that are out of bounds
+
+# Assigning to a list slice replaces that range in the original sequence
