@@ -14,11 +14,11 @@ import random
 class fruit_juice_store:
 
     fresh_fruit = {
-        'strawberry': 50,
-        'lemon': 30,
-        'watermelon': 20,
-        'apple' : 60,
-        'mango' : 10,
+        'strawberry': 5,
+        'lemon': 3,
+        'watermelon': 2,
+        'apple' : 6,
+        'mango' : 1,
     }
 
     def make_lemonade(self, count):
@@ -38,9 +38,17 @@ class fruit_juice_store:
         print('out of stock')
 
     def pick_fruit(self):
-        fruit = random.choices(list(self.fresh_fruit.keys()))
-        print(fruit)
-        return fruit
+        for fruit, count in self.fresh_fruit.items():
+            if count > 0:
+                self.fresh_fruit[fruit] = count - 1
+        Isfruitleft = False
+        for count in self.fresh_fruit.values():
+            if count > 0:
+                Isfruitleft = True
+            break
+        if Isfruitleft is False:
+            return None
+        return self.fresh_fruit
 
     def make_juice(self, fruit, count):
         return count * 0.5
@@ -82,26 +90,8 @@ elif (count := fc.fresh_fruit.get('banana', 0)) >= 2:
 else:
     print("Nothing left")
 
-# code improvement
-
-bottles = []
-fruit = fc.pick_fruit()
-
-loop = 0
-while fruit := fc.pick_fruit():
-   if (count := fc.fresh_fruit.get(fruit[0], 0)) >= 0:
-       fc.make_juice(fruit, count)
-   if loop := 10:
-       break
-   loop += 1
-
-
 # code improvement:
-loop = 0
-while fruit := fc.pick_fruit():
-    for fruit, count in fc.fresh_fruit.items():
+while fresh_fruit := fc.pick_fruit():
+    for fruit, count in fresh_fruit.items():
+        print(fruit, count)
         fc.make_juice(fruit, count)
-
-    if loop := 10:
-        break
-    loop += 1
