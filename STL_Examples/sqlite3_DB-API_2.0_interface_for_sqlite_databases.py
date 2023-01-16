@@ -37,3 +37,23 @@ res = cur.execute("SELECT name from sqlite_master")
 
 print(res.fetchall())
 
+# 6. query sqlite_master for table named 'movie'
+res = cur.execute("SELECT name FROM sqlite_master WHERE name='movie'")
+print(res.fetchone())
+
+# 7. Insert data
+
+cur.execute("""
+    INSERT INTO movie VALUES
+        ('He is Just Not That Into You', 1990, 6.4),
+        ('Silver Linings Playbook', 2012, 7.7)
+""")
+
+# con.commit() to commit the transaction
+con.commit()
+
+# 8. Verify:
+res = cur.execute('SELECT score FROM movie')
+print(res.fetchall())
+
+
