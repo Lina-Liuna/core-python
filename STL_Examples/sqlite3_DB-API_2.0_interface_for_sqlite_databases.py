@@ -82,3 +82,17 @@ res = new_cur.execute("SELECT title, year FROM movie ORDER BY score DESC")
 title, year = res.fetchone()
 print(f'The highest scoring movie is {title!r}, released in {year}')
 
+# use :memory: to create a shared memory connection,
+# the :memory: database will be erased when the last connection is deleted from memory.
+import hashlib
+
+
+def md5sum(t):
+    return hashlib.md5(t).hexdigest()
+
+
+con = sqlite3.connect(":memory:")
+con.create_function("md5", 1, md5sum)
+for row in con.execute("SELECT md5(?)", (b"foo",)):
+    print(row)
+
