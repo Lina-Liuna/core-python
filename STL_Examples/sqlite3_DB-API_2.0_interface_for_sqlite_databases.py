@@ -92,6 +92,7 @@ def md5sum(t):
 
 
 con = sqlite3.connect(":memory:")
+
 con.create_function("md5", 1, md5sum)
 for row in con.execute("SELECT md5(?)", (b"foo",)):
     print(row)
