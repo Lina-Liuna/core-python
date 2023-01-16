@@ -26,3 +26,12 @@ x = w.encode('utf-8')
 y = x[::-1]
 # z = y.decode('utf-8') UnicodeDecodeError: 'utf-8' codec can't decode byte 0x87 in position 0: invalid start byte
 
+x = [1, 2, 3, 4, 5, 6, 7, 8]
+
+# Negative stride besides -1 useful:
+print(x[::2])
+print(x[::-2])
+print(x[2::2])
+print(x[-2::-2])
+print(x[-2:2-2])
+print(x[2:2-2])
