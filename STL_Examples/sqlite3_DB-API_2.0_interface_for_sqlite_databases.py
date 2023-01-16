@@ -141,8 +141,12 @@ cur.executemany("INSERT INTO test(x) VALUES(?)", [("a",), ("b",)])
 cur.execute("SELECT x FROM test ORDER BY x COLLATE reverse")
 for row in cur:
     print(row)
+
 con.close()
 
-# copy 
-
-
+# Convert :memory: db to SQL dump file dump.sql
+con = sqlite3.connect(':memory:')
+with open('temp.sql', 'w') as f:
+    for line in con.iterdump():
+        f.write('%s\n' % line)
+con.close()
