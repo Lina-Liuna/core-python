@@ -35,3 +35,10 @@ print(x[2::2])
 print(x[-2::-2])
 print(x[-2:2-2])
 print(x[2:2-2])
+
+# the point is the stride part of the slicing syntax can be extremely confusing.
+# having three numbers within the brackets is hard enough to read because of its density.
+# suggestions: avoid using a stride along with start and end indexes.
+# if you must use a stride, prefer making it a positive value and omit start and end indexes.
+y = x[::2]
+z = y[1:-1]
