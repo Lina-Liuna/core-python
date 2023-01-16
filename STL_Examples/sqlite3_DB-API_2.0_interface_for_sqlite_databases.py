@@ -68,4 +68,17 @@ data = [
 cur.executemany("INSERT INTO movie VALUES(?, ?, ?)", data)
 con.commit()
 
-# 
+# verify new rows by executing a SELECT query
+for row in cur.execute("SELECT year, title FROM movie ORDER BY year"):
+    print(row)
+
+# verify that the database has been written to disk by calling con.close() to close the existing connection
+con.close()
+
+# Opening a new one, creating a new cursor, then query the database:
+new_con = sqlite3.connect('tutorial.db')
+new_cur = new_con.cursor()
+res = new_cur.execute("SELECT title, year FROM movie ORDER BY score DESC")
+title, year = res.fetchone()
+print(f'The highest scoring movie is {title!r}, released in {year}')
+
