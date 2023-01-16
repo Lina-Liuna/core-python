@@ -23,8 +23,7 @@ cur = con.cursor()
 
 # 3. after the database connection and a cursor, create a database table movie with columns for title, release year,
 # and review score.
-
-cur.execute("CREATE TABLE movie(title, year, score)")
+cur.execute("CREATE TABLE if not exists movie(title, year, score)")
 
 # 4. verify that the new table has been created by querying the sqlite_master built-in to SQLite, which should new
 # contain an entry for the movie table definition.
@@ -57,3 +56,16 @@ res = cur.execute('SELECT score FROM movie')
 print(res.fetchall())
 
 
+# insert more rows by calling cur.executemany(...)
+
+data = [
+    ('The Menu', 2022, 7.3),
+    ('Avatar:The Way of Water', 2022, 7.9),
+    ('Everything Everywhere All at Once', 2022, 8.0),
+    ('A Man Called Otto', 2022, 7.5)
+]
+
+cur.executemany("INSERT INTO movie VALUES(?, ?, ?)", data)
+con.commit()
+
+# 
