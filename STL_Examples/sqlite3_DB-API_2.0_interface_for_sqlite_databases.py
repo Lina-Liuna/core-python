@@ -84,6 +84,7 @@ print(f'The highest scoring movie is {title!r}, released in {year}')
 
 # use :memory: to create a shared memory connection,
 # the :memory: database will be erased when the last connection is deleted from memory.
+# Super-useful: encrypt your database by using con.create_function(md5)
 import hashlib
 
 
@@ -96,4 +97,31 @@ con = sqlite3.connect(":memory:")
 con.create_function("md5", 1, md5sum)
 for row in con.execute("SELECT md5(?)", (b"foo",)):
     print(row)
+con.close()
+
+# Create or remove a user-defined SQL aggregate function
+class MySum:
+    def __init__(self):
+        self.count = 0
+
+    def step(self, value):
+        self.count += value
+
+    def finalize(self):
+        return self.count
+
+con = sqlite3.connect(":memory:")
+con.create_aggregate("mysum", 1, MySum)
+cur = con.execute("CREATE TABLE test(i)")
+cur.execute("INSERT INTO test(i) VALUES(1)")
+cur.execute("INSERT INTO test(i) VALUES(2)")
+cur.execute("INSERT INTO test(i) VALUES(3)")
+cur.execute("SELECT mysum(i) FROM test")
+print(cur.fetchall())
+#print(cur.fetchone()[0])
+res = cur.execute("SELECT name from sqlite_master")
+print(res.fetchall())
+
+con.close()
+
 
