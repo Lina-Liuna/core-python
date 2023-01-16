@@ -101,6 +101,16 @@ slicing is forgiving of start and end indexes that are out of bounds
 Assigning to a list slice replaces that range in the original sequence
 
 #### item 12: Avoid Striding and Slicing in a single expression
+##### Things to remember
+specifying start, end, and stride in a slice can be extremely confusing
+prefer using positive stride values in slices without start or end indexes. 
+
+avoid negative stride values if possible.
+
+avoid using start, end, and stride together in a single slice.
+
+If you need all three parameters, consider doing two assignments(one to stride and another to slice) or using
+is lice from the itertools built-in module.
 
 #### item 13: Prefer Catch-All unpacking Over Slicing
 

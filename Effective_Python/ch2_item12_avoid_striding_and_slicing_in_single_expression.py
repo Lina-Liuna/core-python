@@ -42,3 +42,11 @@ print(x[2:2-2])
 # if you must use a stride, prefer making it a positive value and omit start and end indexes.
 y = x[::2]
 z = y[1:-1]
+
+# Things to remember
+# specifying start, end, and stride in a slice can be extremely confusing
+# prefer using positive stride values in slices without start or end indexes.
+# avoid negative stride values if possible
+# avoid using start, end, and stride together in a single slice.
+# If you need all three parameters, consider doing two assignments(one to stride and another to slice) or using
+# islice from the itertools built-in module
