@@ -150,3 +150,17 @@ with open('temp.sql', 'w') as f:
     for line in con.iterdump():
         f.write('%s\n' % line)
 con.close()
+
+
+# con.backup: Create a backup of an SQLite database.
+# Works even if the database is being accessed by other clients or concurrently by the same connection.
+
+def progress(status, remaining, total):
+    print(f'Copied {total-remaining} of {total} pages...')
+
+src = sqlite3.connect('tutorial.db')
+dst = sqlite3.connect('backup.db')
+with dst:
+    src.backup(dst, pages=1, progress=progress)
+dst.close()
+src.close()
