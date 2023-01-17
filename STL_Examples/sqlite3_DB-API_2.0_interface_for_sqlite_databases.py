@@ -188,3 +188,31 @@ print("current_date", row[0], type(row[0]))
 print("current_timestamp", row[1], type(row[1]))
 
 con.close()
+
+
+# How to use placeholders to bind values in SQL queries
+
+# SQL operations usually need to use value from python variables, however, beware of using python's string operations
+# to assemble queries, as they are vulnerable to SQL injection attacks.
+
+# to insert a variable into a query string, use a placeholder in the string, and substitute that actual values into
+# the query by providing them as a tuple of values to the second argument of the cursors' execute() method.
+
+# An SQL statement may use  one of two kinds of placeholders: question marks or named placeholders.
+con = sqlite3.connect(":memory:")
+cur = con.execute("CREATE TABLE lang(name, first_appeared)")
+
+# This is the qmark style:
+cur.execute("INSERT INTO lang VALUES(?, ?)", ("C", 1972))
+
+# The qmark style used with executemany():
+lang_list = [
+    ("Fortran", 1957),
+    ("Python", 1991),
+    ("Go", 2009),
+]
+cur.executemany("INSERT INTO lang VALUES(?, ?)", lang_list)
+
+# And this is the named style:
+cur.execute("SELECT * FROM lang WHERE first_appeared = :year", {"year": 1972})
+print(cur.fetchall())
