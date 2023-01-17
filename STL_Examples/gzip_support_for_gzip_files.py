@@ -15,5 +15,9 @@ with open(p, 'rb') as f_in:
 
 # Create a compressed GZIP file
 content = b'Miss You'
-with gzip.open(p, 'wb') as f:
+with gzip.open(str(p) + 'temp.txt.gz', 'wb') as f:
     f.write(content)
+
+# How to read a compression file
+with gzip.open(str(p) + 'temp.txt.gz', 'rb') as f:
+    print(f.read())
