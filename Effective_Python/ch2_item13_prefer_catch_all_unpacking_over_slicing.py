@@ -26,5 +26,5 @@ kids_play = {
 
 ((loc1, (best1, *rest1)),
  (loc2, (best2, *rest2))) = kids_play.items()
-print(f'Best at {loc1} is {best1}, {len(rest1)} others')
-print(f'Best at {loc2} is {best2}, {len(rest2)} others')
+print(f'Best of {loc1} is {best1}, {len(rest1)} others')
+print(f'Best of {loc2} is {best2}, {len(rest2)} others')
