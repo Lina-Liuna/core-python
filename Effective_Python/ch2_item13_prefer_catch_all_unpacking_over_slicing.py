@@ -28,3 +28,25 @@ kids_play = {
  (loc2, (best2, *rest2))) = kids_play.items()
 print(f'Best of {loc1} is {best1}, {len(rest1)} others')
 print(f'Best of {loc2} is {best2}, {len(rest2)} others')
+
+
+def generate_car_info():
+    yield ('Date', 'Make', 'Model', 'Year', 'Price')
+    yield ('1992', 'Range Rover', 'Evoque', '2022', '$51-000')
+
+it = generate_car_info()
+header, *rows = it
+print('Car Info Header:',header)
+print('Row Count:', len(rows))
+
+
+# Things to Remember:
+# Unpacking assignment may use a starred expression to catch all values that weren't assigned to
+# the other parts of the unpacking pattern into a list.
+#
+# Starred expression may appear in any position, and they will
+# always become a list containing the zero or more values they receive.
+
+# when dividing a list into non-overlapping pieces, catch-all unpacking is much less error prone than slicing and
+# indexing
+
