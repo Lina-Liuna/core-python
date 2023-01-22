@@ -60,3 +60,20 @@ places.sort()
 print('Case sensitive:', places)
 places.sort(key=lambda x: x.lower())
 print('Case insensitive:', places)
+
+# what if we want use multiple criteria for sorting?
+# I have a list of power tools and I want to sort them first by weight, and then by name.
+
+power_tools = [
+    Tool('drill', 4),
+    Tool('circular saw', 5),
+    Tool('jackhammer', 40),
+    Tool('sander', 4),
+]
+
+# we can use tuple comparison in order, Solution: define a key function that returns a tuple containing the two
+# attributes that I want to sort on in order of priority.
+
+power_tools.sort(key=lambda x: (x.weight, x.name))
+print(power_tools)
+
