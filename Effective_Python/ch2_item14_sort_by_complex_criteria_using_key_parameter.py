@@ -83,3 +83,9 @@ print(power_tools)
 
 power_tools.sort(key=lambda x: (x.weight, x.name), reverse=True)
 print(power_tools)
+
+# What if I want one in ascending and other in descending?
+
+power_tools.sort(key=lambda x: x.name) # name ascending
+power_tools.sort(key=lambda x: x.weight, reverse=True) # weight descending
+print(power_tools)
