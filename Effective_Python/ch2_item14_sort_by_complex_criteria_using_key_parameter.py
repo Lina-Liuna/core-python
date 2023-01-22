@@ -77,3 +77,9 @@ power_tools = [
 power_tools.sort(key=lambda x: (x.weight, x.name))
 print(power_tools)
 
+# what is the limitation of having the key function return a tuple?
+# the limitations: the direction of sorting for all criteria must be the same
+# (either all in ascending order, or all in descending order)
+
+power_tools.sort(key=lambda x: (x.weight, x.name), reverse=True)
+print(power_tools)
