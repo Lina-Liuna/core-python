@@ -86,6 +86,17 @@ print(power_tools)
 
 # What if I want one in ascending and other in descending?
 
-power_tools.sort(key=lambda x: x.name) # name ascending
-power_tools.sort(key=lambda x: x.weight, reverse=True) # weight descending
+power_tools.sort(key=lambda x: x.name)  # name ascending
+power_tools.sort(key=lambda x: x.weight, reverse=True)  # weight descending
 print(power_tools)
+
+# things to remember:
+# The sort method of the list type can be used to rearrange list's contents by natural ordering
+
+# the key parameter of the sort method can be used to supply a helper function that returns the value to use
+# for sorting in place of each item from the list.
+
+# returning a tuple from the key function allows you to combine multiple sorting criteria together.
+
+# you can combine many sorting criteria together by calling the sort method multiple times using different key
+# functions.

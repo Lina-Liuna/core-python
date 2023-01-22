@@ -114,7 +114,27 @@ is lice from the itertools built-in module.
 
 #### item 13: Prefer Catch-All unpacking Over Slicing
 
+##### Things to Remember: 
+Unpacking assignment may use a starred expression to catch all values that weren't assigned to 
+the other parts of the unpacking pattern into a list. 
+
+Starred expression may appear in any position, and they will 
+always become a list containing the zero or more values they receive. 
+
+when dividing a list into non-overlapping pieces, catch-all unpacking is much less error prone than slicing and 
+indexing. 
+
 #### item 14: Sort by Complex Criteria Using the key parameter
+##### things to remember:
+The sort method of the list type can be used to rearrange list's contents by natural ordering 
+
+the key parameter of the sort method can be used to supply a helper function that returns the value to use 
+for sorting in place of each item from the list.
+
+returning a tuple from the key function allows you to combine multiple sorting criteria together.
+
+you can combine many sorting criteria together by calling the sort method multiple times using different key 
+functions. 
 
 #### item 15: Be cautious when relying on dict insertion ordering
 
