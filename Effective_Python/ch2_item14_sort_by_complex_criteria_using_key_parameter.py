@@ -9,6 +9,7 @@
 
 # How to sort a dictionary by keys?
 import collections
+
 new_words = collections.defaultdict(list)
 new_words = {
     'stride': ['walk with long, decisive steps.', 'he strode across the road'],
@@ -22,8 +23,8 @@ new_words = {
                    'He said he was enjoying his new job, but his voice lacked conviction'],
 }
 print('Unsorted:', repr(new_words))
-#list(new_words.items()).sort(key=lambda x: x.keys)
-#res = sorted(new_words_lists, key=lambda x: x[k])
+# list(new_words.items()).sort(key=lambda x: x.keys)
+# res = sorted(new_words_lists, key=lambda x: x[k])
 res = collections.OrderedDict(sorted(new_words.items()))
 print('\nSorted:  ', res.keys())
 
@@ -35,7 +36,8 @@ class Tool:
         self.name = name
         self.weight = weight
 
-    def __repr__(self):        # __repr__() func returns the object representation in string format, can be used to reconstruct the object
+    def __repr__(
+            self):  # __repr__() func returns the object representation in string format, can be used to reconstruct the object
         return f'Tool({self.name!r}, {self.weight})'
 
 
@@ -46,7 +48,15 @@ tools = [
     Tool('chisel', 0.25)
 ]
 
-# use the lambda keywords to define a function for the key parrameter that enables me to sort the list of Tool objects
+# use the lambda keywords to define a function for the key parameter that enables me to sort the list of Tool objects
 print('Unsorted:', repr(tools))
 tools.sort(key=lambda x: x.name)
 print('\nSorted:', tools)
+
+# the lambda function passed as the key parameter can be index to items(sequences, tuples, and dictionaries)
+# you may use the key function to do transformations on the values before sorting.
+places = ['shanghai', 'New york', 'Beijing', 'dublin']
+places.sort()
+print('Case sensitive:', places)
+places.sort(key=lambda x: x.lower())
+print('Case insensitive:', places)
