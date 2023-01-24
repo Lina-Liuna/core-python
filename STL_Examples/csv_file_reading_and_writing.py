@@ -35,4 +35,13 @@ def csv_dictwriter(filename):
         writer.writerow({'idiom': 'worrywart', 'meaning': 'often worries person'})
         writer.writerow({'idiom': 'busybody', 'meaning': 'interferes everything'})
 
+
+
+def csv_dictreader(filename):
+    with open(filename, newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            print(row['idiom'], row['meaning'])
+
 csv_dictwriter(dir + 'dictwriter.csv')
+csv_dictreader(dir + 'dictwriter.csv')
