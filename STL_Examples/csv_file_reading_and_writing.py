@@ -24,3 +24,15 @@ def read_csv(filename):
 
 write_csv(dir + 'wordwriter.csv')
 read_csv(dir+'wordwriter.csv')
+
+def csv_dictwriter(filename):
+    with open(filename, 'w', newline='') as csvfile:
+        idiom_names = ['idiom', 'meaning']
+        writer = csv.DictWriter(csvfile,fieldnames=idiom_names)
+        writer.writeheader()
+        writer.writerow({'idiom': 'couch potato', 'meaning': 'lazy person'})
+        writer.writerow({'idiom': 'chatterbox', 'meaning': 'talkactive person'})
+        writer.writerow({'idiom': 'worrywart', 'meaning': 'often worries person'})
+        writer.writerow({'idiom': 'busybody', 'meaning': 'interferes everything'})
+
+csv_dictwriter(dir + 'dictwriter.csv')
