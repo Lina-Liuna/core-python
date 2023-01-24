@@ -14,4 +14,13 @@ def write_csv(filename):
         wordswriter.writerow(['Early Bird'] * 5 + ['Lina Liu'])
         wordswriter.writerow(['Early Bird', 'Lovely Morning', 'Wonderful Morning'])
 
+
+
+def read_csv(filename):
+    with open(filename, newline='') as csvfile:
+        wordreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        for row in wordreader:
+            print(', '.join(row))
+
 write_csv(dir + 'wordwriter.csv')
+read_csv(dir+'wordwriter.csv')
