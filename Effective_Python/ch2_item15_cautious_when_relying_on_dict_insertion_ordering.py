@@ -20,3 +20,8 @@ def populate_ranks(votes, ranks):
 ranks = dict()
 populate_ranks(votes, ranks)
 print(ranks)
+
+def get_winner(ranks):
+    return next(iter(ranks))
+print(get_winner(ranks))
+
