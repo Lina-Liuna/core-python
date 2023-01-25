@@ -103,3 +103,19 @@ populate_ranks_2(votes, sorted_ranks_2)
 print(sorted_ranks_2.data)
 winner = get_winner_2(sorted_ranks_2)
 print(winner)
+
+
+# Things to remember:
+
+# Since Python 3.7, you can rely on the fact that iterating a dict instances contents will occur in the same order
+# in which the keys were initially added.
+
+# Python makes it easy to define objects that act like dictionaries but that are not dict instances.
+# For these types, you can't assume that insertion ordering will be preserved.
+
+# There are three ways to be careful about dictionary-like classes:
+# Write code that doesn't rely on insertion ordering.
+# Explicitly check for the dict type at runtime
+# require dict types using type annotations and static analysis.
+
+

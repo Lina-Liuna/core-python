@@ -137,6 +137,18 @@ you can combine many sorting criteria together by calling the sort method multip
 functions. 
 
 #### item 15: Be cautious when relying on dict insertion ordering
+##### Things to remember:
+
+Since Python 3.7, you can rely on the fact that iterating a dict instances contents will occur in the same order
+in which the keys were initially added.
+
+Python makes it easy to define objects that act like dictionaries but that are not dict instances.
+For these types, you can't assume that insertion ordering will be preserved.
+
+There are three ways to be careful about dictionary-like classes: 
+Write code that doesn't rely on insertion ordering. 
+Explicitly check for the dict type at runtime
+require dict types using type annotations and static analysis.
 
 #### item 16: Prefer get Over in and KeyError to Handle Missing Dictionary keys
 
