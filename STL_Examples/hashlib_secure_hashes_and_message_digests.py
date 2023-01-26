@@ -53,14 +53,25 @@ print(hash_password_robust('sha256', b'linaliu_password', b'good salt'))
 def simple_hashing_str_using_blake2b(hash_str):
     return hashlib.blake2b(hash_str).hexdigest()
 
+
 def simple_hashing_str_list_blake2b(hash_str_list):
     h = hashlib.blake2b()
     for item in hash_str_list:
         h.update(item)
     return h.hexdigest()
 
+
+def key_hashing_str_using_blak22b(hash_str, key_str):
+    h = hashlib.blake2b(key=key_str, digest_size=20)
+    h.update(hash_str)
+    return h.hexdigest()
+
 print(simple_hashing_str_using_blake2b(b'hash me'))
 print(simple_hashing_str_list_blake2b([b'hash', b' ', b'me']))
+print(key_hashing_str_using_blak22b(b'hash me', b'hard key'))
+
+
+
 
 
 
