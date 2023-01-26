@@ -44,6 +44,27 @@ def hash_password_robust(hash_algo,password_str, salt_str):
 print(hash_password_robust('sha256', b'linaliu_password', b'bad salt'))
 print(hash_password_robust('sha256', b'linaliu_password', b'good salt'))
 
+# BLAKE2
+# BLAKE2 is  a cryptographic hash function defined in RFC 7693 that comes in two flavors
+# BLAKE2 support keyed mode(a faster and simpler replacement for HMAC), salted hashing,
+# personalization, and tree hashing
+
+
+def simple_hashing_str_using_blake2b(hash_str):
+    return hashlib.blake2b(hash_str).hexdigest()
+
+def simple_hashing_str_list_blake2b(hash_str_list):
+    h = hashlib.blake2b()
+    for item in hash_str_list:
+        h.update(item)
+    return h.hexdigest()
+
+print(simple_hashing_str_using_blake2b(b'hash me'))
+print(simple_hashing_str_list_blake2b([b'hash', b' ', b'me']))
+
+
+
+
 
 
 
