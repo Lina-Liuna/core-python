@@ -13,7 +13,21 @@ def get_hash_str_hex_digest(str):
     m.update(str)
     return m.hexdigest()
 
+def get_hash_str_digest_desired_algo(algo, str):
+    h = hashlib.new(algo)
+    h.update(str)
+    return h.hexdigest()
+
 str = b"Fortunate Perhaps Infantile"
 print(get_hash_str_hex_digest(str))
 print(get_hash_str_digest(str))
+print(hashlib.sha256(str).digest())
+print(get_hash_str_digest_desired_algo('sha1', str))
+print(get_hash_str_digest_desired_algo('sha224', str))
+print(get_hash_str_digest_desired_algo('sha256', str))
+print(get_hash_str_digest_desired_algo('md5', str))
+
+
+
+
 
