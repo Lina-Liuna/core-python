@@ -28,6 +28,25 @@ print(get_hash_str_digest_desired_algo('sha256', str))
 print(get_hash_str_digest_desired_algo('md5', str))
 
 
+# key derivation
+# key derivation and key stretching algorithms are designed for secure password hashing.
+# navie algorithms such as SHA1 are not resistant against brute-force attacks.
+# A good password hashing function must be tunable, slow, and include a salt.
+
+from hashlib import pbkdf2_hmac
+
+
+def hash_password_robust(hash_algo,password_str, salt_str):
+    our_app_iters = 500_000
+    dk = pbkdf2_hmac(hash_algo, password_str, salt_str * 2, our_app_iters)
+    return dk.hex()
+
+print(hash_password_robust('sha256', b'linaliu_password', b'bad salt'))
+print(hash_password_robust('sha256', b'linaliu_password', b'good salt'))
+
+
+
+
 
 
 
