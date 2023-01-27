@@ -39,3 +39,11 @@ if (names := restaurant_votes.get(key)) is None:
     restaurant_votes[key] = names = []
     names.append(who)
 
+# the dict provides the setdefault method to help shorten this pattern
+# setdefault tries to fetch the value of a key in the dictionary,
+# if the key isn't present, the method assigns that key to default value provided.
+# the setdefault returns the value of that key.
+
+names = restaurant_votes.setdefault(key, [])
+names.append(who)
+
