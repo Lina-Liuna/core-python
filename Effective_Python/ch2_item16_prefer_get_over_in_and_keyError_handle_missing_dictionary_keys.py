@@ -47,3 +47,14 @@ if (names := restaurant_votes.get(key)) is None:
 names = restaurant_votes.setdefault(key, [])
 names.append(who)
 
+# side-effect of setdefault:
+# the default value passed to setdefault is assigned directly into the dictionary when the key is missing instead of
+# being copied.
+data = {}
+key = 'tricky'
+value = []
+data.setdefault(key, value)
+print('before:', data)
+value.append('tricky setdefault')
+print('after:', data)
+
