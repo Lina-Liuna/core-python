@@ -5,7 +5,16 @@
 
 # The contents of dictionaries are dynamic, and thus it's entirely possible - even likely -- when you try to access or
 # delete a key, it won't already be present.
+import collections
 
+# Counter class in collections, counter will hod the count of each of the elements present in the container,
+
+# The counter holds the data in an unordered collection, just like hashable objects,
+# the elements here represent the keys and the count as values
+# counter class allows you to count the items in  an iterable list.
+# arithmetic operations like addition, subtraction, intersection, and union can be easily performed on a counter
+
+counter_class = collections.Counter()
 
 restaurant_counters = {
     'kio palace': 5,
