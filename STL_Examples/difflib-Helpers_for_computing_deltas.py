@@ -99,3 +99,22 @@ pprint(result)
 
 import sys
 sys.stdout.writelines(result)
+
+
+str1 = 'BIT_AND'
+strlist = ['bit_count','bit_and', 'bitand','bit_or', 'bit_not', 'bit_xor']
+
+def close_match(word, word_list):
+    word = word.lower()
+    res = difflib.get_close_matches(word, word_list)
+    high_r = 0
+    high_match_word = str()
+    for w in res:
+        r = difflib.SequenceMatcher(None, word, w).ratio()
+        print(word, w, r)
+        if high_r < r:
+            high_r = r
+            high_match_word = w
+    return high_match_word
+
+print(close_match(str1, strlist))
