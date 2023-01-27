@@ -26,3 +26,7 @@ def generate_10_alphanumberic_lowercase_upercase_digit_inside():
 
 print(generate_10_alphanumberic_lowercase_upercase_digit_inside())
 
+def generate_url_safe():
+    url = 'https://example.com/reset=' + secrets.token_urlsafe()
+    return url
+print(generate_url_safe())
