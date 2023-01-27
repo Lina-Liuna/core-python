@@ -27,3 +27,15 @@ count = restaurant_counters.get(key, 0)
 restaurant_counters[key] = count + 1
 print(restaurant_counters.items())
 
+restaurant_votes = {
+    'koi palace': ['Nathan', 'Alice'],
+    'Imperial Delight': ['Ali', 'Joe'],
+}
+
+key = 'peking delight'
+who = 'Kevin'
+
+if (names := restaurant_votes.get(key)) is None:
+    restaurant_votes[key] = names = []
+    names.append(who)
+
