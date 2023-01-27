@@ -58,3 +58,13 @@ print('before:', data)
 value.append('tricky setdefault')
 print('after:', data)
 
+# Things to remember:
+# There are four common ways to detect and handle missing keys in dictionary: using in , keyError,
+# get method, setdefault method
+
+# the get method is best for dict that contain basic types like counters, and it is preferable along with assignment
+# expressions when creating dictionary values has a high cost or may raise exceptions
+
+# when the setdefault method of dict seems like the best fit for your problem,
+# you should consider using defaultdict instead
+

@@ -151,6 +151,16 @@ Explicitly check for the dict type at runtime
 require dict types using type annotations and static analysis.
 
 #### item 16: Prefer get Over in and KeyError to Handle Missing Dictionary keys
+##### Things to remember:
+
+There are four common ways to detect and handle missing keys in dictionary: using in , keyError,
+get method, setdefault method
+
+the get method is best for dict that contain basic types like counters, and it is preferable along with assignment 
+expressions when creating dictionary values has a high cost or may raise exceptions
+
+when the setdefault method of dict seems like the best fit for your problem, 
+you should consider using defaultdict instead
 
 #### item 17: Prefer defaultdict over setdefault to handle missing items in internal state
 
