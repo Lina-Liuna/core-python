@@ -182,6 +182,31 @@ value depend on the key being accessed.
 You can define your own dict subclass with a __missing__ method in order to construct default values that must know
 which key was being accessed.
 
+### CH 3 Functions
+#### item 19: Never Unpack More Than Three Variables When Functions Return Multiple Values
+#### item 20: Prefer Raising Exceptions to Returning None
+#### item 21: Know How Closures Interact with Variable Scope
+#### item 22: Reduce Visual Noise with Variable Positional Arguments
+#### item 23; Provide Optional Behavior with keyword Arguments
+#### item 24: Use None and Docstrings to Specify Dynamic Default Arguments
+#### item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
+#### item 26: Define Function Decorators with functools.wraps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
