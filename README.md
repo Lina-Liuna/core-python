@@ -172,6 +172,15 @@ If a dictionary of arbitrary keys is passed to you, and you don't control its cr
 the get method to access its items. consider using the setdefault methods it leads to short code.
 
 #### item 18: Know how to construct key-dependent default values with __missing__
+##### Things to remember:
+the setdefault method of dict is a bad fit when creating the default value has high computational cost or 
+may raise exceptions.
+
+The function passed to defaultdict must be not require any arguments, which makes it impossible to have he default 
+value depend on the key being accessed.
+
+You can define your own dict subclass with a __missing__ method in order to construct default values that must know
+which key was being accessed.
 
 ### 2. The Python Standard Library
 

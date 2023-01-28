@@ -17,7 +17,7 @@ def open_pictures(profile_path):
 
 
 class Pictures(dict):
-    def __missing__(self, key):
+    def __missing__(self, key):       # __missing_method create the new default value for the keys, insert it into dict.
         value = open_pictures(key)
         self[key] = value
         return value
@@ -39,3 +39,13 @@ handle = pictures[path]
 handle.seek(0)
 image_data = handle.read()
 print(image_data)
+
+# Things to remember:
+# the setdefault method of dict is a bad fit when creating the default value has high computational cost or
+# may raise exceptions.
+
+# The function passed to defaultdict must be not require any arguments, which makes it impossible to have he default
+# value depend on the key being accessed.
+
+# You can define your own dict subclass with a __missing__ method in order to construct default values that must know
+# which key was being accessed.
