@@ -15,3 +15,10 @@ visits = Visits()
 visits.add('China', 'Shanghai')
 visits.add('China', 'Beijing')
 print(visits.data)
+
+# Things to remember:
+# If you are creating a dictionary to manage an arbitrary set of potential keys, then you should prefer using
+# defaultdict instance from the collections
+
+# If a dictionary of arbitrary keys is passed to you, and you don't control its creation, then you should prefer
+# the get method to access its items. consider using the setdefault methods it leads to short code.

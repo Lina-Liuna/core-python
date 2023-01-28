@@ -163,6 +163,13 @@ when the setdefault method of dict seems like the best fit for your problem,
 you should consider using defaultdict instead
 
 #### item 17: Prefer defaultdict over setdefault to handle missing items in internal state
+##### Things to remember:
+
+If you are creating a dictionary to manage an arbitrary set of potential keys, then you should prefer using 
+defaultdict instance from the collections
+
+If a dictionary of arbitrary keys is passed to you, and you don't control its creation, then you should prefer 
+the get method to access its items. consider using the setdefault methods it leads to short code.
 
 #### item 18: Know how to construct key-dependent default values with __missing__
 
