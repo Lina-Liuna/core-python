@@ -184,6 +184,15 @@ which key was being accessed.
 
 ### CH 3 Functions
 #### item 19: Never Unpack More Than Three Variables When Functions Return Multiple Values
+##### Things to remember:
+
+You can have functions return multiple values by putting them in a tuple and having the caller take advantage of 
+Pythons' unpacking syntax.
+
+Multiple return values from a function can also be unpacked by catch-all starred expressions.
+
+Unpacking into four or more variables is error prone and should be avoided, instead return a small class or namedtuple instance.
+
 #### item 20: Prefer Raising Exceptions to Returning None
 #### item 21: Know How Closures Interact with Variable Scope
 #### item 22: Reduce Visual Noise with Variable Positional Arguments

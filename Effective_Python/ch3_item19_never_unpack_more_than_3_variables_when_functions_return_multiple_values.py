@@ -26,3 +26,13 @@ longest, *middle, shortest = get_avg_ratio(number_list)
 print(f'longest: {longest:>4.0%}')
 print(f'shortest:{shortest:>4.0%}')
 
+# Things to remember:
+# You can have functions return multiple values by putting them in a tuple and having the caller take advantage of
+# Pythons' unpacking syntax.
+
+# Multiple return values from a function can also be unpacked by catch-all starred expressions.
+
+# Unpacking into four or more variables is error prone and should be avoided, instead return a small class or namedtuple instance.
+
+
+
