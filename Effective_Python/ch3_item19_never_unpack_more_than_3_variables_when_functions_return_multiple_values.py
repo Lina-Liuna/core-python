@@ -35,4 +35,38 @@ print(f'shortest:{shortest:>4.0%}')
 # Unpacking into four or more variables is error prone and should be avoided, instead return a small class or namedtuple instance.
 
 
+# namedtuple examples
+# namedtuple() Factory function for tuples with named fields
+# Named tuples assign meaning to each position in a tuple and allow for more readable, self documenting code.
+import collections
+# Basic Examples
+Point = collections.namedtuple('Point', ['a', 'b'])
+p = Point(10, 11)
+print(p[0] + p[1])
+print(p.a + p.b)
+print(p)
+
+
+# namedtuple.fields, tuple of strings listing the field names.
+# Useful for introspection and for creating new named tuple types from existing named tuples.
+# Basic Examples
+Point = collections.namedtuple('Point', ['a', 'b'])
+p = Point(10, 11)
+Color = collections.namedtuple('Color', 'white yellow green')
+Pixel = collections.namedtuple('Pixel', Point._fields + Color._fields)
+print(Pixel(11, 22, 255, 255, 255))
+
+
+# using _fields to simply create a new named tuple typ from the _field attributes
+Point3D = collections.namedtuple('Point3D', Point._fields + ('z',))
+
+# __doc__ can be customized by making direct assignments to the __doc__ fields
+Book = collections.namedtuple('Book', ['id', 'title', 'authors'])
+Book.__doc__ += ': Hardcover book'
+Book.id.__doc__ = '13-digit ISBN'
+Book.title.__doc__ = 'Title'
+Book.authors.__doc__ = 'Authors'
+
+print(Book("1234567890123", 'The subtle Art of Noting Giving A F', 'Mark Manson'))
+
 
