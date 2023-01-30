@@ -30,6 +30,13 @@ print(time.strftime(s,time.gmtime()))
 s = '%a %b %d %H:%M:%S %Y'
 print(time.strptime('30 Jan 23', '%d %b %y'))
 
+os.environ['TZ'] = 'EST+05EDT,M4.1.0,M10.5.0'
+time.tzset()
+print(time.strftime('%X %x %z'))
+
+os.environ['TZ'] = 'AEST-10AEDT-11,M10.5.0,M3.5.0'
+time.tzset()
+print(time.strftime('%X %x %z'))
 
 
 
