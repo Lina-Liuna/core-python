@@ -38,5 +38,13 @@ os.environ['TZ'] = 'AEST-10AEDT-11,M10.5.0,M3.5.0'
 time.tzset()
 print(time.strftime('%X %x %z'))
 
+os.environ['TZ'] = 'US/Eastern'
+time.tzset()
+print(time.strftime('%X %x %z'))
 
+os.environ['TZ'] = 'Egypt'
+time.tzset()
+print(time.strftime('%X %x %z'))
 
+zoneinfo_list = os.listdir('/usr/share/zoneinfo/')
+print(zoneinfo_list)
