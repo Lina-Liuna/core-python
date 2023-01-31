@@ -9,3 +9,20 @@
 
 # the return two-tuple  problem: callers of this function have to unpack the tuple, callers can easily ignore the first
 # part of the tuple.
+
+# the second better way to reduce these errors is to never return None for special cases.
+# Instead, raise an exception up to the caller and have the caller deal with it.
+
+# Input, Output, and exceptional behavior is clear, and the chance of a caller doing the wrong thing is extremely low.
+def careful_divide(a: float, b: float) -> float:
+    """
+    Raises:
+        ValueError: When the inputs cannot be devided
+    """
+    try:
+        return a / b
+    except ZeroDivisionError as e:
+        raise ValueError('Invalid inputs')
+
+
+
