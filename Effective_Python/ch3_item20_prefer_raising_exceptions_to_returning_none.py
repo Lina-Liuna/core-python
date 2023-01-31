@@ -7,3 +7,5 @@
 # The first way: split the return value into a two-tuple, the first part of the tuple
 # indicates that the operation was a success or failure, the second part is the actual result that was computed.
 
+# the return two-tuple  problem: callers of this function have to unpack the tuple, callers can easily ignore the first
+# part of the tuple.
