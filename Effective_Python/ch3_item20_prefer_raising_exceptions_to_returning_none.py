@@ -25,4 +25,13 @@ def careful_divide(a: float, b: float) -> float:
         raise ValueError('Invalid inputs')
 
 
+# Things to remember:
+# Functions that return None to indicate special meaning are error prone because None and other values
+# Error Prone: zero and empty string all evaluate to False in conditional expressions
+
+# Raise exceptions to indicate special situations instead of returning None.
+
+# Type annotations can be used to make it clear that a function will never return the value None, even in special situations
+
+
 

@@ -194,6 +194,14 @@ Multiple return values from a function can also be unpacked by catch-all starred
 Unpacking into four or more variables is error prone and should be avoided, instead return a small class or namedtuple instance.
 
 #### item 20: Prefer Raising Exceptions to Returning None
+Things to remember:
+Functions that return None to indicate special meaning are error prone because None and other values 
+Error Prone: zero and empty string all evaluate to False in conditional expressions
+
+Raise exceptions to indicate special situations instead of returning None.
+
+Type annotations can be used to make it clear that a function will never return the value None, even in special situations
+
 #### item 21: Know How Closures Interact with Variable Scope
 #### item 22: Reduce Visual Noise with Variable Positional Arguments
 #### item 23; Provide Optional Behavior with keyword Arguments
