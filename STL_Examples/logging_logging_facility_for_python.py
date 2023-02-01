@@ -4,6 +4,9 @@
 
 import logging
 
+test_logger = logging.getLogger()
+test_logger.setLevel('INFO')
+test_logger.setLevel('DEBUG')
 logging.warning('watch out!')
 logging.info('Good Morning, From Lina Liu')
 logging.debug('dig into details')
