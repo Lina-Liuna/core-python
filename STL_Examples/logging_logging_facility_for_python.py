@@ -11,3 +11,10 @@ logging.warning('watch out!')
 logging.info('Good Morning, From Lina Liu')
 logging.debug('dig into details')
 logging.error('There is no eggs in refrigerator!')
+
+FORMAT = '%(asctime)s %(clientip)-15s %(user)-8s %(message)s'
+logging.basicConfig(format=FORMAT)
+d = {'clientip': '192.168.0.1', 'user': 'fbloggs'}
+logger = logging.getLogger('tcpserver')
+logger.warning('Protocol problem: %s', 'connection reset', extra=d)
+
