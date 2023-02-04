@@ -113,6 +113,13 @@ numbers.sort(key=sorter)
 print(numbers)
 assert sorter.found is True
 
+# Things to remember:
+# 1. Closure functions can refer to variables from any of the scopes in which they were defined
+# 2. By default, closures can't affect enclosing scopes by assigning variales.
+# 3. Use the nonlocal statement to indicate when a closure can modify a variable in its enclosing scopes
+# 4. Avoid using nonlocal statements for anything beyond simple functions.
+
+
 
 
 

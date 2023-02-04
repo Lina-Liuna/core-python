@@ -203,25 +203,17 @@ Raise exceptions to indicate special situations instead of returning None.
 Type annotations can be used to make it clear that a function will never return the value None, even in special situations
 
 #### item 21: Know How Closures Interact with Variable Scope
+##### Things to remember:
+1. Closure functions can refer to variables from any of the scopes in which they were defined
+2. By default, closures can't affect enclosing scopes by assigning variales.
+3. Use the nonlocal statement to indicate when a closure can modify a variable in its enclosing scopes
+4. Avoid using nonlocal statements for anything beyond simple functions.
+
 #### item 22: Reduce Visual Noise with Variable Positional Arguments
 #### item 23; Provide Optional Behavior with keyword Arguments
 #### item 24: Use None and Docstrings to Specify Dynamic Default Arguments
 #### item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
 #### item 26: Define Function Decorators with functools.wraps
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ### 2. The Python Standard Library
