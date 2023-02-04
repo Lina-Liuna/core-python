@@ -69,7 +69,26 @@ print(numbers)
 # 3. The scope of the module that contains the code.(also calaled the global scope)
 # 4. The built-in scope( that contains functions like len and str)
 
+# Solution to solve the flip flag not worked issue:
+# In python, there is special syntax for getting data out of a closure.
+# The nonlocal statement
+# The only limit of nonlocal is that nonlocal won't traverse up to the module-level scope(to avoid polluting globals)
 
+def sort_priority3(numbers, group):
+    found = False
+    def helper(x):
+        nonlocal found
+        if x in group:
+            found = True
+            return (0, x)
+        return (1, x)
+    numbers.sort(key=helper)
+    return found
+
+numbers = [5,3,6,8,9,0,2]
+group = {3,8,9,6}
+print(sort_priority3(numbers, group))
+print(numbers)
 
 
 
