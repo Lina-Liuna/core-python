@@ -90,6 +90,30 @@ group = {3,8,9,6}
 print(sort_priority3(numbers, group))
 print(numbers)
 
+# the side effects of nonlocal can be hard to follow. it's especially hard to understand in long functions where
+# the nonlocal statements and assignments to associated variables are far apart.
+
+# when your usage of nonlocal starts getting complicated, it's better to wrap your statement in a helper class.
+
+class Sorter:
+    def __init__(self, group):
+        self.group = group
+        self.found = False
+
+    def __call__(self, x):
+        if x in self.group:
+            self.found = True
+            return (0, x)
+        return (1, x)
+
+numbers = [5,3,6,8,9,0,2]
+group = {3,8,9,6}
+sorter = Sorter(group)
+numbers.sort(key=sorter)
+print(numbers)
+assert sorter.found is True
+
+
 
 
 
