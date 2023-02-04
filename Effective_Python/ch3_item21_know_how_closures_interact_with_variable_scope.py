@@ -46,10 +46,10 @@ print(numbers)
 # Then the function can return the flag value after it's been modified by the closure.
 
 def sort_priority2(numbers, group):
-    found = False
+    found = False          # Scope: `sort_priority2`
     def helper(x):
         if x in group:
-            found = True
+            found = True    # Scope: `helper` -- bad
             return (0, x)
         return (1, x)
     numbers.sort(key=helper)
@@ -59,6 +59,18 @@ numbers = [5,3,6,8,9,0,2]
 group = {3,8,9,6}
 print(sort_priority2(numbers, group))
 print(numbers)
+
+# The problem:
+# Why the found flip flag not worked as we expected?
+# When you reference a variable in an expression, the python interpreter traverses the scope to resolve the reference
+# in this order:
+# 1. the current function's scope.
+# 2. Any enclosing scopes(such as other containing functions)
+# 3. The scope of the module that contains the code.(also calaled the global scope)
+# 4. The built-in scope( that contains functions like len and str)
+
+
+
 
 
 
