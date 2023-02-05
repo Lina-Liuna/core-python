@@ -29,3 +29,12 @@ def log(message, *values):
 
 log('Dairy log: Today is Sunday, time is', [5, 43])
 log('Dairy log: Raining outside currently')
+
+# star argus syntax works very similarly to the starred expressions used in unpacking assignment statements.
+
+# If I already have a sequence(list a list) and want to call a variable function like log, I can do this by using
+# the * operator.
+# pass the * operator in input arguments instruct python to pass items from the sequence as positional arguments to
+# the function
+log_number = [2,3,5,7]
+log('Dairy log: log number', *log_number)
