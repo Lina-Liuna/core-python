@@ -87,6 +87,12 @@ log('good morning',2,5)
 # 2. using type annotations
 # item 90: consider static analysis via  typing to obviate bugs.
 
+# Things to remember:
+# 1. Functions can accept a variable number of positional arguments by using *args in the def statement.
+# 2. You can use the items from a sequence as the positional arguments for a function with the * operator.
+# 3. Using the * operator with a generator may cause a program to run out of memory and crash.
+# 4. Adding new positional parameters to functions that accept *args can introduce hard-to-detect bugs.
+
 
 
 

@@ -210,6 +210,12 @@ Type annotations can be used to make it clear that a function will never return 
 4. Avoid using nonlocal statements for anything beyond simple functions.
 
 #### item 22: Reduce Visual Noise with Variable Positional Arguments
+##### Things to remember:
+1. Functions can accept a variable number of positional arguments by using *args in the def statement.
+2. You can use the items from a sequence as the positional arguments for a function with the * operator.
+3. Using the * operator with a generator may cause a program to run out of memory and crash.
+4. Adding new positional parameters to functions that accept *args can introduce hard-to-detect bugs.
+
 #### item 23; Provide Optional Behavior with keyword Arguments
 #### item 24: Use None and Docstrings to Specify Dynamic Default Arguments
 #### item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
