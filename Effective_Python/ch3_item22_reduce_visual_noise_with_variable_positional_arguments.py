@@ -81,6 +81,15 @@ log('good morning',2,5)
 # log('Dairy log: Raining outside currently') this not worked!!!!!!!
 
 
+# How to avoid this:
+# 1. use keyword-only arguments when you want to extend functions that accept *args
+# item 25: enforce clarity with keyword-only and positional-only arguments
+# 2. using type annotations
+# item 90: consider static analysis via  typing to obviate bugs.
+
+
+
+
 
 
 
