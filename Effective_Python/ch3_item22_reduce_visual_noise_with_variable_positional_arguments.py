@@ -38,3 +38,56 @@ log('Dairy log: Raining outside currently')
 # the function
 log_number = [2,3,5,7]
 log('Dairy log: log number', *log_number)
+
+# There are two problems with accepting a variable number of positional arguments.
+# 1. these optional positional arguments are always turned into a tuple before they are passed to a function
+# this means that if the caller of  a function use the *operator on a generator, it will be iterated until it's exhausted.
+# The resulting tuple includes every value from the generator, which could consume a lot of memory and
+# cause the program to crash.
+
+def my_generator():
+    # for i in range(100000000):  # The truth is it takes a long time but not crash....
+    for i in range(1000):
+        yield  i
+
+def my_func(*args):
+    print(args)
+
+it = my_generator()
+my_func(*it)
+
+# Function that accept the *args are best for situations where you know the number of inputs in argument list will
+# be reasonably small.
+
+# *args is ideal for function calls that pass many literals or variable names together, for readability of the code.
+
+# the second issue with *args: you can not add new positional arguments to a function in the future without
+# migrating every caller.
+
+# if you try to add a positional argument in the front of the argument list, existing callers will subtly break if
+# they are not updated.
+
+def log(sequence, message, *values):
+    if not values:
+        print(f'{sequence}-{message}')
+    else:
+        value_str = (':').join(str(x) for x in values)
+        print(f'{sequence}-{message}:{value_str}')
+
+
+log(1, 'hi there')
+log('Dairy log: log number', *log_number)
+log('good morning',2,5)
+# log('Dairy log: Raining outside currently') this not worked!!!!!!!
+
+
+
+
+
+
+
+
+
+
+
+
