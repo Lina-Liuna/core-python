@@ -15,4 +15,7 @@ print(c_s.value)
 i = ctypes.c_int(43)
 pi = ctypes.pointer(i)
 # print(pi, *pi) sigment fault
+print(pi, pi.contents, pi[0]) # takes a long time to run
+
+
 
