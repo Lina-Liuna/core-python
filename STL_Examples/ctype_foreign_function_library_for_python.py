@@ -10,3 +10,9 @@ print(ctypes.c_wchar_p("Good Morning, today is Feb 6, 2023, 06:33"))
 s = "Good Morning, today is Feb 6, 2023, 06:33"
 c_s = ctypes.c_wchar_p(s)
 print(c_s.value)
+
+# calling c pointers
+i = ctypes.c_int(43)
+pi = ctypes.pointer(i)
+# print(pi, *pi) sigment fault
+
