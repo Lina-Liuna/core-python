@@ -36,3 +36,17 @@ def print_fruit(**kwargs):
 #print_fruit(**fruit_count)
 
 print_fruit(cherry=1.5, raspberry=9, blackberry=6)
+
+# give keyword argument a default value can make it optional
+
+def flow_rate(weight_diff, time_diff, period=1):
+    return (weight_diff / time_diff) * period
+weight_diff = 0.5
+time_diff = 3
+flow_per_second = flow_rate(weight_diff, time_diff)
+flow_per_hour = flow_rate(weight_diff, time_diff, period=3600)
+
+
+
+
+
