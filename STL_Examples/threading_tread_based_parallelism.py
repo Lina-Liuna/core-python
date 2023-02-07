@@ -10,4 +10,10 @@
 # asyncio offers an alternative approach to achieving task level concurrency without requiring the use of
 # multiple operating system threads.
 
-#
+import threading
+
+# thread-local data
+# thread-local data is data whose values are thread specific.
+
+mydata = threading.local
+mydata = 4
