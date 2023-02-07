@@ -21,3 +21,18 @@ acronym_words = {
     'meaning': 'For your information',
 }
 words(**acronym_words)
+
+
+fruit_count = {
+    'apple' : 3,
+    'blueberry': 200,
+    'strawberry': 10,
+}
+
+def print_fruit(**kwargs):
+    for key, value in kwargs.items():
+        print(f'{key}={value}')
+
+#print_fruit(**fruit_count)
+
+print_fruit(cherry=1.5, raspberry=9, blackberry=6)
