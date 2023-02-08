@@ -82,20 +82,40 @@ def f_lock(l, i):
     finally:
         l.release()
 
+ # ERROR: self._semlock = _multiprocessing.SemLock._rebuild(*state) FileNotFoundError: [Errno 2] No such file or directory
 def sychronization_lock():
     lock = mp.Lock()
 
     for num in range(10):
         mp.Process(target=f_lock, args=(lock, num)).start()
 
+# Sharing state between processes
+# shared memory:
+# Data can be stored in a shared memory map using Value or Array.
+def f_shared(n, a):
+    n.value = 3.1415927
+    for i in range(len(a)):
+        a[i] = -a[i]
+
+def sharing_state_shared_memory():
+    num = mp.Value('d', 0.0)
+    arr = mp.Array('i', range(10))
+
+    p = mp.Process(target=f_shared, args=(num, arr))
+    p.start()
+    p.join()
+
+    print(num.value)
+    print(arr[:])
+
 if __name__ == '__main__':         # must contain this line!!!!
     # parallelism_with_pool()
     # use_set_start_method()
     # use_get_context()
     # exchanging_object_queue()
-    exchanging_object_pipes()
+    # exchanging_object_pipes()
     # sychronization_lock()  # ERROR: self._semlock = _multiprocessing.SemLock._rebuild(*state) FileNotFoundError: [Errno 2] No such file or directory
-
+    sharing_state_shared_memory()
 
 
 
