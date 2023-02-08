@@ -53,6 +53,8 @@ def use_get_context():
 
 
 # Exchanging objects between processes
+# multiprocessing supports two types of communication channel between processes:
+# Queues are thread and process safe.
 
 def exchanging_object_queue():
     q = mp.Queue()
@@ -68,12 +70,31 @@ def exchanging_object_pipes():
     print(parent_conn.recv())   # prints "[42, None, 'hello']"
     p.join()
 
+
+
+# Synchronization between processes:
+# How to use lock to ensure that only one process prints to standard output at a time.
+
+def f_lock(l, i):
+    l.acquire()
+    try:
+        print('hello world', i)
+    finally:
+        l.release()
+
+def sychronization_lock():
+    lock = mp.Lock()
+
+    for num in range(10):
+        mp.Process(target=f_lock, args=(lock, num)).start()
+
 if __name__ == '__main__':         # must contain this line!!!!
     # parallelism_with_pool()
     # use_set_start_method()
     # use_get_context()
     # exchanging_object_queue()
     exchanging_object_pipes()
+    # sychronization_lock()  # ERROR: self._semlock = _multiprocessing.SemLock._rebuild(*state) FileNotFoundError: [Errno 2] No such file or directory
 
 
 
