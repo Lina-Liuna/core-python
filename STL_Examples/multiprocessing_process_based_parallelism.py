@@ -20,6 +20,13 @@ def parallelism_with_pool():
     with mp.Pool(5) as p:
         print(p.map(f, [1,2,3,4,5,6,7,8,9]))
 
+def f_q(q):
+    q.put([42, None, 'hello'])
+
+def f_pipes(conn):
+    conn.send([42, None, 'hello'])
+    conn.close()
+
 # multiprocessing supports 3 ways to start a process.
 # 1. spawn:
 # 2. fork:
@@ -44,10 +51,30 @@ def use_get_context():
     print(q.get())
     p.join()
 
+
+# Exchanging objects between processes
+
+def exchanging_object_queue():
+    q = mp.Queue()
+    p = mp.Process(target=f_q, args=(q,))
+    p.start()
+    print(q.get())    # prints "[42, None, 'hello']"
+    p.join()
+
+def exchanging_object_pipes():
+    parent_conn, child_conn = mp.Pipe()
+    p = mp.Process(target=f_pipes, args=(child_conn,))
+    p.start()
+    print(parent_conn.recv())   # prints "[42, None, 'hello']"
+    p.join()
+
 if __name__ == '__main__':         # must contain this line!!!!
     # parallelism_with_pool()
     # use_set_start_method()
-    use_get_context()
+    # use_get_context()
+    # exchanging_object_queue()
+    exchanging_object_pipes()
+
 
 
 
