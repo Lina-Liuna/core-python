@@ -15,3 +15,12 @@ def f(x):
 if __name__ == '__main__':         # must contain this line!!!!
     with multiprocessing.Pool(5) as p:
         print(p.map(f, [1,2,3,4,5,6,7,8,9]))
+
+# multiprocessing supports 3 ways to start a process.
+# 1. spawn:
+# 2. fork:
+# 3. forkserver:
+
+# 1. spawn: inherit limited resources, slow compared to using fork or forkserver
+# 2. fork: use os.fork() is identical to the parent process, how to safely forking is problematic
+# 3. forkserver: whenever needed, the parent process connects to the server and request that it fork a new process.f
