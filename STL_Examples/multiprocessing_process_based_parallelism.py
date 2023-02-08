@@ -108,6 +108,25 @@ def sharing_state_shared_memory():
     print(num.value)
     print(arr[:])
 
+# Server process to share data
+def f_server(d, l):
+    d[1] = '1'
+    d['2'] = 2
+    d[0.25] = None
+    l.reverse()
+
+def sharing_data_server_process():
+    with mp.Manager() as manager:
+        d = manager.dict()
+        l = manager.list(range(10))
+
+        p = mp.Process(target=f_server, args=(d, l))
+        p.start()
+        p.join()
+
+        print(d)
+        print(l)
+
 if __name__ == '__main__':         # must contain this line!!!!
     # parallelism_with_pool()
     # use_set_start_method()
@@ -115,7 +134,8 @@ if __name__ == '__main__':         # must contain this line!!!!
     # exchanging_object_queue()
     # exchanging_object_pipes()
     # sychronization_lock()  # ERROR: self._semlock = _multiprocessing.SemLock._rebuild(*state) FileNotFoundError: [Errno 2] No such file or directory
-    sharing_state_shared_memory()
+    # sharing_state_shared_memory()
+    sharing_data_server_process()
 
 
 
