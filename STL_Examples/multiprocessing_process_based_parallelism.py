@@ -36,9 +36,18 @@ def use_set_start_method():
     print(q.get())
     p.join()
 
+def use_get_context():
+    ctx = mp.get_context('fork')
+    q = ctx.Queue()
+    p = ctx.Process(target=foo, args=(q,))
+    p.start()
+    print(q.get())
+    p.join()
+
 if __name__ == '__main__':         # must contain this line!!!!
-    #parallelism_with_pool()
-    use_set_start_method()
+    # parallelism_with_pool()
+    # use_set_start_method()
+    use_get_context()
 
 
 
