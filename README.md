@@ -216,7 +216,13 @@ Type annotations can be used to make it clear that a function will never return 
 3. Using the * operator with a generator may cause a program to run out of memory and crash.
 4. Adding new positional parameters to functions that accept *args can introduce hard-to-detect bugs.
 
-#### item 23; Provide Optional Behavior with keyword Arguments
+#### item 23: Provide Optional Behavior with keyword Arguments
+##### Things to remember:
+# 1. Function arguments can be specified by position or by keyword
+# 2. keyword make it clear what the purpose of each argument is when it would be confusing with only positional argument.
+# 3. keyword arguments with default values make it easy to add new behaviors to a function without needing to migrate 
+# all existing calls.
+# 4. Optional keyword arguments should always be passed by keyword instead of by position.
 #### item 24: Use None and Docstrings to Specify Dynamic Default Arguments
 #### item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
 #### item 26: Define Function Decorators with functools.wraps

@@ -46,6 +46,12 @@ time_diff = 3
 flow_per_second = flow_rate(weight_diff, time_diff)
 flow_per_hour = flow_rate(weight_diff, time_diff, period=3600)
 
+# Things to remember:
+# 1. Function arguments can be specified by position or by keyword
+# 2. keyword make it clear what the purpose of each argument is when it would be confusing with only positional argument.
+# 3. keyword arguments with default values make it easy to add new behaviors to a function without needing to migrate
+# all existing calls.
+# 4. Optional keyword arguments should always be passed by keyword instead of by position.
 
 
 
