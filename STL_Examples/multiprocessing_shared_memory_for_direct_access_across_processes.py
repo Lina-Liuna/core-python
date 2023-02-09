@@ -37,5 +37,8 @@ def low_level_use_of_SharedMemory():
     shm_b.buf[:5] = b'howdy'
     print(bytes(shm_b.buf[:10]))
     print(bytes(shm_a.buf[:10]))
+    shm_b.close()
+    shm_a.close()
+    shm_a.unlink()
 
 low_level_use_of_SharedMemory()
