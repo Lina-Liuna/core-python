@@ -12,7 +12,7 @@
 # containing that data.
 
 # Sharing data directly via memory can provide significant performance benefits compared to sharing data via disk.
-import multiprocessing as mp
+import multiprocessing
 from multiprocessing.shared_memory import SharedMemory
 
 # low-level use of SharedMemory instances:
@@ -40,7 +40,7 @@ def low_level_use_of_SharedMemory():
     shm_b.close()
     shm_a.close()
     shm_a.unlink()
-low_level_use_of_SharedMemory()
+# low_level_use_of_SharedMemory()
 
 import numpy as np
 
@@ -65,8 +65,18 @@ def shared_memory_with_numpy():
     shm.close()
     shm.unlink()
 
-shared_memory_with_numpy()
+# shared_memory_with_numpy()
 
+# basic mechanism of a SharedMemoryManager:
+from multiprocessing.managers import SharedMemoryManager
+
+def shared_memory_manager_func():
+    smm = SharedMemoryManager()
+    smm.start()  # Start the process that manages the shared memory blocks
+    sl = smm.ShareableList(range(4))
+    # print(sl)
+
+# shared_memory_manager_func()   # Error happened
 
 
 
