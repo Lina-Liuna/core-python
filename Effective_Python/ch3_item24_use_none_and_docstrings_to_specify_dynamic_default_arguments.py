@@ -18,3 +18,12 @@ log('lina liu login again')        # time in log message not changed!!!
 # A default argument value is evaluated only once per module load, which usually happens when a program starts up.
 # After the module containing this code is loaded, the datetime.now() default argument will never be evaluated again.
 
+def log(message, when=None):
+    if when is None:
+        when = datetime.datetime.now()
+        print(f'{when}: {message}')
+
+log('lina liu diary log info')
+time.sleep(0.3)
+log('lina liu login again')
+
