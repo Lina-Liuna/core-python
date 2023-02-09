@@ -40,5 +40,33 @@ def low_level_use_of_SharedMemory():
     shm_b.close()
     shm_a.close()
     shm_a.unlink()
-
 low_level_use_of_SharedMemory()
+
+import numpy as np
+
+def shared_memory_with_numpy():
+    a = np.array([1, 1, 2, 3, 5, 8])  # Start with an existing NumPy array
+    shm = SharedMemory(create=True, size=a.nbytes)
+    # Now create a NumPy array backed by shared memory
+    b = np.ndarray(a.shape, dtype=a.dtype, buffer=shm.buf)
+    b[:] = a[:]  # Copy the original data into shared memory
+    print(b)
+    print(type(b))
+    print(type(a))
+    print(shm.name)   # psm_ef7e100d
+
+    existing_shm = SharedMemory(name=shm.name)
+    c = np.ndarray((6,), dtype=np.int64, buffer=existing_shm.buf)
+    print(c)
+
+    del c
+    existing_shm.close()
+    del b
+    shm.close()
+    shm.unlink()
+
+shared_memory_with_numpy()
+
+
+
+
