@@ -40,7 +40,9 @@ def low_level_use_of_SharedMemory():
     shm_b.close()
     shm_a.close()
     shm_a.unlink()
-# low_level_use_of_SharedMemory()
+
+low_level_use_of_SharedMemory()
+
 
 import numpy as np
 
@@ -65,18 +67,35 @@ def shared_memory_with_numpy():
     shm.close()
     shm.unlink()
 
-# shared_memory_with_numpy()
+shared_memory_with_numpy()
 
 # basic mechanism of a SharedMemoryManager:
 from multiprocessing.managers import SharedMemoryManager
 
 def shared_memory_manager_func():
     smm = SharedMemoryManager()
-    smm.start()  # Start the process that manages the shared memory blocks
-    sl = smm.ShareableList(range(4))
-    # print(sl)
 
-# shared_memory_manager_func()   # Error happened
+    #smm.start()  # Start the process that manages the shared memory blocks, ERROR!!!!!!!!!
+    #sl = smm.ShareableList([1, 2,3,4])
+    # sl = smm.ShareableList(range(4))
+    #print(sl)
 
+shared_memory_manager_func()   # Error happened
 
+def do_work():
+    print('hello')
+
+def shared_memory_manager_example_2():
+    with SharedMemoryManager() as smm:
+        sl = smm.ShareableList(range(2000))
+        # Divide the work among two processes, storing partial results in sl
+        p1 = multiprocessing.Process(target=do_work, args=(sl, 0, 1000))
+        p2 = multiprocessing.Process(target=do_work, args=(sl, 1000, 2000))
+        p1.start()
+        p2.start()  # A multiprocessing.Pool might be more efficient
+        p1.join()
+        p2.join()  # Wait for all work to complete in both processes
+        total_result = sum(sl)  # Consolidate the partial results now in sl
+
+# shared_memory_manager_example_2()
 
