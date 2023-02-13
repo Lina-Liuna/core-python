@@ -26,6 +26,7 @@ def load_url(url, timeout):
     with urllib.request.urlopen(url, timeout=timeout) as conn:
         return conn.read()
 
+# The following two lines: resolve ssl SSL: CERTIFICATE_VERIFY_FAILED problem
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
