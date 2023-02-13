@@ -73,7 +73,7 @@ shared_memory_with_numpy()
 from multiprocessing.managers import SharedMemoryManager
 
 def shared_memory_manager_func():
-    smm = SharedMemoryManager()
+    smm = multiprocessing.managers.SharedMemoryManager()
 
     #smm.start()  # Start the process that manages the shared memory blocks, ERROR!!!!!!!!!
     #sl = smm.ShareableList([1, 2,3,4])
@@ -97,5 +97,20 @@ def shared_memory_manager_example_2():
         p2.join()  # Wait for all work to complete in both processes
         total_result = sum(sl)  # Consolidate the partial results now in sl
 
-# shared_memory_manager_example_2()
+#shared_memory_manager_example_2()
+
+def access_same_memory_by_same_name():
+    from multiprocessing import shared_memory
+
+    b = shared_memory.ShareableList(range(5))  # In a first process
+    c = shared_memory.ShareableList(name=b.shm.name)  # In a second process
+
+    shared_memory.ShareableList([0, 1, 2, 3, 4], name='...')
+
+    b.shm.close()
+    c.shm.close()
+    c.shm.unlink()
+
+access_same_memory_by_same_name()
+
 
