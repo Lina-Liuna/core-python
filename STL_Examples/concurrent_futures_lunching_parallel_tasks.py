@@ -26,6 +26,9 @@ def load_url(url, timeout):
     with urllib.request.urlopen(url, timeout=timeout) as conn:
         return conn.read()
 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 # We can use a with statement to ensure threads are cleaned up promptly
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
     # Start the load operations and mark each future with its URL
