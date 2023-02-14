@@ -276,5 +276,9 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 
+# The following two lines: resolve ssl SSL: CERTIFICATE_VERIFY_FAILED problem
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 
 
