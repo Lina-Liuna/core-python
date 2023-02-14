@@ -53,5 +53,13 @@ bar = decode('also bad')
 bar['meep'] = 1
 print(f'foo={foo}, bar={bar}')
 
+# The above problem: the dictionary specified for default will be shared by all calls to decode because default argument
+# values are evaluated only once.
+# So cause the so extremely surprising behavior.
+
+
+
+
+
 
 
