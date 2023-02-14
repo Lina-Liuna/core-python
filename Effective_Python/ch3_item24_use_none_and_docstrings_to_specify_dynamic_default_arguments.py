@@ -80,6 +80,18 @@ bar['meep'] = 1
 print('Foo:', foo)
 print('Bar:', bar)
 
+# Things to remember:
+# 1. A default argument value is evaluated only once: during function definition at module load time.
+# This can cause odd behaviors for dynamic values like {}, [], or datetime.now()
+
+# 2. Use None as the default value for any keyword argument that has a dynamic value.
+# Document the actual default behavior in the functions docstring.
+
+# 3. Using None to represent keyword argument default values also works correctly with type annotations.
+
+
+
+
 
 
 

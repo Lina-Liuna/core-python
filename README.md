@@ -223,7 +223,18 @@ Type annotations can be used to make it clear that a function will never return 
 3. keyword arguments with default values make it easy to add new behaviors to a function without needing to migrate 
 all existing calls.
 4. Optional keyword arguments should always be passed by keyword instead of by position.
+
 #### item 24: Use None and Docstrings to Specify Dynamic Default Arguments
+##### Things to remember:
+1. A default argument value is evaluated only once: during function definition at module load time.
+This can cause odd behaviors for dynamic values like {}, [], or datetime.now()
+
+2. Use None as the default value for any keyword argument that has a dynamic value.
+Document the actual default behavior in the functions docstring.
+
+3. Using None to represent keyword argument default values also works correctly with type annotations.
+
+
 #### item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
 #### item 26: Define Function Decorators with functools.wraps
 
