@@ -57,6 +57,32 @@ print(f'foo={foo}, bar={bar}')
 # values are evaluated only once.
 # So cause the so extremely surprising behavior.
 
+# The fix is to set the keyword argument default value to None and then document the behavior in the function's docstring
+
+def decode(data, default=None):
+    """Load JSON data from a string.
+    Args:
+        data: JSON data to decode.
+        default: Value to return if decoding fails.
+            Defaults to an empty dictionary.
+"""
+    try:
+        return json.loads(data)
+    except ValueError:
+        if default is None:
+            default = {}
+        return default
+
+foo = decode('bad data')
+foo['stuff'] = 5
+bar = decode('also bad')
+bar['meep'] = 1
+print('Foo:', foo)
+print('Bar:', bar)
+
+
+
+
 
 
 
