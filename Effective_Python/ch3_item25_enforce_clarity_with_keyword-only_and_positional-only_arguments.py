@@ -15,11 +15,13 @@
 # use the * symbol in the argument list to indicated the end of positional arguments and the beginning of keyword-only
 # arguments.
 
-def safe_division_c(number, divisor, *,  # Changed
+def safe_division_e(numerator, denominator, /,
+                    ndigits=10, *,
                     ignore_overflow=False,
-ignore_zero_division=False):
+                    ignore_zero_division=False):
     try:
-        return number / divisor
+        fraction = numerator / denominator
+        return round(fraction, ndigits)
     except OverflowError:
         if ignore_overflow:
             return 0
@@ -28,5 +30,13 @@ ignore_zero_division=False):
     except ZeroDivisionError:
         if ignore_zero_division:
             return float('inf')
-        else:
-            raise
+        else: raise
+
+result = safe_division_e(1.0, 10**500, ndigits=3, ignore_overflow=True, ignore_zero_division=False)
+print(result)
+result = safe_division_e(22, 7)
+print(result)
+result = safe_division_e(22, 7, 5)
+print(result)
+result = safe_division_e(22, 7, ndigits=2)
+print(result)
