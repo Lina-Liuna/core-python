@@ -236,6 +236,16 @@ Document the actual default behavior in the functions docstring.
 
 
 #### item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
+##### Things to remember:
+1. Keyword-only arguments force callers to supply certain arguments by keyword (instead of by position), 
+which makes the intention of a function call clearer. Keyword-only arguments are defined after a single * in the argument list.
+
+2. Positional-only arguments ensure that callers can’t supply certain parameters using keywords,
+which helps reduce coupling. Positional-only arguments are defined before a single / in the argument list.
+
+3. Parameters between the / and * characters in the argument list may be supplied by position or keyword, 
+which is the default for Python parameters.
+
 #### item 26: Define Function Decorators with functools.wraps
 
 

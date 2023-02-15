@@ -15,6 +15,9 @@
 # use the * symbol in the argument list to indicated the end of positional arguments and the beginning of keyword-only
 # arguments.
 
+# The / symbol in the argument list indicates where positional-only arguments end:
+# the parameter between the / and * symbols in the argument may be passed either by position or by keyword.
+
 def safe_division_e(numerator, denominator, /,
                     ndigits=10, *,
                     ignore_overflow=False,
@@ -40,3 +43,13 @@ result = safe_division_e(22, 7, 5)
 print(result)
 result = safe_division_e(22, 7, ndigits=2)
 print(result)
+
+# Things to remember:
+# 1. Keyword-only arguments force callers to supply certain arguments by keyword (instead of by position),
+# which makes the intention of a function call clearer. Keyword-only arguments are defined after a single * in the argument list.
+
+# 2. Positional-only arguments ensure that callers can’t supply certain parameters using keywords,
+# which helps reduce coupling. Positional-only arguments are defined before a single / in the argument list.
+
+# 3. Parameters between the / and * characters in the argument list may be supplied by position or keyword,
+# which is the default for Python parameters.
