@@ -41,6 +41,37 @@ print(fibonacci)
 # help func is useless
 help(fibonacci)
 
+# Error:
+# import pickle
+# print(pickle.dumps(fibonacci))
+# Solution:
+# USE the wraps helper functions from the functools built-in module
+from functools import wraps
 
+def trace2(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print(f'{func.__name__}({args!r}, {kwargs!r}) '
+              f'-> {result!r}')
+        return result
+    return wrapper
+
+#I can apply this decorator to a function by using the @ symbol:
+@trace2
+def fibonacci2(n):
+    """Return the n-th Fibonacci number"""
+    if n in (0, 1):
+        return n
+    return (fibonacci2(n - 2) + fibonacci2(n - 1))
+
+fibonacci2 = trace2(fibonacci2)
+
+fibonacci2(4)
+
+help(fibonacci2)
+
+import pickle
+print(pickle.dumps(fibonacci2))
 
 
