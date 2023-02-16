@@ -29,6 +29,18 @@ fibonacci = trace(fibonacci)
 
 fibonacci(4)
 
+# the side effect: the value returned by the decorator - the function that's called above - doesn't think
+# it's named fibonacci.
+print(fibonacci)
+
+# Why?
+# The trace function returns the wrapper defined within its body.
+# the wrapper function is what's assigned to the fibonacci name in the containing module because of the decorator.
+
+# This behavior is problematic because it undermines tools that do introspection, such as debuugers.
+# help func is useless
+help(fibonacci)
+
 
 
 
