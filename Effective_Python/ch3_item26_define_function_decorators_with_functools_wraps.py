@@ -74,4 +74,7 @@ help(fibonacci2)
 import pickle
 print(pickle.dumps(fibonacci2))
 
-
+# Things to Remember
+# 1. Decorators in Python are syntax to allow one function to modify another function at runtime.
+# 2. Using decorators can cause strange behaviors in tools that do introspection, such as debuggers.
+# 3. Use the wraps decorator from the functools built-in module when you define your own decorators to avoid issues.
