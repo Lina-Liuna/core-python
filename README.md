@@ -253,6 +253,16 @@ which is the default for Python parameters.
 2. Using decorators can cause strange behaviors in tools that do introspection, such as debuggers.
 3. Use the wraps decorator from the functools built-in module when you define your own decorators to avoid issues.
 
+#### item 27: Use comprehensions instead of map and filter
+##### Things to remember:
+1. List comprehensions are clearer than the map and filter built-in functions 
+because they don’t require lambda expressions
+
+2. List comprehensions allow you to easily skip items from the input list, 
+a behavior that map doesn’t support without help from filter.
+
+3. Dictionaries and sets may also be created using comprehensions.
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
