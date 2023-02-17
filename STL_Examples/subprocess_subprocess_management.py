@@ -10,10 +10,13 @@ subprocess.run(["ls", "-l", "/dev/null"])
 subprocess.Popen(["/usr/bin/git", "commit", "-m", "Fixes a bug."])
 subprocess.Popen(["/usr/bin/git","push"])
 
-subprocess.run(['git', 'add',os.path.basename(__file__)])
-subprocess.run(['git', 'commit', '-m', 'commit a github by using subprocess run'])
-subprocess.run(['git', 'push'])
+# use subprocess.run to push on github automatically.
+
+# subprocess.run(['git', 'add',os.path.basename(__file__)])
+# subprocess.run(['git', 'commit', '-m', 'commit a github by using subprocess run'])
+# subprocess.run(['git', 'push'])
 
 
 # Get the output of executing cmd in a shell
-subprocess.getstatusoutput('ls /bin/ls')
+print(subprocess.getstatusoutput('ls -l'))
+print(subprocess.getoutput('ls -l'))
