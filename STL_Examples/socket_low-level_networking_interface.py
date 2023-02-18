@@ -24,5 +24,30 @@ b1 = bytearray(b'----')
 b2 = bytearray(b'0123456789')
 b3 = bytearray(b'--------------')
 print(s1.send(b'Mary had a little lamb'))
+
+# socket.recvmsg_into(buffers[, ancbufsize[, flags]])
+# Receive normal data and ancillary data from the socket
 s2.recvmsg_into([b1, memoryview(b2)[2:9], b3])
 print([b1, b2, b3])
+
+
+HOST = 'daring.cwi.nl'    # The remote host
+PORT = 50007              # The same port as used by the server
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'Hello, world')
+    data = s.recv(1024)
+print('Received', repr(data))
+
+HOST = ''                 # Symbolic name meaning all available interfaces
+PORT = 50007              # Arbitrary non-privileged port
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen(1)
+    conn, addr = s.accept()
+    with conn:
+        print('Connected by', addr)
+        while True:
+            data = conn.recv(1024)
+            if not data: break
+            conn.sendall(data)
