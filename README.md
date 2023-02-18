@@ -263,6 +263,11 @@ a behavior that map doesn’t support without help from filter.
 
 3. Dictionaries and sets may also be created using comprehensions.
 
+#### item 28: Avoid more than two control subexpressions in comprehensions
+##### Things to Remember
+1. Comprehensions support multiple levels of loops and multiple con- ditions per loop level.
+2. Comprehensions with more than two control subexpressions are very difficult to read and should be avoided.
+3. 
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
