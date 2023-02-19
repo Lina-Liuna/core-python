@@ -23,3 +23,10 @@ found = ((name, batches) for name in order
          if (batches := get_batches(shoes_color_stock.get(name, 0), 8)))
 
 print(list(found))
+
+# Things to Remember
+# Assignment expressions make it possible for comprehensions and generator expressions
+# to reuse the value from one condition else- where in the same comprehension, which can improve readability and performance.
+
+# Although it’s possible to use an assignment expression outside of a comprehension or
+# generator expression’s condition, you should avoid doing so.

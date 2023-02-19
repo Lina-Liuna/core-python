@@ -267,7 +267,16 @@ a behavior that map doesn’t support without help from filter.
 ##### Things to Remember
 1. Comprehensions support multiple levels of loops and multiple con- ditions per loop level.
 2. Comprehensions with more than two control subexpressions are very difficult to read and should be avoided.
-3. 
+
+#### item 29: Avoid Repeated Work in Comprehensions by Using Assignment Expressions
+##### Things to Remember
+1. Assignment expressions make it possible for comprehensions and generator expressions 
+to reuse the value from one condition else- where in the same comprehension, which can improve readability and performance.
+
+2. Although it’s possible to use an assignment expression outside of a comprehension or 
+generator expression’s condition, you should avoid doing so.
+
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
