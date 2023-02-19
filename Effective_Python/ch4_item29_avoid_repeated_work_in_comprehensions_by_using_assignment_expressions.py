@@ -11,3 +11,15 @@ shoes_color_stock = {
 }
 
 order = ['floral', 'black', 'pink']
+
+def get_batches(count, size):
+    return count // size
+
+found = {name:batches for name in order
+         if (batches := get_batches(shoes_color_stock.get(name, 0), 8))}
+print(found.items())
+
+found = ((name, batches) for name in order
+         if (batches := get_batches(shoes_color_stock.get(name, 0), 8)))
+
+print(list(found))
