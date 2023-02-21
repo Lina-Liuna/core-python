@@ -19,3 +19,23 @@ print(json.dumps([1,2,3,{'4':5, '6': 7}], separators=(',',':')))
 print(json.dumps([1,2,3,{'4':5, '6': 7}], separators=('','')))
 print(json.dumps([1,2,3,{'4':5, '6': 7}], separators=('?','*')))
 print(json.dumps([1,2,3,{'4':5, '6': 7}], separators=('--------','-----')))
+
+
+data = {
+  'first_name': 'Lina',
+  'last_name': 'Liu',
+  'titles': ['MTS', 'Developer']
+}
+# use json.dumps to convert python dict into a JSON String.
+print(json.dumps(data))
+print(json.dumps(data, sort_keys=True))
+print(json.dumps(data, separators=('*','?')))
+print(json.dumps(data, indent=4))
+
+# use json.load to convert json string into python dict
+contact_data= """{
+    "Name":"Lina Liu",
+    "Title":"MTS",
+    "Email":"liuna.lina@gmail.com"
+    }"""
+print(json.loads(contact_data))
