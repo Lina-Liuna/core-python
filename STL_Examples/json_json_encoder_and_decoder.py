@@ -6,3 +6,10 @@
 # Limiting the size of data to be parsed is recommended.
 
 # json exposes an API familiar to users of the standard library marshal and pickle modules.
+
+# Encoding basic python object hierarchies
+import json
+
+# why print [] square brackets instead of () Parentheses?
+print(json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}]))
+
