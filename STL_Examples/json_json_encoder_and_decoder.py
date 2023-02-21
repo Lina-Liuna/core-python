@@ -12,4 +12,4 @@ import json
 
 # why print [] square brackets instead of () Parentheses?
 print(json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}]))
-
+print(json.dumps({"c": 0, "b": 0, "a": 0}, sort_keys=True))
