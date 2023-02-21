@@ -39,3 +39,7 @@ contact_data= """{
     "Email":"liuna.lina@gmail.com"
     }"""
 print(json.loads(contact_data))
+
+# what happened if repeated name in json string
+weird_json = '{"x": 1, "x": 2, "x": 3}'
+print(json.loads(weird_json))
