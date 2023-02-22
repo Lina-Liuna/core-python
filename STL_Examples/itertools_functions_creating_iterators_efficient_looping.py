@@ -38,3 +38,11 @@ print(list(result))
 result = map(pow, range(10), itertools.repeat(3))
 print(list(result))
 # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
+
+
+# itertools.islice(iterable, start, stop) Example
+# Make an iterator that returns selected elements from the iterable.
+# If start is non-zero, then elements from the iterable are skipped until start is reached.
+a = 'abcedfg'
+print(list(itertools.islice(a, 2, 4)))
+print(list(itertools.islice(a, 2, 4)))

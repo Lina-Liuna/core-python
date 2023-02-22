@@ -42,6 +42,13 @@ with open(os.path.basename(__file__), 'r') as f:
     # interesting things here, the output start from line 11:
     print(list(it))
 
+    # iterator is in the end, so the output will be [] empty
+    res = itertools.islice(it, 11, 20)
+    print(list(res))
+
+    # interesting things here, the output is empty:
+    print(list(it))
+
 
 
 
