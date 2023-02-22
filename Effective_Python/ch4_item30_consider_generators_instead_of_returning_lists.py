@@ -49,6 +49,10 @@ with open(os.path.basename(__file__), 'r') as f:
     # interesting things here, the output is empty:
     print(list(it))
 
+# WHY ABOVE INTERESTING THINGS HAPPENED?
+# THE ONLY GOTCHA WITH DEFINING GENERATORS like this is that the callers must be aware that:
+# the iterators returned are stateful and can't be reused.
+
 
 
 
