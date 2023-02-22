@@ -36,8 +36,11 @@ import os, itertools
 
 with open(os.path.basename(__file__), 'r') as f:
     it = index_file(f)
-    res = itertools.islice(it, 0, 5)
+    res = itertools.islice(it, 0, 10)
     print(list(res))
+
+    # interesting things here, the output start from line 11:
+    print(list(it))
 
 
 
