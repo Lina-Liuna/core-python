@@ -53,6 +53,12 @@ with open(os.path.basename(__file__), 'r') as f:
 # THE ONLY GOTCHA WITH DEFINING GENERATORS like this is that the callers must be aware that:
 # the iterators returned are stateful and can't be reused.
 
+# Things to remember:
+# 1. using generators can be clearer than the alternative of having a function return a list of accumulated results.
+# 2. the iterator returned by a generator produces the set of values passed to yield expressions within the generator
+# function's body.
+# 3. Genrerators can produce a sequence of outputs for arbitrarily large inputs because their working memory doesn't
+# include all inputs and outputs.
 
 
 

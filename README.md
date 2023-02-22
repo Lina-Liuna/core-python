@@ -276,6 +276,13 @@ to reuse the value from one condition else- where in the same comprehension, whi
 2. Although it’s possible to use an assignment expression outside of a comprehension or 
 generator expression’s condition, you should avoid doing so.
 
+#### item 30: Consider Generators instead of returning lists
+##### Things to remember:
+1. using generators can be clearer than the alternative of having a function return a list of accumulated results.
+2. the iterator returned by a generator produces the set of values passed to yield expressions within the generator 
+function's body.
+3. Genrerators can produce a sequence of outputs for arbitrarily large inputs because their working memory doesn't 
+include all inputs and outputs.
 
 ### 2. The Python Standard Library
 
