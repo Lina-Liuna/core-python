@@ -4,6 +4,7 @@
 
 # I need a normalization function that sums the inputs to determine the total number of tourists per year
 # and then divides each city's individual visitor count by the total to find that city's contribution to the whole.
+import itertools
 
 def normalize(numbers):
     total = sum(numbers)
@@ -14,6 +15,7 @@ def normalize(numbers):
 
 visits = [56, 78, 95]
 percentages = normalize(visits)
+percentages, percentages_backup = itertools.tee(percentages)
 print(list(percentages))
-print(sum(list(percentages), 0))
+print(sum(list(percentages_backup)))
 
