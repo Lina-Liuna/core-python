@@ -19,3 +19,26 @@ percentages, percentages_backup = itertools.tee(percentages)
 print(list(percentages))
 print(sum(list(percentages_backup)))
 
+def write_numbers_to_file(file_path):
+    with open(file_path, 'w') as f:
+        for i in range(100):
+            f.write(str(i))
+            f.write('\n')
+import os
+write_numbers_to_file(os.getcwd() + 'numbers.txt')
+# read the data from a file that contains every city in all of Texas.
+# define a generator to do this because I can reuse the same function later
+def read_visits(data_path):
+    with open(data_path) as f:
+        for line in f:
+            yield  int(line)
+
+it = read_visits(os.getcwd() + 'numbers.txt')
+print(list(it))
+print(list(it)) # Already exhausted
+
+# The iterator produces its results only a single time.
+# If you iterate over an iterator or a generator that has already raised a StopIteration exception,
+# you won't get any results the second time around.
+
+
