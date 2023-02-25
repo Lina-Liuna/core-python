@@ -54,12 +54,11 @@ print(sum(list(percentages_backup)))
 
 # How to solve the iterator exhausted problem?
 # one way around this is to accept a function that returns a new iterator each time it's called.
-#
 
 # the input argument  is an iterator.
 def normalize_func(get_iter):
     total = sum(get_iter())     # new iterator
-    for value in get_iter():
+    for value in get_iter():    #new iterator
         percent = 100 * value / total
         yield percent
 
@@ -68,5 +67,48 @@ percentages = normalize_func(lambda: read_visits(path))
 percentages, percentages_backup = itertools.tee(percentages)
 print(list(percentages))
 print(sum(list(percentages_backup)))
+
+
+# passing a laambda function like this is clumsy.
+# A better way to achieve the same result is to :
+# provide a new container class that implements the iterator protocol.
+
+# The iterator protocol is how python for loops and related expressions traverse the contents of a container type.
+# you can achieve this for your classes by implementing the __iter__ method as a generator.
+
+class Normalize:
+    def __init__(self, numbers):
+        self.numbers = numbers
+
+    def __iter__(self):
+        total = sum(self.numbers)
+        for value in self.numbers:
+            percent = 100 * value / total
+            yield percent
+
+class ReadVisits:
+    def __init__(self, data_path):
+        self.data_path = data_path
+
+    def __iter__(self):
+        with open(self.data_path) as f:
+            for line in f:
+                yield int(line)
+
+
+visits = ReadVisits(path)
+percentages = Normalize(visits)
+print(list(percentages))
+print(sum(list(percentages)))
+
+
+# why above code works?
+# because the everytime calls __iter__ to allocate a new iterator object.
+# Each of those iterators will be advanced and exhausted independently.
+
+# when an iterator is passed to the iter built-in function, iter returns the iterator itself.
+# when a container type is passed to iter, a new iterator object is returned each time.
+
+# The apporach of using a container is ideal if you don't want to copy the full input iterator.
 
 
