@@ -111,4 +111,20 @@ print(sum(list(percentages)))
 
 # The apporach of using a container is ideal if you don't want to copy the full input iterator.
 
+# Things to remember:
+
+# 1. Beware of functions and methods that iterator over input arguments multiple times.
+# If these arguments are iterators, you may see strange behavior and missing values.
+
+# 2. Python's iterator protocol defines how containers and iterator interact with the iter and next built-in functions,
+# for loops, and related expressions.
+
+# 3. You can easily define your own iterable container type by implementing the __iter__ method as a generator.
+
+# 4. You can detect that a value is an iterator(instead of a container) if calling iter on it produces the same value
+# as what you passed in. Alternatively, you can use the isinstance built-in function
+# along with the collections.abc.Iterator class.
+
+
+
 
