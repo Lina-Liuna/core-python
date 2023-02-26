@@ -41,3 +41,12 @@ c = xml.etree.ElementTree.SubElement(a, 'c')
 d = xml.etree.ElementTree.SubElement(c, 'd')
 
 xml.etree.ElementTree.dump(a)
+
+def file_to_str(file_name):
+    with open(file_name, 'r') as f:
+        return ''.join(f.readlines())
+
+root_str = xml.etree.ElementTree.fromstring(file_to_str(os.getcwd() + '/country_data.xml'))
+
+print(root_str.findall('.'))
+print(root.findall(".//*[@name='Singapore']/year"))
