@@ -34,4 +34,10 @@ for country in root.findall('country'):
 
 tree.write(os.getcwd() + '/country_data.xml')
 
+# Building XML documents
+a = xml.etree.ElementTree.Element('a')
+b = xml.etree.ElementTree.SubElement(a, 'b')
+c = xml.etree.ElementTree.SubElement(a, 'c')
+d = xml.etree.ElementTree.SubElement(c, 'd')
 
+xml.etree.ElementTree.dump(a)
