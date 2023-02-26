@@ -298,6 +298,14 @@ for loops, and related expressions.
 as what you passed in. Alternatively, you can use the isinstance built-in function
 along with the collections.abc.Iterator class.
 
+#### item 32: Consider Generator expressions for large list comprehensions.
+##### Things to Remember:
+1. List comprehensions can cause problems for large inputs by using too much memory
+2. Generator expressions avoid memory issues by producing outputs one at a time as iterators.
+3. Generator expressions can be composed by passing the iterator from one generator expression 
+into the for subexpression of another.
+4. Generator expressions execute very quickly when chained together and are memory efficient.
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

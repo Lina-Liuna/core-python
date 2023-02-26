@@ -42,3 +42,11 @@ print(next(roots))
 
 # The only gotcha is that the itertator returned by generator expressions are stateful, so you must be careful not to
 # use these iterators more than once.
+
+
+# Things to Remember:
+# 1. List comprehensions can cause problems for large inputs by using too much memory
+# 2. Generator expressions avoid memory issues by producing outputs one at a time as iterators.
+# 3. Generator expressions can be composed by passing the iterator from one generator expression
+# into the for subexpression of another.
+# 4. Generator expressions execute very quickly when chained together and are memory efficient.
