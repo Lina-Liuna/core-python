@@ -17,3 +17,21 @@ for country in root.findall('country'):
 
 for neighbor in root.iter('neighbor'):
     print(neighbor.attrib)
+
+# Modifying an XML file
+# ElementTree provides simple way to build XML documents and write them to files.
+# ElementTree.write method
+for rank in root.iter('rank'):
+    new_rank = int(rank.text) + 1
+    rank.text = str(new_rank)
+    rank.set('updated', 'yes')
+
+for country in root.findall('country'):
+    # using root.findall() to avoid removal during traversal
+    rank = int(country.find('rank').text)
+    if rank > 50:
+        root.remove(country)
+
+tree.write(os.getcwd() + '/country_data.xml')
+
+
