@@ -18,3 +18,12 @@ print(value)
 # generator expression don't materizalize the whole output sequence when they're run.
 
 # Generator expressions evaluate to an iterator that yields one item at a time from the expression.
+
+# how to create a generator expression?
+# Create a generator expression by putting list-comprehension-like syntax between () characters.
+
+it = (len(x) for x in open(os.path.basename(__file__)))
+# print(list(it))
+print(it)
+print(next(it))
+print(next(it))
