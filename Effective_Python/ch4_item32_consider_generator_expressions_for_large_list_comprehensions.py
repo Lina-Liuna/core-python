@@ -11,3 +11,10 @@
 import os
 value = [len(x) for x in open (os.path.basename(__file__))]
 print(value)
+
+# Python provide generator expressions.
+# what is generator expressions?
+# Generator expressions are a generalization of list comprehensions and generators.
+# generator expression don't materizalize the whole output sequence when they're run.
+
+# Generator expressions evaluate to an iterator that yields one item at a time from the expression.
