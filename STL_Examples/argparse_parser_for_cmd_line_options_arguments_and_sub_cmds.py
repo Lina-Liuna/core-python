@@ -5,15 +5,15 @@
 import argparse
 
 # Step1: using the argparse to creating an ArgumentParser object
-parser = argparse.ArgumentParser(description='Process some integers.')
+# parser = argparse.ArgumentParser(description='Process some integers.')
 
 # Step2: Fill the ArgumentParser with information about program arguments is done by making calls to the add_argument
-parser.add_argument('integers', metavar='N', type=int, nargs='+',help='an integer for the accumulator')
-parser.add_argument('--sum', dest='accumulate',action='store_const', const=sum, default=max, help='sum the integers')
+# parser.add_argument('integers', metavar='N', type=int, nargs='+',help='an integer for the accumulator')
+# parser.add_argument('--sum', dest='accumulate',action='store_const', const=sum, default=max, help='sum the integers')
 
 # Step3: call parse_args to inspect the command line, convertt each argument to the appropriate type and invoke the appropriate action.
-args = parser.parse_args()
-print(args.accumulate(args.integers))
+# args = parser.parse_args()
+# print(args.accumulate(args.integers))
 
 
 # Sometimes, when dealing with a particularly long argument list, it may make sense to keep the list of arguments in a file
@@ -30,4 +30,13 @@ def parse_cmd_line_in_file(filename):
     parser.parse_args(['-f', 'foo', '@args.txt'])
 
 dir = '/Users/linaliu/code/core-python/STL_Examples/'
-parse_cmd_line_in_file(dir+'args.txt')
+# parse_cmd_line_in_file(dir+'args.txt')
+
+def parse_cmd_line():
+    parser = argparse.ArgumentParser(description='Data Type and Function mapping between clickhouse and proton')
+    parser.add_argument('-dtm', metavar='--data-type-mapping', type=bool, action='store',help='display data type mapping')
+    args = parser.parse_args()
+    print(args)
+    print(args.dtm)
+
+parse_cmd_line()
