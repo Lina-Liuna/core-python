@@ -27,3 +27,18 @@ it = (len(x) for x in open(os.path.basename(__file__)))
 print(it)
 print(next(it))
 print(next(it))
+
+# another powerful outcome of generator expressions is that they can be composed together.
+# take the iterator returned by the generator expression above and use it as the input of another generator expression
+
+roots = ((x, x**0.5) for x in it)
+print(next(roots))
+print(next(roots))
+
+# chaining generators together like above executes very quickly in python.
+
+# when you're looking for a way to compose functionality that's operating on a large stream of input,
+# generator expressions are a greate choice.
+
+# The only gotcha is that the itertator returned by generator expressions are stateful, so you must be careful not to
+# use these iterators more than once.
