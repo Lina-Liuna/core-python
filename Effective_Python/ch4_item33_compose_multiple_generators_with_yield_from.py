@@ -6,6 +6,11 @@
 
 # I define two generators that yield the expected onscreen deltas for each part of this animation.
 
+# what is the meaning of "for _ in range()?"
+# when you are not interested in some values returned by a function we use underscore in place of variable name.
+# basically it means you are not interested in how many times the loop is run till now just that it should run
+# some specific number of times overall.
+
 def move(period, speed):
     for _ in range(period):
         yield speed
