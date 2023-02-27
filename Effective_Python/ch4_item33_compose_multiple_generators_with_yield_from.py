@@ -79,3 +79,7 @@ print(f'Composed nesting {comparison:.2f}s')
 reduction = -(comparison - baseline) / baseline
 print(f'{reduction:.1%} less time')
 
+# Things to Remember
+# 1. the yield from expression allows you to compose multiple nested generators together into a single combined generator.
+# 2. yield from provides better performance than manually itertating nested generators and yielding their outputs.
+

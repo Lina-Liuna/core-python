@@ -306,6 +306,12 @@ along with the collections.abc.Iterator class.
 into the for subexpression of another.
 4. Generator expressions execute very quickly when chained together and are memory efficient.
 
+
+#### item 33: Compose Multiple Generators with yield from
+##### Things to Remember
+1. the yield from expression allows you to compose multiple nested generators together into a single combined generator.
+2. yield from provides better performance than manually itertating nested generators and yielding their outputs.
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
