@@ -31,3 +31,18 @@ def run(func):
         render(delta)
 
 run(animate)
+
+# improvement in function animate:
+# why make improvement in animate: repetitive and redundancy
+# The solution: use the yield from expression.
+# use the yield from expression allows you to yield all values from a nested generator
+# before returning control to the parent generator
+
+# reimplment the animation function by using yield from:
+
+def animate_composed():
+    yield from move(4, 5.0)
+    yield from pause(3)
+    yield from move(2, 3.0)
+
+run(animate_composed)
