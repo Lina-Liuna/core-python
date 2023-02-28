@@ -29,3 +29,11 @@ def run(it):
         transmit(output)
 
 run(wave(3.0, 8))
+
+# Problem: what if I want to modulate the amplitude on each iteration of the generator?
+# Python generator support the send method, which upgrades yield expressions into a two-way channel.
+
+# The send method can be used to provide streaming inputs to a generator at the same time it's yielding outputs.
+# the side-effect using send method:
+# it's hard to see the connection between yield and send without already knowing the details of this advance generator feature.
+
