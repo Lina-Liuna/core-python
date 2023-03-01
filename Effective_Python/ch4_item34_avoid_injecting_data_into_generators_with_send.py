@@ -37,3 +37,21 @@ run(wave(3.0, 8))
 # the side-effect using send method:
 # it's hard to see the connection between yield and send without already knowing the details of this advance generator feature.
 
+
+def wave_modulating(steps):
+    step_size = 2 * math.pi / steps
+    amplitude = yield     # Receive initial amplitude
+    for step in range(steps):
+        radians = step * step_size
+        fraction = math.sin(radians)
+        output = amplitude * fraction
+        amplitude = yield output    # Recevie next amplitude
+
+def run_modulating(it):
+    amplitudes = [ None, 1, 3, 5, 7, 9, 8, 6, 4, 2]
+    for amplitude in amplitudes:
+        output = it.send(amplitude)
+        transmit(output)
+
+
+run_modulating(wave_modulating(12))
