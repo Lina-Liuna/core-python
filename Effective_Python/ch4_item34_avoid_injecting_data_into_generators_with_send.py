@@ -55,3 +55,34 @@ def run_modulating(it):
 
 
 run_modulating(wave_modulating(12))
+
+# The advice: avoid the send method entirely and go with a simpler approach.
+
+
+# The easist solution is to pass an iterator into the wave function.
+# The iterator should return an input amplitude each time the next built-in function is called on it.
+# this arragement ensures that each generator is progressed in a cascade as inputs and outputs are processed.
+def wave_cascading(amplitude_it, steps):
+    step_size = 2 * math.pi / steps
+    for step in range(steps):
+        radians = step * step_size
+        fraction = math.sin(radians)
+        amplitude = next(amplitude_it) # Get next input
+        output = amplitude * fraction
+        yield output
+
+
+def complex_wave_cascading(amplitude_it):
+    yield from wave_cascading(amplitude_it, 3)
+    yield from wave_cascading(amplitude_it, 4)
+    yield from wave_cascading(amplitude_it, 5)
+
+
+def run_cascading():
+    amplitudes = [7, 7, 7, 2, 2, 2, 10, 10, 10, 10]
+    it = complex_wave_cascading(iter(amplitudes))
+    for amplitude in amplitudes:
+        output = next(it)
+        transmit(output)
+
+run_cascading()
