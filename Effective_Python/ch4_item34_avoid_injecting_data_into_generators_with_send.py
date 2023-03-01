@@ -86,3 +86,14 @@ def run_cascading():
         transmit(output)
 
 run_cascading()
+
+# Things to Remember:
+# 1. The send method can be used to inject data into a generator by giving the yield expression a value that can be
+# assigned to a variable.
+
+# 2. Using send with yield from expressions may cause surprising behavior, such as non values appearing at unexpected times
+# in the generator output
+
+# 3. Providing an input iterator to a set of composed generators is a better approach than using send method,
+# which should be avoided.
+
