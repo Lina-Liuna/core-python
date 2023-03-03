@@ -96,4 +96,34 @@ def run():
 
 run()
 
+# The above code works but much harder to read.
+
+# simpler approach to implementing this functionality is to define a stateful closure using an iterable container object
+
+# # define a timer generator by using a class
+
+class Timer:
+    def __init__(self, period):
+        self.current = period
+        self.period = period
+
+    def reset(self):
+        self.current = self.period
+
+    def __iter__(self):
+        while self.current:
+            self.current -= 1
+            yield self.current
+
+
+def run():
+    timer = Timer(4)
+    for current in timer:
+        if check_for_reset():
+            timer.reset()
+        announce(current)
+print('run: define a timer generator through a class')
+run()
+
+
 
