@@ -23,3 +23,15 @@ import itertools
     # 3. permutations
     # 4. combinations
     # 5. combinations_with_replacement
+
+# 1. Linking iterators together
+# 1. chain : use chain to combine multiple iterators into a single sequential iterator.
+
+def gen_iter(start, end):
+    for i in range(start, end):
+        yield i
+
+iter_1 = gen_iter(1, 4)
+iter_2 = gen_iter(4, 8)
+it = itertools.chain(iter_2, iter_1)
+print(list(it))
