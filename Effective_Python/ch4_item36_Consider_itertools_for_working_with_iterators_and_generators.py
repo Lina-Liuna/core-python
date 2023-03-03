@@ -27,13 +27,18 @@ import itertools
 # 1. Linking iterators together
 # 1. chain : use chain to combine multiple iterators into a single sequential iterator.
 
-def gen_iter(start, end):
-    for i in range(start, end):
-        yield i
+class IterGen:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
 
-iter_1 = gen_iter(1, 4)
-iter_2 = gen_iter(4, 8)
-iter_3 = gen_iter(8, 12)
+    def __iter__(self):
+        for i in range(self.start, self.end):
+            yield i
+
+iter_1 = IterGen(1, 4)
+iter_2 = IterGen(4, 8)
+iter_3 = IterGen(8, 12)
 it = itertools.chain(iter_2, iter_1, iter_3)
 print(list(it))
 
@@ -43,7 +48,8 @@ it = itertools.repeat('hello Lina', 5)
 print(list(it))
 
 # 3. cycle: use cycle to repeat an iterator's item forever:
-iter_4 = gen_iter(12,18)
-it = itertools.cycle(list(iter_4))
+
+it = itertools.cycle(list(iter_1))
 result = [next(it) for _ in range(10)]
 print(result)
+
