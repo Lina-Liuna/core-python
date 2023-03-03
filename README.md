@@ -312,6 +312,30 @@ into the for subexpression of another.
 1. the yield from expression allows you to compose multiple nested generators together into a single combined generator.
 2. yield from provides better performance than manually itertating nested generators and yielding their outputs.
 
+
+#### item34: Avoid injecting data into generators with send
+##### Things to Remember
+1. The send method can be used to inject data into a generator by giving the yield expression a value that can be 
+assigned to a variable.
+
+2. Using send with yield from expressions may cause surprising behavior, such as non values appearing at unexpected times 
+in the generator output
+
+3. Providing an input iterator to a set of composed generators is a better approach than using send method,
+which should be avoided.
+
+#### item35: Avoid Causing State Transitions in Generators with throw.
+##### Things to Remember:
+
+1. The throw method can be used to re-raise exceptions within generators at the position of the most recently 
+executed yield expression
+
+2. using throw harms readability because it requires addtional nesting and boilerplate in order to raise and catch 
+exceptions
+
+3. A better way to provide exceptional behavior in generator is to use a class that implements the __iter__ method
+along with method to cause exceptional state transitions.
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

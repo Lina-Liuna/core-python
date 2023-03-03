@@ -125,5 +125,16 @@ def run():
 print('run: define a timer generator through a class')
 run()
 
+# Things to Remember:
+
+# 1. The throw method can be used to re-raise exceptions within generators at the position of the most recently
+# executed yield expression
+
+# 2. using throw harms readability because it requires addtional nesting and boilerplate in order to raise and catch
+# exceptions
+
+# 3. A better way to provide exceptional behavior in generator is to use a class that implements the __iter__ method
+# along with method to cause exceptional state transitions.
+
 
 
