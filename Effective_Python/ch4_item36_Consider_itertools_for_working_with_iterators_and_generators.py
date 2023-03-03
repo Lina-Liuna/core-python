@@ -33,5 +33,17 @@ def gen_iter(start, end):
 
 iter_1 = gen_iter(1, 4)
 iter_2 = gen_iter(4, 8)
-it = itertools.chain(iter_2, iter_1)
+iter_3 = gen_iter(8, 12)
+it = itertools.chain(iter_2, iter_1, iter_3)
 print(list(it))
+
+# 2. repeat: Use repeat to output a single value forever, or
+# use the second parameter to specify a maximum number of times.
+it = itertools.repeat('hello Lina', 5)
+print(list(it))
+
+# 3. cycle: use cycle to repeat an iterator's item forever:
+iter_4 = gen_iter(12,18)
+it = itertools.cycle(list(iter_4))
+result = [next(it) for _ in range(10)]
+print(result)
