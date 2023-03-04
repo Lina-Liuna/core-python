@@ -114,7 +114,7 @@ print(list(it))
 it = itertools.dropwhile(len_less_than_5, str_list)
 print(list(it))
 
-# filterfalse
+# 9. filterfalse
 # filterfalse is oppsite of the filter built-in function, returns all items from an iterator where a predicate
 # function returns False:
 
@@ -130,6 +130,44 @@ print(list(filter_false_result))
 
 filter_false_result = itertools.filterfalse(len_less_than_5, str_list)
 print(list(filter_false_result))
+
+
+# Producing combinations of items from iterators
+# The itertools built-in module includes a number of functions for producing combinations of items from iterators.
+# 10. accumulate:
+# accumulate folds an item from the iterator into a running value by applying a function that takes two parameters.
+sum_accumulate = itertools.accumulate(str_list)
+print(list(sum_accumulate))
+
+
+sum_values = itertools.accumulate(values)
+print(list(sum_values))
+
+def sum_modulo_20(first, second):
+    output = first + second
+    return output % 20
+
+modulo_reduce = itertools.accumulate(values, sum_modulo_20)
+print(list(modulo_reduce))
+
+def sum_modulo_20(first, second):
+    output = first
+    return output % 20
+
+# itertools.accumulate(iterable[, func, *, initial=None])
+# If func is supplied, it should be a function of two arguments.
+# Elements of the input iterable may be any type that can be accepted as arguments to func.
+# (For example, with the default operation of addition, elements may be any addable type including Decimal or Fraction.)
+modulo_reduce = itertools.accumulate(values, sum_modulo_20)
+print(list(modulo_reduce))
+
+import operator
+print(list(itertools.accumulate(values, operator.mul)))
+print(list(itertools.accumulate(values, max)))
+print(list(itertools.accumulate(values, lambda x, y: x * y * 3.14)))
+
+
+
 
 
 
