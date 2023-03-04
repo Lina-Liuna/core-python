@@ -42,14 +42,38 @@ iter_3 = IterGen(8, 12)
 it = itertools.chain(iter_2, iter_1, iter_3)
 print(list(it))
 
-# 2. repeat: Use repeat to output a single value forever, or
+# 2. repeat:
+# Use repeat to output a single value forever, or
 # use the second parameter to specify a maximum number of times.
 it = itertools.repeat('hello Lina', 5)
 print(list(it))
 
-# 3. cycle: use cycle to repeat an iterator's item forever:
+# 3. cycle:
+# use cycle to repeat an iterator's item forever:
 
 it = itertools.cycle(list(iter_1))
 result = [next(it) for _ in range(10)]
 print(result)
+
+# 4. tee:
+# use tee to split a single iterator into the number of parallel iterators specified by the second parameter
+it1, it2, it3 = itertools.tee(['first', 'second'], 3)
+print(list(it1))
+print(list(it2))
+print(list(it3))
+
+# 5. zip_longest:
+# # zip_longest is the variant of the zip built-in function,
+# zip_longest return a placeholder value when an iterator is exhausted, which may happen if iterator have
+# different lengths:
+
+keys = ['one', 'two', 'three']
+values = [1, 2]
+
+normal = list(zip(keys, values))
+print(normal)
+
+it = itertools.zip_longest(keys, values, fillvalue='nope')
+print(list(it))
+
 
