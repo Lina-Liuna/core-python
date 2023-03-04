@@ -114,8 +114,22 @@ print(list(it))
 it = itertools.dropwhile(len_less_than_5, str_list)
 print(list(it))
 
-#
+# filterfalse
+# filterfalse is oppsite of the filter built-in function, returns all items from an iterator where a predicate
+# function returns False:
 
+even_len = lambda x: len(x) % 2 == 0
+filter_result = filter(even_len, str_list)
+print(list(filter_result))
+
+filter_result = filter(len_less_than_5, str_list)
+print(list(filter_result))
+
+filter_false_result = itertools.filterfalse(even_len, str_list)
+print(list(filter_false_result))
+
+filter_false_result = itertools.filterfalse(len_less_than_5, str_list)
+print(list(filter_false_result))
 
 
 
