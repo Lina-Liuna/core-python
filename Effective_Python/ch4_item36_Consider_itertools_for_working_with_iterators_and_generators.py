@@ -77,3 +77,51 @@ it = itertools.zip_longest(keys, values, fillvalue='nope')
 print(list(it))
 
 
+# Filtering items from an iterator
+# the itertools built-in module include a number of functions for filtering items from an iterator.
+
+# 6. islice:
+# use islice to slice an iterator by numerical indexes without copying.
+# you can specify the end, start and end, or start, end and step sizes.
+
+values = [x for x in range(1, 11)]
+first_five = itertools.islice(values, 5)
+print(list(first_five))
+
+middle_odds = itertools.islice(values, 2, 8, 2)
+print(list(middle_odds))
+
+# 7. takewhile:
+# takewhile returns items from an iterator until a predicate function returns False for an item.
+values = [x for x in range(1, 11)]
+less_then_seven = lambda x: x < 7
+
+it = itertools.takewhile(less_then_seven, values)
+print(list(it))
+
+my_str = 'Once Upon tree treat train triple tractor try trouble trail truck tricky true these them mother'
+
+str_list = my_str.split(' ')
+print(str_list)
+
+len_less_than_5 = lambda x: len(x) <= 5
+it = itertools.takewhile(len_less_than_5, str_list)
+print(list(it))
+
+# 8. dropwhile:
+# dropwhile is the opposite of takewhile, skips items from an iterator until the predicate function returns True
+# from the first time:
+it = itertools.dropwhile(len_less_than_5, str_list)
+print(list(it))
+
+#
+
+
+
+
+
+
+
+
+
+
