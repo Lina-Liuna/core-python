@@ -167,6 +167,36 @@ print(list(itertools.accumulate(values, max)))
 print(list(itertools.accumulate(values, lambda x, y: x * y * 3.14)))
 
 
+# product:
+# product returns the cartesian product of items from one or more iterators,
+# product is a nice alternative to using deeply nested list comprehensions
+
+single = itertools.product([1,2], repeat=2)
+print(list(single))
+
+multiple = itertools.product([1,2], ['a', 'b'])
+print(list(multiple))
+
+# permutations:
+# permutations returns the unique ordered permutations of length N with items from an iterator.
+
+it = itertools.permutations([1, 2, 3, 4], 2)
+print(list(it))
+
+# combinations:
+# combinations returns the unordered combinations of length N with unrepeated item from an iterator.
+
+it = itertools.combinations([1, 2, 3, 4], 2)
+print(list(it))
+
+# combinations with replacemwnt
+# combination_with_replacement is the same as combinations, but repeated values are allowed.
+
+it = itertools.combinations_with_replacement([1, 2,3, 4], 2)
+print(list(it))
+
+
+
 
 
 
