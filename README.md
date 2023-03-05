@@ -336,6 +336,14 @@ exceptions
 3. A better way to provide exceptional behavior in generator is to use a class that implements the __iter__ method
 along with method to cause exceptional state transitions.
 
+#### item36: Consider itertools for working with iterators and generators
+##### Things to Remember:
+1. The itertools functions fall into three main categories for working with iterators and generators:
+   1. linking iterators together
+   2. filtering items they output
+   3. producing combinations of items
+2. There are more advanced functions, additional parameters, and useful recipe available in the help(itertools)
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

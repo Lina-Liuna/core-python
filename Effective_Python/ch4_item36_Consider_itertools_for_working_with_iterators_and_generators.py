@@ -195,7 +195,14 @@ print(list(it))
 it = itertools.combinations_with_replacement([1, 2,3, 4], 2)
 print(list(it))
 
+# Things to Remember:
+# 1. The itertools functions fall into three main categories for working with iterators and generators:
+#   1. linking iterators together
+#   2. filtering items they output
+#   3. producing combinations of items
+# 2. There are more advanced functions, additional parameters, and useful recipe available in the help(itertools)
 
+help(itertools)
 
 
 
