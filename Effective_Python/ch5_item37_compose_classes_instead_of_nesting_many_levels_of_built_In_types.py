@@ -109,3 +109,26 @@ book.report_grade('Lina', 'Math', 98, 0.2)
 book.report_grade('Lina', 'WorkOut', 90, 0.2)
 book.report_grade('Lina', 'WorkOut', 99, 0.3)
 print(book.average_grade('Lina'))
+
+
+# problem: using dictionaries that contain dictionaries makes you code hard to read
+# Solution: As soon as you realize that your bookkeeping is getting complicated, break it all out into classes.
+# refactoring to classes
+
+# namedtuple:
+# use namedtuple to define tiny, immutable data classes.
+
+# help(collections.namedtuple)
+# namedtuple(typename, field_names, *, rename=False, defaults=None, module=None)
+#     Returns a new subclass of tuple with named fields.
+#     Returns a new tuple sub-class which is named with the given typename
+Grade = collections.namedtuple('Grade', ('score', 'weight'))
+
+# Limitations of namedtuple:
+# 1. you can't specify default argument values for namedtuple classes.
+# 2. The attribute values of namedtuple instances are still accessi- ble using numerical indexes and iteration.
+# Especially in exter- nalized APIs, this can lead to unintentional
+# usage that makes it harder to move to a real class later.
+# If you’re not in control of all of the usage of your namedtuple instances,
+# it’s better to explicitly define a new class
+
