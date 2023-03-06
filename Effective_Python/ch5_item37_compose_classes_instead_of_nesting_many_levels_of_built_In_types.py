@@ -132,3 +132,56 @@ Grade = collections.namedtuple('Grade', ('score', 'weight'))
 # If you’re not in control of all of the usage of your namedtuple instances,
 # it’s better to explicitly define a new class
 
+
+class Subject:
+    def __init__(self):
+        self._grade = []
+
+    def report_grade(self, score, weight):
+        self._grade.append(Grade(score, weight))
+
+    def average_grade(self):
+        total, total_weight = 0, 0
+        for grade in self._grade:
+            total += grade.score * grade.weight
+            total_weight += grade.weight
+
+        return total / total_weight
+
+
+class Student:
+    def __init__(self):
+        self._subjects = collections.defaultdict(Subject)
+
+    def get_subject(self, name):
+        return self._subjects[name]
+
+    def average_grade(self):
+        total, count = 0, 0
+        for subject in self._subjects.values():
+            total += subject.average_grade()
+            count += 1
+
+        return total / count
+
+
+class GradeBook:
+    def __init__(self):
+        self._student = collections.defaultdict(Student)
+
+    def get_student(self, name):
+        return self._student[name]
+
+
+book = GradeBook()
+lina = book.get_student('Lina')
+math = lina.get_subject('math')
+math.report_grade(99, 0.3)
+math.report_grade(88, 0.2)
+english = lina.get_subject('english')
+english.report_grade(89, 0.2)
+english.report_grade(98, 0.3)
+
+print(lina.average_grade())
+
+
