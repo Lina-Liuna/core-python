@@ -344,6 +344,14 @@ along with method to cause exceptional state transitions.
    3. producing combinations of items
 2. There are more advanced functions, additional parameters, and useful recipe available in the help(itertools)
 
+
+#### item37: Compose classes instead of Nesting built-in types
+##### Things-to-Remember:
+1. Avoid making dictionaries with values that are dictionaries, long tuples, or complex nesting of other built-in types
+2. Use namedtuple for lightweight, immutable data containers before you need to flexibility of a full class.
+3. Move you bookkeeping code to using multiple classes when you internal state dictionaries get complicated.
+
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

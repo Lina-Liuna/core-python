@@ -185,3 +185,10 @@ english.report_grade(98, 0.3)
 print(lina.average_grade())
 
 
+# Things-to-Remember:
+# 1. Avoid making dictionaries with values that are dictionaries, long tuples, or complex nesting of other built-in types
+# 2. Use namedtuple for lightweight, immutable data containers before you need to flexibility of a full class.
+# 3. Move you bookkeeping code to using multiple classes when you internal state dictionaries get complicated.
+
+
+
