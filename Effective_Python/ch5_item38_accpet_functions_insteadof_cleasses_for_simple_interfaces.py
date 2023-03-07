@@ -1,0 +1,31 @@
+# hooks: built-in APIs allows you to customize behavior by passing in function.
+# hooks are used by APIs to call back your code while they execute.
+
+# many hooks are just stateless functions with well-defined arguments and return values.
+# functions are ideal for hooks because they are earier to describe and simpler to define than classes.
+
+# hooks simple example:
+# customize the behavior of the defaultdict class.
+# the hook function return the default value that the missing key should have.
+# define a hook that logs each time a key is missing and returns 0 for the default value.
+import collections
+
+
+def log_missing():
+    print('Key added')
+    return 0
+
+
+current = {'red': 8, 'pink': 70}
+increments = [
+    ('blue', 20),
+    ('orange', 10),
+]
+
+result = collections.defaultdict(log_missing, current)
+print('before:', (dict(result)))
+
+for key, amount in increments:
+    result[key] += amount
+
+print('after:', (dict(result)))
