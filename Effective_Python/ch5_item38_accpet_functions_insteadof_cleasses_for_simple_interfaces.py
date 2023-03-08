@@ -97,3 +97,18 @@ for key, amount in increments:
     result[key] += amount
 print(counter.added)
 
+
+# ALl the defaultdict requires a function for the default value hook, choose wisely.
+
+# Things-to-Remember:
+# 1. Instead of defining and instantiating classes, you can often simply use functions for simple interfaces between
+# components in Python.
+
+# 2. Reference to functions and mothods in Python are first class, meaning they can be used in expressions.
+
+# 3. The __call__ special method enables instances of a class to be called like plain Python functions.
+
+# 4. When you need a function to maintain state, consider defining a class that provide the __call__ method instead of
+# defining a stateful closure.
+
+
