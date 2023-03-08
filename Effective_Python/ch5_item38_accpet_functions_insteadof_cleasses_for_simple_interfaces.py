@@ -29,3 +29,32 @@ for key, amount in increments:
     result[key] += amount
 
 print('after:', (dict(result)))
+
+
+
+# Problem: supplying functions like log_missing makes APIs easy to build and test
+# the default value hook passed to defaultdict to count the total number of keys that were missing.
+# define a helper function that uses such a closure as the default value hook:
+
+def increment_with_report(current, increments):
+    added_count = 0
+
+    def missing():
+        nonlocal added_count    # Stateful closure
+        added_count += 1
+        return 0
+
+    result = collections.defaultdict(missing, current)
+    for key, amount in increments:
+        result[key] += amount
+
+    return result, added_count
+
+current = {'red': 8, 'pink': 70}
+increments = [
+    ('blue', 20),
+    ('orange', 10),
+]
+
+result, count = increment_with_report(current, increments)
+print(count)
