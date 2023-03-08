@@ -58,3 +58,20 @@ increments = [
 
 result, count = increment_with_report(current, increments)
 print(count)
+
+
+# Improvement: define a small class that encapsulates the state you want to track.
+class CountMissing:
+    def __init__(self):
+        self.added = 0
+
+    def missing(self):
+        self.added += 1
+        return 0
+
+counter = CountMissing()
+result = collections.defaultdict(counter.missing, current)
+for key, amount in increments:
+    result[key] += amount
+
+print(counter.added)
