@@ -75,3 +75,25 @@ for key, amount in increments:
     result[key] += amount
 
 print(counter.added)
+
+# Problem: until you see the use of CountMissing Class with defaultdict, the class is a mystery
+
+# Solution:
+# to clarify this situation, class can define the __call__ special method.
+# __call__ allows an objects to be called just like a function.
+# __call__ function causes the callable built-in function to return True like a normal function or method.
+# All objects that can be executed in this manner are referred to as callables:
+
+class BetterCountMissing:
+    def __init__(self):
+        self.added = 0
+
+    def __call__(self):
+        self.added += 1
+        return 0
+counter = BetterCountMissing()
+result = collections.defaultdict(counter, current)
+for key, amount in increments:
+    result[key] += amount
+print(counter.added)
+
