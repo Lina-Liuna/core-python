@@ -123,6 +123,7 @@ write_test_files(tmpdir)
 class GenericInputData:
     def read(self):
         raise NotImplementedError
+
     @classmethod
     def generate_inputs(cls, config):
         raise NotImplementedError
@@ -142,14 +143,18 @@ class PathInputData(GenericInputData):
         for name in os.listdir(data_dir):
             yield cls(os.path.join(data_dir, name))
 
+
 class GenericWorker:
     def __init__(self, input_data):
         self.input_data = input_data
         self.result = None
+
     def map(self):
         raise NotImplementedError
+
     def reduce(self, other):
         raise NotImplementedError
+
     @classmethod
     def create_workers(cls, input_class, config):
         workers = []
@@ -173,6 +178,11 @@ config = {'data_dir': tmpdir}
 result = mapreduce(LineCountWorker, PathInputData, config)
 print(f'There are {result} lines')
 
+
+# Things-to-Remember:
+# 1. Python only support a single constructor per class: the __init__ method
+# 2. Use @classmethod to define alternative constructors for your classes.
+# 3. Use class method polymorphism to provide generic ways to build and connect many concrete subclasses.
 
 
 

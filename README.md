@@ -365,6 +365,12 @@ ALl the defaultdict requires a function for the default value hook, choose wisel
  4. When you need a function to maintain state, consider defining a class that provide the __call__ method instead of
  defining a stateful closure.
 
+#### item 39: Use @classmethod polymorphism to construct objects
+##### # Things-to-Remember:
+1. Python only support a single constructor per class: the __init__ method
+2. Use @classmethod to define alternative constructors for your classes.
+3. Use class method polymorphism to provide generic ways to build and connect many concrete subclasses.
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
