@@ -46,4 +46,66 @@ class LineCountWorker(Worker):
         self.result += other.result
 
 
+# build and connect the object with some helper functions
+
+# list the contents of a directory and construct a PathInputData instance for each file it contains.
+import os
+
+def generate_inputs(data_dir):
+    for name in os.listdir(data_dir):
+        yield  PathInputData(os.path.join(data_dir, name))
+
+
+# Create the LineCountWorker instances by using the InputData instances returned by generate_inputs:
+def create_workers(input_list):
+    workers = []
+    for input_data in input_list:
+        workers.append(LineCountWorker(input_data))
+    return workers
+
+# Execute those worker instances by fanning out the map step to multiple threads,
+# Call reduce repeatedly to combine the results into one final value.
+from threading import Thread
+
+def execute(workers):
+    threads = [Thread(target=w.map) for w in workers]
+    for thread in threads: thread.start()
+    for thread in threads: thread.join()
+
+    first, *rest = workers
+    for worker in rest:
+        first.reduce(worker)
+    return first.result
+
+
+# connect all the pieces together in a function to run each step:
+def mapreduce(data_dir):
+    inputs = generate_inputs(data_dir)
+    workers = create_workers(inputs)
+    return execute(workers)
+
+# Running this function on a set of test input files works great:
+import os
+import random
+
+def write_test_files(tmpdir):
+    if not os.path.exists(tmpdir):
+        os.makedirs(tmpdir)
+    for i in range(100):
+        with open(os.path.join(tmpdir, str(i)), 'w') as f:
+            f.write('\n' * random.randint(0, 100))
+
+
+tmpdir = 'test_inputs'
+write_test_files(tmpdir)
+
+result = mapreduce(tmpdir)
+print(f'There are {result} lines')
+
+
+
+
+
+
+
 
