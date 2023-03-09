@@ -102,6 +102,26 @@ write_test_files(tmpdir)
 result = mapreduce(tmpdir)
 print(f'There are {result} lines')
 
+# Problem: mapreduce function is not generic at all.
+# If write another InputData or Worker subclass, I would also have to rewrite the genrate_inputs, create_workers,
+# and mapreduce functions to match.
+
+# Problem discussion: need a generic way to construct objects.
+# constructor polymorphism, requiring that each InputData subclass provide a special constructor
+# that can be used generically by the helper methods that orchestrate the MapReduce.
+
+# Python only allows for the single constructor method __init__.
+# It is unreasonable to require every InputData subclass to have a compatible constructor.
+
+# Solution: define class method polymorphism
+# class method polymorphism for whole classes instead of their constructed objects.
+
+
+
+
+
+
+
 
 
 
