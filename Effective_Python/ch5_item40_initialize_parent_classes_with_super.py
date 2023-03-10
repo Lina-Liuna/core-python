@@ -18,6 +18,7 @@ class LinaLeftShoe:
 # Define two parent classes that operate on the instance's value field.
 class BaseNumber:
     def __init__(self, value):
+        print('BaseNumber')
         self.value = value
 
 class TimesTwo:
@@ -36,8 +37,8 @@ class CalcNumers(BaseNumber, TimesTwo, PlusFive):
         PlusFive.__init__(self)
 
 
-CalcNum = CalcNumers(7)
-print('7 * 2 + 5 = ', CalcNum.value)
+# CalcNum = CalcNumers(7)
+# print('7 * 2 + 5 = ', CalcNum.value)
 
 # defines the same parent class but in a different order
 # PlusFive followed by TimesTwo
@@ -51,8 +52,8 @@ class CalcNumers_different_orders(BaseNumber, PlusFive, TimesTwo):
         PlusFive.__init__(self)
 
 
-CalcNum = CalcNumers_different_orders(7)
-print('7 * 2 + 5 = ', CalcNum.value)
+# CalcNum = CalcNumers_different_orders(7)
+# print('7 * 2 + 5 = ', CalcNum.value)
 
 # Diamond inheritance:
 # Diamond inheritance happens when a subclass inherits from two separate classes that have the same superclass
@@ -75,19 +76,72 @@ class CalcNumber(TimesTwo, PlusFive):
         TimesTwo.__init__(self, value)
         PlusFive.__init__(self, value)
 
-CalcNum = CalcNumber(5)
-print('should be 5 * 2 + 5 = 15 but is:', CalcNum.value)
+# CalcNum = CalcNumber(5)
+# print('should be 5 * 2 + 5 = 15 but is:', CalcNum.value)
 
 # The Problem above is: PlusFive.__init__ causes self.value to be reset back to 5 when BaseNumber.__init__ get called
 # a second time.
 
 # This behavior is surprising and can be very difficult to debug in more complex cases.
 
+# How to solve the diamond inheritance problem?
+# super built-in function and standard method resolution order(MRO)
+# super.__init__ ensures that common superclasses in diamond hierarchies are run only once.
+# The standard method resolution order(MRO) defines the ordering in which superclasses are initialized, following
+# an algorithm called C3 linearization
+
+class TimesTwo(BaseNumber):
+    def __init__(self, value):
+        super().__init__(value)
+        print('TimesTwo')
+        self.value *= 2
+
+class PlusFive(BaseNumber):
+    def __init__(self, value):
+        super().__init__(value)
+        print('PlusFive')
+        self.value += 5
+
+class CalcNumber(TimesTwo, PlusFive):
+    def __init__(self, value):
+        super().__init__(value)
+
+CalcNum = CalcNumber(5)
+print(f'should be (5 + 5) * 2 = 20 and is:',CalcNum.value)
+'''
+class CalcNumber(PlusFive, TimesTwo):
+    def __init__(self, value):
+        super().__init__(value)
+'''
 
 
+#CalcNum = CalcNumber(5)
+#print(f'should be 5 * 2 + 5 = 15 and is:',CalcNum.value)
+
+# MRO
+class A:
+    def __init__(self):
+        print(" In class A")
 
 
+class B(A):
+    def __init__(self):
+        super().__init__()
+        print(" In class B")
 
+
+class C(A):
+    def __init__(self):
+        super().__init__()
+        print("In class C")
+
+
+# classes ordering
+class D(B, C):
+    pass
+
+
+r = D()
 
 
 
