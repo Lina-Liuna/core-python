@@ -182,6 +182,15 @@ print(ImplicitTrisect(9).value)
 # functionality of a super class's implementation from a child class.
 
 
+# Things-to-Remember:
+# 1. Python's standard method resolution order(MRO) solves the problems of superclass initialization
+# and diamond inheritance.
+
+# 2. Use the super built-in function with zero arguments to initialize parent classes.
+
+
+
+
 
 
 
