@@ -60,6 +60,31 @@ print('7 * 2 + 5 = ', CalcNum.value)
 
 # Diamond inheritance causes the common superclass's __init__ method to run multiple times, causing unexpected behavior.
 
+class TimesTwo(BaseNumber):
+    def __init__(self, value):
+        BaseNumber.__init__(self, value)
+        self.value *= 2
+
+class PlusFive(BaseNumber):
+    def __init__(self, value):
+        BaseNumber.__init__(self, value)
+        self.value += 5
+
+class CalcNumber(TimesTwo, PlusFive):
+    def __init__(self, value):
+        TimesTwo.__init__(self, value)
+        PlusFive.__init__(self, value)
+
+CalcNum = CalcNumber(5)
+print('should be 5 * 2 + 5 = 15 but is:', CalcNum.value)
+
+# The Problem above is: PlusFive.__init__ causes self.value to be reset back to 5 when BaseNumber.__init__ get called
+# a second time.
+
+# This behavior is surprising and can be very difficult to debug in more complex cases.
+
+
+
 
 
 
