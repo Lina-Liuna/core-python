@@ -143,6 +143,16 @@ class D(B, C):
 
 r = D()
 
+# Question: shouldn't B.__init__ or TimesTwo.__init__ run first?
+# The MRO order
+
+# The MRO ordering is available on a class method called mro
+# repr function return the canonical string repreentation of the object
+mro_str = '\n'.join(repr(cls) for cls in CalcNumber.mro())
+print(mro_str)
+
+
+
 
 
 
