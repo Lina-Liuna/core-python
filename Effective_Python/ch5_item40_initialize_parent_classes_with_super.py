@@ -151,7 +151,35 @@ r = D()
 mro_str = '\n'.join(repr(cls) for cls in CalcNumber.mro())
 print(mro_str)
 
+# The super functions
+# The super function can also be called with two parameters:
+# first the type of the class whose MRO parent view you're trying to access.
+# second parameters is the instance on which to access that view.
 
+class ExplicitTrisect(BaseNumber):
+    def __init__(self, value):
+        super(ExplicitTrisect, self).__init__(value)
+        self.value /= 3
+
+
+class AutomaticTrisect(BaseNumber):
+    def __init__(self, value):
+        super(__class__, self).__init__(value)
+        self.value /= 3
+
+
+class ImplicitTrisect(BaseNumber):
+    def __init__(self, value):
+        super().__init__(value)
+        self.value /= 3
+
+
+print(ExplicitTrisect(9).value)
+print(AutomaticTrisect(9).value)
+print(ImplicitTrisect(9).value)
+
+# The only time you should provide parameters to super is in situations where you need to access the specific
+# functionality of a super class's implementation from a child class.
 
 
 
