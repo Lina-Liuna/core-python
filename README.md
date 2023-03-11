@@ -371,6 +371,26 @@ ALl the defaultdict requires a function for the default value hook, choose wisel
 2. Use @classmethod to define alternative constructors for your classes.
 3. Use class method polymorphism to provide generic ways to build and connect many concrete subclasses.
 
+
+#### item 40: Initialize parent classes with super
+##### Things-to-Remember:
+1. Python's standard method resolution order(MRO) solves the problems of superclass initialization
+and diamond inheritance.
+
+2. Use the super built-in function with zero arguments to initialize parent classes.
+
+
+#### item 41: Consider composing functionality with mix in classes.
+##### Things-To-Remember:
+1. Avoid using multiple inheritance with instance attributes and __init__ if mix-in classes can achieve the 
+same outcome.
+
+2. Use pluggable behaviors at the instance level to provide per-class customization when mix-in classes may require it.
+
+3. Mix-ins can include instance methods or class methods, depending on your needs.
+
+4. Compose mix-ns to create complex functionality from simple behaviors.
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

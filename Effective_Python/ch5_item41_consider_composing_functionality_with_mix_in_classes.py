@@ -130,6 +130,19 @@ json.loads(roundtrip)
 assert json.loads(serialized) == json.loads(roundtrip)
 
 
+# Things-To-Remember:
+# 1. Avoid using multiple inheritance with instance attributes and __init__ if mix-in classes can achieve the
+# same outcome.
+
+# 2. Use pluggable behaviors at the instance level to provide per-class customization when mix-in classes may require it.
+
+# 3. Mix-ins can include instance methods or class methods, depending on your needs.
+
+# 4. Compose mix-ns to create complex functionality from simple behaviors.
+
+
+
+
 
 
 
