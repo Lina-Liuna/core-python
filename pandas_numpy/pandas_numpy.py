@@ -34,3 +34,24 @@ print(df['Age'].max())
 # describe provides a quick overview of the numerical data in a DataFrame.
 # df.describe return a pandas series or pandas DataFrame.
 print(df.describe())
+
+# read tabular data csv file:
+# pandas.read_csv() returns DataFrame, when displaying a DataFrame, the first and last 5 rows will be shown by default.
+titanic = pandas.read_csv('annual-financial.csv')
+print(titanic)
+
+# use the head() method with the required number of rows as argument
+print(titanic.head(10))
+print(titanic.tail(10))
+
+print(titanic.dtypes)
+
+titanic.to_excel('titanic.xlsx', sheet_name="passengers", index=False)
+
+# use info() method to get summary of a DataFrame
+print(titanic.info())
+
+year_units = titanic[['Year', 'Units']]
+print(year_units.head(11))
+print(type(year_units))
+
