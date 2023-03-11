@@ -45,34 +45,29 @@ tree = BinaryTree(10,
 print(tree.to_dict())
 
 
-class ToDictMixin:
-    def to_dict(self):
-        return self._traverse_dict(self.__dict__)
+# what the best part about mix-ins is that you can make their generic functionality pluggable
+# so behaviors can be overridden when required.
 
-    def _traverse_dict(self, instance_dict):
-        output = {}
-        for key, value in instance_dict.items():
-            output[key] = self._traverse(key, value)
-        return output
+
+# define a subclass of BinaryTree that holds a reference to its parent.
+class BinaryTreeWithParent(BinaryTree):
+    def __init__(self, value, left=None, right=None, parent=None):
+        super().__init__(value, left=left, right=right)
+        self.parent = parent
 
     def _traverse(self, key, value):
-        if isinstance(value, ToDictMixin):
-            return value.to_dict()
-        elif isinstance(value, dict):
-            return self._traverse_dict(value)
-        elif isinstance(value, list):
-            return [self._traverse(key, i) for i in value]
-        elif hasattr(value, '__dict__'):
-            return self._traverse_dict(value.__dict__)
+        if (isinstance(value, BinaryTreeWithParent) and
+                key == 'parent'):
+            return value.value    # Prevent cycles
         else:
-            return value
+            return super()._traverse(key, value)
+
+root = BinaryTreeWithParent(10)
+root.left = BinaryTreeWithParent(7, parent=root)
+root.left.right = BinaryTreeWithParent(9, parent=root.left)
+print(root.to_dict())
 
 
-class BinaryTree(ToDictMixin):
-    def __init__(self, value, left=None, right=None):
-        self.value = value
-        self.left = left
-        self.right = right
 
 
 
