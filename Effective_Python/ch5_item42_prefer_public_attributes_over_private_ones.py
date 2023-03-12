@@ -30,3 +30,39 @@ lngitchild = LinaGitChild()
 
 # How to access private attributes of any class- from a subclass or externally--without asking permission
 print(lngitchild._LinaGit__private_repo)
+
+# look in the object's attribute dictionary, you can see the private attribute are actually stored with
+# the named as they appear after the tranformation.
+print(lngitchild.__dict__)
+
+# if you insisted call private attribute, once the class hierarchy changes beneath you, these classes will
+# break because the private attribute references are no longer valid.
+
+# better ways:
+# Document each protected field and explain which fields are internal API available to subclasses and
+# which should be left alone entirely.
+
+
+# The only time to seriously consider using private attributes is when you're worried about naming conflicts
+# with subclasses.
+
+# This problem occurs when a child class unwittingly defines an attribute that was already defined
+# by its parent class.
+
+# To reduce the risk of this issue occuring, you can use a private attribute in the parent class
+# to ensure that there are no attribute names that overlap with child classes.
+
+class BaseClass:
+    def __init__(self):
+        self.__value = 5
+
+    def get(self):
+        return self.__value
+
+class ChildClass(BaseClass):
+    def __init__(self):
+        super().__init__()
+        self._value = 'hello'
+
+a = ChildClass()
+print(f'{a.get()} and {a._value} are differnt')
