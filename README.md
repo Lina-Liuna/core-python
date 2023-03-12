@@ -391,6 +391,19 @@ same outcome.
 
 4. Compose mix-ns to create complex functionality from simple behaviors.
 
+#### item 42: Prefer Public attributes over private ones
+##### Things-to-Remember:
+1. Private attributes aren't rigorously enforced by the Python compiler
+
+2. Plan from the beginning to allow subclasses to do more with your internal APIs and attributes 
+instead of choosing to lock them out
+
+3. Use documentation of protected fields to guide subclasses instead of trying to force access control
+with private attributes
+
+4. Only consider using private attribute to avoid naming conflicts with subclasses that are out of your control
+
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
