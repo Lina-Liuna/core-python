@@ -28,4 +28,5 @@ class LinaGitChild(LinaGit):
 lngitchild = LinaGitChild()
 # lngitchild.get_private_repo()  #Error:
 
-
+# How to access private attributes of any class- from a subclass or externally--without asking permission
+print(lngitchild._LinaGit__private_repo)
