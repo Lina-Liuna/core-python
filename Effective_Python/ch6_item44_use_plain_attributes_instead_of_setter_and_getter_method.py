@@ -100,5 +100,13 @@ r4 = FixedResistance(1e3)
 # can use descriptors
 
 
+# Things-to-Remember:
+# 1. Define new class interfaces using simple public attributes and avoid defining setter and getter method
+# 2. Use @property to define special behavior when attributes are accessed on your objects, if necessary.
+# 3. Follow the rule of least surprise and avoid side effects in your @property methods
+# 4. Ensure that @property methods are fast; for slow or complex work -- especially involving I/O or causing
+# side effects - use normal methods instead.
+
+
 
 
