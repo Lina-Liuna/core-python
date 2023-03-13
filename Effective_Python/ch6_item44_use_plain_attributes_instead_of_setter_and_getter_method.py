@@ -81,5 +81,24 @@ r4 = FixedResistance(1e3)
 # r4.ohms = 2e3   # AttributeError: Ohms is immutable
 
 # Never set attribute in get method.
+# setting other attributes in getter property methods leads to extremely bizarre behavior.
+
+# Other NOTEs:
+# avoid :
+# 1. importing modules bynamically
+# 2. running slow helper functions
+# 3. doing I/O
+# 4. making expensive database queries
+
+# Expect of using @property:
+# 1. quick and easy
+# 2. use normal method to do anythong more complex or slow.
+
+# shortcomes of @property:
+# 1. the methods of an attribute can only be shared by subclasses.
+# unrelated classes can't share the same implementation.
+# can use descriptors
+
+
 
 
