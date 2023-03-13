@@ -20,3 +20,28 @@ r1.ohms = 10e3
 r1.ohms += 5e3
 print(r1.ohms)
 
+# define a new subclass to vary the current by assigning the voltage property.
+# use the @property decorator.
+# setter and getter method in subclass.
+
+class VoltageResistence(Resistor):
+    def __init__(self, ohms):
+        super().__init__(ohms)
+        self._votage = 0
+
+    @property
+    def voltage(self):
+        return self._voltage
+
+    @voltage.setter
+    def voltage(self, voltage):
+        self._votage = voltage
+        self.current = self._votage / self.ohms
+
+r2 = VoltageResistence(1e3)
+print(f'Before: {r2.current:.2f} amps')
+r2.voltage = 10
+print(f'After:  {r2.current:.2f} amps')
+
+
+
