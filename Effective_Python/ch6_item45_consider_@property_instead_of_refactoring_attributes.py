@@ -69,3 +69,11 @@ if deduct(bucket, 99):
     print('Had 99 quota')
 else:
     print('Not enough for 99 quota')
+
+# why we like using @property?
+# @property lets you make incremental progress toward a better data model over time.
+
+# Things-to-Remember:
+# 1. Use @property to give existing instance attributes new functionality.
+# 2. Make incremental progress towards better data models by using @property.
+# 3. consider refactoring a class and all call sites when you find yourself using @property too heavily.
