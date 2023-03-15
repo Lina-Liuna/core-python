@@ -73,3 +73,37 @@ print(Lina.math_grade, Lina.writing_grade)
 # descriptor allows you to reuse the same logic for many different attributes in a single class.
 
 
+class Grade:
+    def __init__(self):
+        self._value = 0
+    def __get__(self, instance, instance_type):
+        return self._value
+    def __set__(self, instance, value):
+        if not (0 <= value <= 100):
+            raise ValueError(
+                'Grade must be between 0 and 100')
+        self._value = value
+
+
+class Exam:
+    math_grade = Grade()
+    writing_grade = Grade()
+    science_grade = Grade()
+
+LinaExam = Exam()
+LinaExam.writing_grade = 82
+LinaExam.science_grade = 99
+print('Writing', LinaExam.writing_grade)
+print('Science', LinaExam.science_grade)
+
+NanaExam = Exam()
+NanaExam.writing_grade = 77
+print('Nana Writing', NanaExam.writing_grade)
+print('Lina Writing', LinaExam.writing_grade)
+
+
+
+
+
+
+
