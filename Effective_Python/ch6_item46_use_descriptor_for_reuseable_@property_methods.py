@@ -101,6 +101,44 @@ NanaExam.writing_grade = 77
 print('Nana Writing', NanaExam.writing_grade)
 print('Lina Writing', LinaExam.writing_grade)
 
+# How to above access multi-attributes on multiple exam instances causes unexpected behavior?
+# Solution:
+# Keep track of its value for each unique exam instance.
+# Saving the per-instance state in a dictionary.
+class Grade:
+    def __init__(self):
+        self._values = {}
+    def __get__(self, instance, instance_type):
+        if instance is None:
+            return self
+        return self._values.get(instance, 0)
+
+    def __set__(self, instance, value):
+        if not (0 <= value <= 100):
+            raise ValueError(
+                'Grade must be between 0 and 100')
+        self._values[instance] = value
+
+class Exam:
+    math_grade = Grade()
+    writing_grade = Grade()
+    science_grade = Grade()
+
+LinaExam = Exam()
+LinaExam.writing_grade = 82
+LinaExam.science_grade = 99
+print('Writing', LinaExam.writing_grade)
+print('Science', LinaExam.science_grade)
+
+NanaExam = Exam()
+NanaExam.writing_grade = 77
+print('Nana Writing', NanaExam.writing_grade)
+print('Lina Writing', LinaExam.writing_grade)
+
+# The above code works well, but still one gotcha: it leaks memory.
+# The _values dictionary holds a reference to every instance of Exam ever passed to __set__
+# over the lifetime of the program. This causes instances to never have their reference count go to zero,
+# preventing cleanup by the garbage collector
 
 
 
