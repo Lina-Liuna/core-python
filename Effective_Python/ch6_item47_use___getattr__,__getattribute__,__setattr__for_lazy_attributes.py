@@ -15,3 +15,17 @@
 # dynamic behavior: with __getattr__ method.
 
 # __getattr__ method called everytime an attribute can't found in an object's instance dictionary.
+
+
+class LazyRecord:
+    def __init__(self):
+        self.exists = 5
+    def __getattr__(self, name):
+        value = f'Value for {name}'
+        setattr(self, name, value)
+        return value
+
+data = LazyRecord()
+print('Before:', data.__dict__)
+print('foo:   ', data.foo)
+print('After: ', data.__dict__)
