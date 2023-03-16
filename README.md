@@ -425,6 +425,12 @@ side effects - use normal methods instead.
 2. Make incremental progress towards better data models by using @property.
 3. consider refactoring a class and all call sites when you find yourself using @property too heavily.
 
+#### item 46: Use Descriptor for reuseable @property methods
+##### Things-to-Remember:
+1. Reuse the behavior and validation of @property methods by defining your own descriptor classes.
+2. Use WeakKeyDictionary to ensure that your descriptor classes don’t cause memory leaks.
+3. Don’t get bogged down trying to understand exactly
+how __getattribute__ uses the descriptor protocol for getting and set- ting attributes.
 
 ### 2. The Python Standard Library
 

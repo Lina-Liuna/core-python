@@ -182,3 +182,10 @@ NanaExam = Exam()
 NanaExam.writing_grade = 77
 print('Nana Writing', NanaExam.writing_grade)
 print('Lina Writing', LinaExam.writing_grade)
+
+
+# Things-to-Remember:
+# 1. Reuse the behavior and validation of @property methods by defining your own descriptor classes.
+# 2. Use WeakKeyDictionary to ensure that your descriptor classes don’t cause memory leaks.
+# 3. Don’t get bogged down trying to understand exactly
+# how __getattribute__ uses the descriptor protocol for getting and set- ting attributes.
