@@ -36,7 +36,7 @@ def mar_16_2023():
     workout_calorie = {
         'plank jump-ins': 15,
         'jumping jacks': 100,
-        'high knees': 7 * 10,
+        'high knees': 7 * 10 + 7 * 10,
         'squats': 25,
         'hard crunch': 24 * 8,
         'Bubble butt': 130,
