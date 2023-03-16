@@ -22,6 +22,7 @@ def calc_calorie(foodc, workoutc):
     if lina_total_calorie > 100:
         logger.warning(f'watch out!, you input food calorie is far beyond than you output workout caloire!')
         logger.warning(f'lina input calorie in mar 16 is:{lina_total_calorie}')
+        logging.warning(f'!!!!!!DO MORE WORKOUT!!!!!!!!, PLEASE EAT LESS TOMORROW!!!!!!!!')
 def mar_16_2023():
     food_calorie = {'two bananas': 105 * 2,
                 'one apple': 95,
