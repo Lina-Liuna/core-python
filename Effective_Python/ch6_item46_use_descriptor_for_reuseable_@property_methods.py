@@ -140,8 +140,45 @@ print('Lina Writing', LinaExam.writing_grade)
 # over the lifetime of the program. This causes instances to never have their reference count go to zero,
 # preventing cleanup by the garbage collector
 
+# How to fix the leak memory problem?
+# Solution: use weakref built-in module
+# weakref provides a special class called WeakKeyDictionary that can take the place of the imple dictionary
+# used for _values.
+
+# The unique behavior of WeakKeyDictionary is that
+# the WeakKeyDictionary removes Exam instances from its set of items
+# when the Python runtime knows it’s holding the instance’s last remaining reference in the program.
+# Python does the bookkeeping for me and ensures that the _values dictionary will be empty
+# when all Exam instances are no longer in use:
 
 
+from weakref import WeakKeyDictionary
+class Grade:
+    def __init__(self):
+        self._values = WeakKeyDictionary()
+    def __get__(self, instance, instance_type):
+        if instance is None:
+            return self
+        return self._values.get(instance, 0)
 
+    def __set__(self, instance, value):
+        if not (0 <= value <= 100):
+            raise ValueError(
+                'Grade must be between 0 and 100')
+        self._values[instance] = value
 
+class Exam:
+    math_grade = Grade()
+    writing_grade = Grade()
+    science_grade = Grade()
 
+LinaExam = Exam()
+LinaExam.writing_grade = 82
+LinaExam.science_grade = 99
+print('Writing', LinaExam.writing_grade)
+print('Science', LinaExam.science_grade)
+
+NanaExam = Exam()
+NanaExam.writing_grade = 77
+print('Nana Writing', NanaExam.writing_grade)
+print('Lina Writing', LinaExam.writing_grade)
