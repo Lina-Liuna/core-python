@@ -1,11 +1,48 @@
 import collections
 
+import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import matplotlib
+import os
+from pathlib import Path
+from PIL import Image
+import img2pdf
+
+from fpdf import FPDF
+
 class WordsList:
+    def words_diagram(self, words, meaning):
+        words_df = pd.DataFrame(
+            meaning,
+            index= words,
+            columns=['new words list']
+        )
+
+        matplotlib.rc('figure', figsize=(10, 5))
+        for key in words:
+            words_df.style.set_properties(subset=[key], **{'width': '1000000px'})
+
+        words_df.plot()
+        plt.show()
+
+    def words_to_pdf(self, font_type, pdf_name, words_dict):
+        pdf = FPDF()
+        # pdf.add_font('KGPrimaryDotsLinedNOSPACE', '', font_type, uni=True)
+        pdf.set_font('Arial', '', 20)
+        pdf.add_page()
+        for rank, (word, meaning_example) in enumerate(words_dict.items(), 1):
+
+            pdf.cell(w=2, h=10, txt=f'{rank}:{word}:{meaning_example[0]}', ln=1)
+        pdf.output(pdf_name, 'F')
+
     def new_words(self):
         mark = '-'
         print(f'\n{mark*20}New Words{mark*80}\n')
         new_words = collections.defaultdict(list)
-        new_words = {
+        new_words_1 = {
             'stride': ['walk with long, decisive steps.', 'he strode across the road'],
             'collation': ['the action of collating something or a light informal meal', 'data management and collation, lunch '
                                                                                         'wwas a collation of salami, olives, '
@@ -14,32 +51,32 @@ class WordsList:
             'reliant': ['dependent on someone or something', 'self-reliant'],
             'oars': ['a pole with a flat blade, pivoting in an oar lock, used to row or steer a boat through the water.', ''],
             'conviction': ['a firmly held belief or opinion', 'He said he was enjoying his new job, but his voice lacked conviction'],
-            'chisel': ['凿子', 'A cutting tool used to remove parts os stone, wood, or metal by pushing when the sharp '
+            'chisel': [ 'A cutting tool used to remove parts os stone, wood, or metal by pushing when the sharp '
                              'edge is against the material'],
             'acronym': ['akrenim, an abbreviation formed from the initial letters of other words', ''],
             'tabular': ['consisting of or presented in columns or tables', 'a tabular presentation of running costs'],
             'utilize': ['make practical and effective use of', 'Vitamin C helps your body utilize the iron present in your diet,'
                                                                'Our school should utilize a FULL DAY SCHEDULE for all students.'],
 
-            'denim': ['ˈdenəm, a sturdy cotton twill fabric, typically blue, used for jeans, overalls, and other clothing',
-                      'He\'s wearing faded denims and cowboy boots'],
-            'cumbersome': ['ˈkəmbərsəm, large or heavy and therefore difficult to carry or use; unwieldy',
+            'denim': [' a sturdy cotton twill fabric, typically blue, used for jeans, overalls, and other clothing',
+                      'Hes wearing faded denims and cowboy boots'],
+            'cumbersome': ['ˈ large or heavy and therefore difficult to carry or use; unwieldy',
                            'cumbersome diving suits; organizations with cumbersome hierarchical structures'],
-            'migrate': ['ˈmīˌɡrāt, move from one part of something to another',
+            'migrate': ['move from one part of something to another',
                         'as fall arrives, the birds migrate south'],
-            'nuisance':['ˈno͞os(ə)ns, a person, thing, or circumstance causeing inconvenience or annoyance',
-                'I hope you\'re not going to make a nuisance of yourself. '],
+            'nuisance':[' a person, thing, or circumstance causeing inconvenience or annoyance',
+                'I hope youre not going to make a nuisance of yourself. '],
             'spawn': ['(of a fish, frog, mollusk, crustacean, etc.) release or deposit eggs',
                       'the fish spawn among fine-leaved plants'],
-            'ancillary': ['\ˈansəˌlerē, providing support to primary activities or industry, system',
+            'ancillary': ['providing support to primary activities or industry, system',
                           'the development of ancillary services to support its products'],
             'batch': ['a quantity of goods produced at one time',
                       'a batch of cookies'],
             'raptor': ['a bird of prey', 'egle, hawk, falcon, owl are all raptors'],
             'hydra':['a minute freshwater with tubular body and a ring of tentacles around the mouth'],
-            'Parentheses':['pəˈrenTHəsəs, 小括号' ],
-            'brackets':['括号'],
-            'zodiac':['星座'],
+            'Parentheses':['xiaokuohao' ],
+            'brackets':['kuohao'],
+            'zodiac':['xingzuo'],
             'cascade':['a small watefall, typically one of several that fall in stages down a steep rocky slope',
                        'a process whereby something, typically information or knowledge, is successively passed on',
                        'the greater the number of people who are are well briefed, the wider the cascade effect'],
@@ -75,7 +112,7 @@ class WordsList:
                               'these figures are only approximations',
                               'a thing that is similar to something else, but is not exactly the same',
                               'the band smashed up their equipment in an approximation of rock star behavior'],
-            'vaguely':['ˈvāɡlē', 'in a way that is uncertain, indefinite or unclear, roughly',
+            'vaguely':[ 'in a way that is uncertain, indefinite or unclear, roughly',
                        'he veguely remembered talking to her once'],
             'pitfall':['a hidden or unsuspected danger or difficulty',
                        'a covered pit used as a trap'],
@@ -88,16 +125,32 @@ class WordsList:
             'quota': ['a fixed share of something that a person or group is entitled to receive or '
                       'is bound to contribute',
                       ''],
-            'hygiene':['ˈhīˌjēn', 'conditions or practices conductive to maintaining health and preventing disease,'
+            'hygiene':[ 'conditions or practices conductive to maintaining health and preventing disease,'
                                   'especially throuogh cleanliness',
                        'poor standards of food hygiene']
 
 
 
         }
+        new_words = {
+            'stride': ['walk with long, decisive steps.', 'he strode across the road'],
+            'collation': ['the action of collating something or a light informal meal',
+                          'data management and collation, lunch '
+                          'wwas a collation of salami, olives, '
+                          'and rye bread'],
+            'trivial': ['of little value or importance', 'the story spends too much time on trivial matters'],
+            'reliant': ['dependent on someone or something', 'self-reliant'],
+            }
+        meaning_example_list = list()
+        words = list()
         for rank, (word, meaning_example) in enumerate(new_words.items(), 1):
+            meaning_example_list.append(list(meaning_example)[0])
+            words.append(word)
             print(f'#{rank}: word = {word}; meaning_example = {list(meaning_example)}')
         return new_words
 
 words_lists=WordsList()
-words_lists.new_words()
+newwords= words_lists.new_words()
+font = '/Users/linaliu/books/font/ttf_here/Arial.ttf'
+pdfname = '/Users/linaliu/books/fonts/new_words/newwords.pdf'
+words_lists.words_to_pdf(font, pdfname, newwords)
