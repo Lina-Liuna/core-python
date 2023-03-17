@@ -29,3 +29,52 @@ data = LazyRecord()
 print('Before:', data.__dict__)
 print('foo:   ', data.foo)
 print('After: ', data.__dict__)
+
+class LoggingLazyRecord(LazyRecord):
+    def __getattr__(self, name):
+        print(f'* Called __getattr__({name!r}), '
+              f'populating instance dictionary')
+        result = super().__getattr__(name)
+        print(f'* Returning {result!r}')
+        return result
+data = LoggingLazyRecord()
+print('exists:     ', data.exists)
+print('First foo:  ', data.foo)
+print('Second foo: ', data.foo)
+
+# Example :
+# I want to transactions in this database system.
+# The next time the user accesses a property, I want to know whether the corresponding record in the database
+# is still valid and whether the transaction is still open.
+
+# Solution:
+# object hook: __getttribute__
+# __getattribute__ called every time an attribute is accessed on an object
+# We can do things like check global transaction state on every property access.
+# side effect of using __getattribute__:
+# using __getattribute__ can incur significant overhead and negatively impact performance.
+
+class ValidatingRecord:
+    def __init__(self):
+        self.exists = 5
+
+    def __getattribute__(self, name):
+        print(f'Called __getattribute__({name!r})')
+        try:
+            value = super().__getattribute__(name)
+            print(f'Found {name!r}, returning {value!r}')
+            return value
+        except AttributeError:
+            value = f'Value for {name}'
+            print(f'Setting {name!r} to {value!r}')
+            setattr(self, name, value)
+            return value
+
+
+data = ValidatingRecord()
+print('exists: ', data.exists)
+print('first foo: ', data.foo)
+print('second foo', data.foo)
+
+
+
