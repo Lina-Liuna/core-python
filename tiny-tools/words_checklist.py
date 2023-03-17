@@ -33,9 +33,9 @@ class WordsList:
 
         pdf = FPDF(orientation='P', unit='mm', format='A4')
         pdf.page_mode = "FULL_SCREEN"
-        pdf.add_font('TeachersStudent-Regular', '',os.path.join(os.path.dirname(os.path.realpath(__file__)), "font", 'TeachersStudent-Regular.ttf'),uni=True)
+        pdf.add_font('BreadleySansRegular-MVyEB', '',os.path.join(os.path.dirname(os.path.realpath(__file__)), "font", 'BreadleySansRegular-MVyEB.ttf'),uni=True)
         # pdf.add_font('KGPrimaryDotsLinedNOSPACE', '', font_type, uni=True)
-        pdf.set_font('TeachersStudent-Regular', '', 10)
+        pdf.set_font('BreadleySansRegular-MVyEB', '', 10)
         pdf.add_page()
         for rank, (word, meaning_example) in enumerate(words_dict.items(), 1):
 
@@ -150,5 +150,5 @@ class WordsList:
 words_lists=WordsList()
 newwords= words_lists.new_words()
 font = '/Users/linaliu/books/font/ttf_here/Arial.ttf'
-pdfname = '/Users/linaliu/books/fonts/new_words/newwords.pdf'
+pdfname = '/Users/linaliu/books/linasbooks/newwords.pdf'
 words_lists.words_to_pdf(font, pdfname, newwords)
