@@ -91,3 +91,73 @@ data = ValidatingRecord()  # Implements __getattribute__
 print('Has first foo:  ', hasattr(data, 'foo'))
 print('Has second foo: ', hasattr(data, 'foo'))
 
+
+# __setattr__ is always called when an attribute is assigned on an instance
+class SavingRecord:
+    def __setattr__(self, name, value):
+        # Save some data for the record
+        ...
+        super().__setattr__(name, value)
+
+class LoggingSavingRecord(SavingRecord):
+    def __setattr__(self, name, value):
+        print(f'* Called __setattr__({name!r}, {value!r})')
+        super().__setattr__(name, value)
+
+data = LoggingSavingRecord()
+print('Before: ', data.__dict__)
+data.foo = 5
+print('After:  ', data.__dict__)
+data.foo = 7
+print('Finally:', data.__dict__)
+
+# Useful Example:
+# attribute accesses on my object to look up keys in an associated dictionary.
+
+class DictionaryRecord:
+    def __init__(self, data):
+        self._data = {}
+
+    def __getattribute__(self, name):
+        print(f'called __getattribute__{name!r}')
+        return self._data[name]
+
+data = DictionaryRecord({'Lina wake up': 5})
+# data.foo    # Error loop until maximum recursion depth exceeded while calling python object.
+# why loop recurion happend?
+# REason:
+# __getattribute__ call self._data, self._data cause __getattribute__ to run again.
+
+# Soution:
+# use super().__getattribute__ method to fetch values from the instance attribute dictionary.
+
+class DictionaryRecord:
+    def __init__(self, data):
+        self._data = data
+    def __getattribute__(self, name):
+        print(f'called __getattribute__ {name!r}')
+        data_dict = super().__getattribute__('_data')
+        return data_dict[name]
+
+
+workout_calorie = {
+        'plank jump-ins': 15,
+        'jumping jacks': 100,
+        'high knees': 7 * 10,
+        'squats': 25,
+        'hard crunch': 24 * 8,
+        'Bubblebutt': 130,
+        'Five-min-quick-fit': 50,
+        'other': 15,
+    }
+data = DictionaryRecord(workout_calorie)
+
+print(data.other)
+print(data.Bubblebutt)
+
+
+
+
+
+
+
