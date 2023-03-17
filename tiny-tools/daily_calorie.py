@@ -23,6 +23,26 @@ def calc_calorie(foodc, workoutc):
         logger.warning(f'watch out!, you input food calorie is far beyond than you output workout caloire!')
         logger.warning(f'lina input calorie in mar 16 is:{lina_total_calorie}')
         logging.warning(f'!!!!!!DO MORE WORKOUT!!!!!!!!, PLEASE EAT LESS TOMORROW!!!!!!!!')
+
+import pandas as pd
+import numpy as np
+import matplotlib as mp
+import matplotlib.pyplot as plt
+import matplotlib
+
+def claorie_diagram(calorie_dict, calor_type_str):
+    calorie_df = pd.DataFrame(
+        list(calorie_dict.values()),
+        index= list(calorie_dict.keys()),
+        columns=[calor_type_str]
+    )
+
+    matplotlib.rc('figure', figsize=(10, 5))
+    for key in calorie_dict.keys():
+        calorie_df.style.set_properties(subset=[key], **{'width': '1000000px'})
+
+    calorie_df.plot()
+    plt.show()
 def mar_16_2023():
     food_calorie = {'two bananas': 105 * 2,
                 'one apple': 95,
@@ -44,5 +64,7 @@ def mar_16_2023():
         'other': 15,
     }
     calc_calorie(food_calorie, workout_calorie)
+    claorie_diagram(food_calorie, 'Lina Liu Food Calories')
+    claorie_diagram(workout_calorie, 'Lina Liu Workout Calories')
 
 mar_16_2023()
