@@ -33,7 +33,9 @@ class WordsList:
 
         pdf = FPDF(orientation='P', unit='mm', format='A4')
         pdf.page_mode = "FULL_SCREEN"
-        pdf.add_font('BreadleySansRegular-MVyEB', '',os.path.join(os.path.dirname(os.path.realpath(__file__)), "font", 'BreadleySansRegular-MVyEB.ttf'),uni=True)
+        # pdf.add_font('BreadleySansRegular-MVyEB', '',os.path.join(os.path.dirname(os.path.realpath(__file__)), "font", 'BreadleySansRegular-MVyEB.ttf'),uni=True)
+        pdf.add_font('BreadleySansRegular-MVyEB', '',font_type,uni=True)
+
         # pdf.add_font('KGPrimaryDotsLinedNOSPACE', '', font_type, uni=True)
         pdf.set_font('BreadleySansRegular-MVyEB', '', 10)
         pdf.add_page()
@@ -149,6 +151,6 @@ class WordsList:
 
 words_lists=WordsList()
 newwords= words_lists.new_words()
-font = '/Users/linaliu/books/font/ttf_here/Arial.ttf'
+font = os.path.join(os.path.dirname(os.path.realpath(__file__)), "font", 'BreadleySansRegular-MVyEB.ttf')
 pdfname = '/Users/linaliu/books/linasbooks/newwords.pdf'
 words_lists.words_to_pdf(font, pdfname, newwords)
