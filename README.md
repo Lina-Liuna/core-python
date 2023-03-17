@@ -432,6 +432,14 @@ side effects - use normal methods instead.
 3. Don’t get bogged down trying to understand exactly
 how __getattribute__ uses the descriptor protocol for getting and set- ting attributes.
 
+#### item 47: use __getattr__ __getattribute__ __setatrr for lazy attributes 
+##### Things-to-Remember:
+1. Use __getattr__ and __setattr__ to lazily load and save attributes for an object.
+2. Understand that __getattr__ only gets called when accessing a missing attribute, whereas __getattribute__
+get called everytime any attribute is accessed.
+3. Avoid infinite recursion in __getatrribute__ and __setattr__ by using methods from super() to access
+instance attributes.
+
 ### 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

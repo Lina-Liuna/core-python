@@ -155,7 +155,12 @@ data = DictionaryRecord(workout_calorie)
 print(data.other)
 print(data.Bubblebutt)
 
-
+# Things-to-Remember:
+# 1. Use __getattr__ and __setattr__ to lazily load and save attributes for an object.
+# 2. Understand that __getattr__ only gets called when accessing a missing attribute, whereas __getattribute__
+# get called everytime any attribute is accessed.
+# 3. Avoid infinite recursion in __getatrribute__ and __setattr__ by using methods from super() to access
+# instance attributes.
 
 
 
