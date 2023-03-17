@@ -77,4 +77,17 @@ print('first foo: ', data.foo)
 print('second foo', data.foo)
 
 
+# hasattr built-in function to determine when properties exists
+# getattr built-in function to retrieve property values.
+
+
+data = LoggingLazyRecord()  # Implements __getattr__
+print('Before:         ', data.__dict__)
+print('Has first foo:  ', hasattr(data, 'foo'))
+print('After:          ', data.__dict__)
+print('Has second foo: ', hasattr(data, 'foo'))
+
+data = ValidatingRecord()  # Implements __getattribute__
+print('Has first foo:  ', hasattr(data, 'foo'))
+print('Has second foo: ', hasattr(data, 'foo'))
 
