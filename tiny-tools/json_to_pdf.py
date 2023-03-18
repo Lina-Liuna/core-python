@@ -37,12 +37,32 @@ pdf_data = {
    'orientation': 'P',
     'format' : 'A4',
     'unit' : 'mm',
-    'font_size' :'10',
+    'font_size' :10,
     'font_name': 'BreadleySansRegular-MVyEB',
     'page_mode': "FULL_SCREEN",
-    'pdf_name' : 'test.pdf'
-
+    'pdf_name' : 'test.pdf',
+    'font_ttf' : os.getcwd() + '/font/' + 'BreadleySansRegular-MVyEB.ttf',
+    'uni' : True
 }
-
 pdf_file_attribute = PDFFileProperty(pdf_data)
 print(pdf_file_attribute.format)
+
+
+class JsonToPDF:
+    def __init__(self, json_data, pdf_property):
+        self.json_data = json_data
+        self.pdf_property = pdf_property
+
+    def words_to_pdf(self):
+        pdf = FPDF(orientation=self.pdf_property.orientation, unit=self.pdf_property.unit, format=self.pdf_property.format)
+        pdf.page_mode = self.pdf_property.page_mode
+        pdf.add_font(self.pdf_property.font_name, '',self.pdf_property.font_ttf,uni=self.pdf_property.uni)
+        pdf.set_font(self.pdf_property.font_name, '', self.pdf_property.font_size)
+        pdf.add_page()
+        pdf.cell(w=2, h=self.pdf_property.font_size, txt=f'test here', ln=1)
+
+        pdf.output(self.pdf_property.pdf_name, 'F')
+
+
+json2pdf = JsonToPDF(json_data, pdf_file_attribute)
+json2pdf.words_to_pdf()
