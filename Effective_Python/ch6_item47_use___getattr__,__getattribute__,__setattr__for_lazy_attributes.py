@@ -111,12 +111,16 @@ print('After:  ', data.__dict__)
 data.foo = 7
 print('Finally:', data.__dict__)
 
+data = SavingRecord()
+data.foo = 9
+print(data.foo)
+
 # Useful Example:
 # attribute accesses on my object to look up keys in an associated dictionary.
 
 class DictionaryRecord:
     def __init__(self, data):
-        self._data = {}
+        self._data = data
 
     def __getattribute__(self, name):
         print(f'called __getattribute__{name!r}')
@@ -139,6 +143,11 @@ class DictionaryRecord:
         data_dict = super().__getattribute__('_data')
         return data_dict[name]
 
+    def __setattr__(self, name, value):
+        super().__setattr__(name, value)
+        data_dict = super().__getattribute__('_data')
+        data_dict[name] = value
+
 
 workout_calorie = {
         'plank jump-ins': 15,
@@ -154,6 +163,8 @@ data = DictionaryRecord(workout_calorie)
 
 print(data.other)
 print(data.Bubblebutt)
+data.squats = 26
+print(data.squats)
 
 # Things-to-Remember:
 # 1. Use __getattr__ and __setattr__ to lazily load and save attributes for an object.
