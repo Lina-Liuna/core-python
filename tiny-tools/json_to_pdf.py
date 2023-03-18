@@ -40,11 +40,12 @@ class JsonToPDF:
             for item in meaning_example:
                 self.pdf_property.font_size = 12
                 pdf.set_font(self.pdf_property.font_name, '', self.pdf_property.font_size)
-                pdf.cell(w=3, h=10, txt=f'{word}:  {item}', ln=1)
+                pdf.cell(w=3, h=10, txt=f' {item}', ln=1)
 
         pdf.output(self.pdf_property.pdf_name, 'F')
 
-json_data = JsonData('json_files/new_words.json')
+json_name = 'quiz_data'
+json_data = JsonData('json_files/'+ json_name + '.json')
 
 
 pdf_data = {
@@ -52,10 +53,10 @@ pdf_data = {
     'format' : 'A4',
     'unit' : 'mm',
     'font_size' :10,
-    'font_name': 'BreadleySansRegular-MVyEB',
+    'font_name': 'Arial Rounded Bold',
     'page_mode': "FULL_SCREEN",
-    'pdf_name' : 'test.pdf',
-    'font_ttf' : os.getcwd() + '/font/' + 'BreadleySansRegular-MVyEB.ttf',
+    'pdf_name' : os.getcwd() + '/pdf_files/' + json_name + '.pdf',
+    'font_ttf' : os.getcwd() + '/font/' + 'Arial Rounded Bold.ttf',
     'uni' : True
 }
 pdf_file_attribute = PDFFileProperty(pdf_data)
