@@ -1,5 +1,25 @@
 {
   "Conformance_Test": [
-
+    "conformance test is a software testing technique used to certify that the software system ",
+    "complies  with the standards and regulations as defined by specification.",
+    "conformance test is used to determine how a system under test confirms to meet the",
+    "specification standard."
+  ],
+  "Comformance Test Includes:": [
+    "1. Performance test",
+    "2. functions test",
+    "3. Robustness test",
+    "4. Interoperability test",
+    "5. Behavior of system test"
+  ],
+  "Why do we need Conformance Testing?": [
+    "1. To check for the system's requirements fulfillment.",
+    "2. To check the development, design and evaluation as per specification."
+  ],
+  "What do we need to test?": [
+    "the standards/scope of specifications"
+  ],
+  "when to perform conformance testing?": [
+    ""
   ]
 }
