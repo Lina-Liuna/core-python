@@ -1,0 +1,61 @@
+{
+  "question" :[
+    "Q1: Do you put your goal on the calender?",
+    "Q2: Do you make working toward your goal a habit?",
+    "Q3: Do you plan for imperfection?",
+    "Q4: Do you set small goals to build momentum?",
+    "Q5: Do you Track your progress?",
+    "Q6: Do you embrace positive peer pressure?",
+    "Q7: Do you do some mood lifting every day?",
+    "Q8: Do you practice gratitude?",
+    "Q9: Do you working out, and eat healthy every day?"
+],
+  "answer": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+
+  ],
+  "options": [
+    [
+      "Yes",
+      "No"
+    ],
+
+    [
+      "Yes",
+      "No"
+    ],
+      [
+      "Yes",
+      "No"
+    ],
+      [
+      "Yes",
+      "No"
+    ],
+      [
+      "Yes",
+      "No"
+    ],
+      [
+      "Yes",
+      "No"
+    ],
+      [
+      "Yes",
+      "No"
+    ],
+      [
+      "Yes",
+      "No"
+    ]
+  ]
+
+}
