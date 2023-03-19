@@ -12,8 +12,10 @@ guide when writing Python code.
 Sharing a common style with the larger Python community facilitates collaboration with others.
 
 Using a consistent style makes it easier to modify your own code later.
+
 ====item 3: Know the difference between bytes and str
 ===== Things to Remember
+
 bytes contains sequences of 8-bit values, and str contains sequences of Unicode code points.
 Use helper functions to ensure that the inputs you operate on
 are the type of character sequence that you expect (8-bit values,
@@ -29,6 +31,7 @@ encoding parameter to open if you want to avoid surprises.
 
 ==== item 4: Prefer interpolated F-Strings over C-style Format strings and str.format
 ===== Things to Remember
+
 C-style format strings that use the % operator suffer from a variety
 of gotchas and verbosity problems.
 
@@ -39,6 +42,7 @@ solves the biggest problems with C-style format strings.
 
 F-strings are succinct yet powerful because they allow for arbitrary Python expressions to be directly embedded within format
 specifiers.
+
 ==== item 5: Write helper functions instead of complex expressions
 ===== things to remember
 
@@ -51,6 +55,7 @@ An if/else expression provides a more readable alternative to using the Boolean 
 
 ==== item 6: Prefer multiple assignment unpacking over indexing
 ===== things to remember:
+
 python has special syntax called unpacking for assigning multiple values in a single statement.
 
 unpacking is generalized in python and can be applied to any iterable, including many levels of iterable within 
@@ -60,6 +65,7 @@ using unpacking to avoid explicitly indexing into sequences.
 
 ==== item 7: Prefer enumerate over range
 ===== things to remember:
+
 enumerate provides concise syntax for looping over an iterator and getting the index of each 
 item from the iterator as you go. 
 
@@ -79,10 +85,12 @@ use the zip_longest function from itertools
 
 ==== item 9: Avoid else blocks after for and while loops
 ===== things to remember:
+
 Avoid using else blocks after loops because their behavior isn't intuitive and can be confusing.
 
 ==== item 10: Prevent repetition with assignment expression
 ===== things to remember:
+
 Assignment expressions use the walrus operator(:=) to both assign and evaluate variable names 
 in a single expression, thus reduce repetition .
 
@@ -102,6 +110,7 @@ Assigning to a list slice replaces that range in the original sequence
 
 ==== item 12: Avoid Striding and Slicing in a single expression
 ===== Things to remember
+
 specifying start, end, and stride in a slice can be extremely confusing
 prefer using positive stride values in slices without start or end indexes. 
 
@@ -114,8 +123,9 @@ is lice from the itertools built-in module.
 
 ==== item 13: Prefer Catch-All unpacking Over Slicing
 
-===== Things to Remember: 
-Unpacking assignment may use a starred expression to catch all values that weren't assigned to 
+===== Things to Remember:
+
+Unpacking assignment may use a starred expression to catch all values that weren't assigned to
 the other parts of the unpacking pattern into a list. 
 
 Starred expression may appear in any position, and they will 
