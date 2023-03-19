@@ -1,19 +1,19 @@
-# core-python
-### 3. Effective Python 
+= core-python
+=== 3. Effective Python 
 90 Specific ways to write better Python
-#### Chapter 1: Pythonic Thinking
-##### 1. item 1: know which version of python you're using
+==== Chapter 1: Pythonic Thinking
+==== 1. item 1: know which version of python you're using
 
-##### 2. item 2: follow the PEP 8 style Guide
-###### Things to Remember
-Always follow the Python Enhancement Proposal #8 (PEP 8) style
+==== 2. item 2: follow the PEP 8 style Guide
+====== Things to Remember
+Always follow the Python Enhancement Proposal =8 (PEP 8) style
 guide when writing Python code.
 
 Sharing a common style with the larger Python community facilitates collaboration with others.
 
 Using a consistent style makes it easier to modify your own code later.
-##### item 3: Know the difference between bytes and str
-###### Things to Remember 
+====item 3: Know the difference between bytes and str
+===== Things to Remember
 bytes contains sequences of 8-bit values, and str contains sequences of Unicode code points.
 Use helper functions to ensure that the inputs you operate on
 are the type of character sequence that you expect (8-bit values,
@@ -27,8 +27,8 @@ the file using a binary mode (like 'rb' or 'wb').
 If you want to read or write Unicode data to/from a file, be careful about your system’s default text encoding. Explicitly pass the
 encoding parameter to open if you want to avoid surprises.
 
-##### item 4: Prefer interpolated F-Strings over C-style Format strings and str.format
-###### Things to Remember
+==== item 4: Prefer interpolated F-Strings over C-style Format strings and str.format
+===== Things to Remember
 C-style format strings that use the % operator suffer from a variety
 of gotchas and verbosity problems.
 
@@ -39,8 +39,8 @@ solves the biggest problems with C-style format strings.
 
 F-strings are succinct yet powerful because they allow for arbitrary Python expressions to be directly embedded within format
 specifiers.
-##### item 5: Write helper functions instead of complex expressions
-###### things to remember
+==== item 5: Write helper functions instead of complex expressions
+===== things to remember
 
 Things to Remember
 Python’s syntax makes it easy to write single-line expressions that are overly complicated and difficult to read.
@@ -49,8 +49,8 @@ Move complex expressions into helper functions, especially if you need to use th
 
 An if/else expression provides a more readable alternative to using the Boolean operators or and and in expressions.
 
-##### item 6: Prefer multiple assignment unpacking over indexing
-###### things to remember: 
+==== item 6: Prefer multiple assignment unpacking over indexing
+===== things to remember:
 python has special syntax called unpacking for assigning multiple values in a single statement.
 
 unpacking is generalized in python and can be applied to any iterable, including many levels of iterable within 
@@ -58,8 +58,8 @@ iterables
 
 using unpacking to avoid explicitly indexing into sequences.
 
-##### item 7: Prefer enumerate over range
-###### things to remember: 
+==== item 7: Prefer enumerate over range
+===== things to remember:
 enumerate provides concise syntax for looping over an iterator and getting the index of each 
 item from the iterator as you go. 
 
@@ -67,8 +67,8 @@ Prefer enumerate instead of looping over a range and indexing into a sequence
 
 you can supply a second parameter to enumerate to specify the number from which to begin counting(zero is default)
 
-##### item 8: Use zip to process iterators in Parallel
-###### things to remember:
+==== item 8: Use zip to process iterators in Parallel
+===== things to remember:
 the zip func can be used to iterate over multiple iterators in parallel
 
 zip create lazy generator that produces tuples, so it can be used on infinitely long inputs.
@@ -77,12 +77,12 @@ zip truncates its output silently to the shortest iterator if you supply it with
 
 use the zip_longest function from itertools
 
-##### item 9: Avoid else blocks after for and while loops
-###### things to remember:
+==== item 9: Avoid else blocks after for and while loops
+===== things to remember:
 Avoid using else blocks after loops because their behavior isn't intuitive and can be confusing.
 
-##### item 10: Prevent repetition with assignment expression
-###### things to remember: 
+==== item 10: Prevent repetition with assignment expression
+===== things to remember:
 Assignment expressions use the walrus operator(:=) to both assign and evaluate variable names 
 in a single expression, thus reduce repetition .
 
@@ -90,9 +90,9 @@ when an assignment expression is a subexpression of a larger expression, it must
 
 use assignment expression makes code more clearly.
 
-### Ch 2: Lists and Dictionaries
-#### item 11: know how to slice sequences
-##### things to remember:
+=== Ch 2: Lists and Dictionaries
+==== item 11: know how to slice sequences
+===== things to remember:
 
 avoid being verbose when slicing: don't supply 0 for the start index or the length of the squence for the end index
 
@@ -100,8 +100,8 @@ slicing is forgiving of start and end indexes that are out of bounds
 
 Assigning to a list slice replaces that range in the original sequence
 
-#### item 12: Avoid Striding and Slicing in a single expression
-##### Things to remember
+==== item 12: Avoid Striding and Slicing in a single expression
+===== Things to remember
 specifying start, end, and stride in a slice can be extremely confusing
 prefer using positive stride values in slices without start or end indexes. 
 
@@ -112,9 +112,9 @@ avoid using start, end, and stride together in a single slice.
 If you need all three parameters, consider doing two assignments(one to stride and another to slice) or using
 is lice from the itertools built-in module.
 
-#### item 13: Prefer Catch-All unpacking Over Slicing
+==== item 13: Prefer Catch-All unpacking Over Slicing
 
-##### Things to Remember: 
+===== Things to Remember: 
 Unpacking assignment may use a starred expression to catch all values that weren't assigned to 
 the other parts of the unpacking pattern into a list. 
 
@@ -124,8 +124,8 @@ always become a list containing the zero or more values they receive.
 when dividing a list into non-overlapping pieces, catch-all unpacking is much less error prone than slicing and 
 indexing. 
 
-#### item 14: Sort by Complex Criteria Using the key parameter
-##### things to remember:
+==== item 14: Sort by Complex Criteria Using the key parameter
+===== things to remember:
 The sort method of the list type can be used to rearrange list's contents by natural ordering 
 
 the key parameter of the sort method can be used to supply a helper function that returns the value to use 
@@ -136,8 +136,8 @@ returning a tuple from the key function allows you to combine multiple sorting c
 you can combine many sorting criteria together by calling the sort method multiple times using different key 
 functions. 
 
-#### item 15: Be cautious when relying on dict insertion ordering
-##### Things to remember:
+==== item 15: Be cautious when relying on dict insertion ordering
+===== Things to remember:
 
 Since Python 3.7, you can rely on the fact that iterating a dict instances contents will occur in the same order
 in which the keys were initially added.
@@ -150,8 +150,8 @@ Write code that doesn't rely on insertion ordering.
 Explicitly check for the dict type at runtime
 require dict types using type annotations and static analysis.
 
-#### item 16: Prefer get Over in and KeyError to Handle Missing Dictionary keys
-##### Things to remember:
+==== item 16: Prefer get Over in and KeyError to Handle Missing Dictionary keys
+===== Things to remember:
 
 There are four common ways to detect and handle missing keys in dictionary: using in , keyError,
 get method, setdefault method
@@ -162,8 +162,8 @@ expressions when creating dictionary values has a high cost or may raise excepti
 when the setdefault method of dict seems like the best fit for your problem, 
 you should consider using defaultdict instead
 
-#### item 17: Prefer defaultdict over setdefault to handle missing items in internal state
-##### Things to remember:
+==== item 17: Prefer defaultdict over setdefault to handle missing items in internal state
+===== Things to remember:
 
 If you are creating a dictionary to manage an arbitrary set of potential keys, then you should prefer using 
 defaultdict instance from the collections
@@ -171,8 +171,8 @@ defaultdict instance from the collections
 If a dictionary of arbitrary keys is passed to you, and you don't control its creation, then you should prefer 
 the get method to access its items. consider using the setdefault methods it leads to short code.
 
-#### item 18: Know how to construct key-dependent default values with __missing__
-##### Things to remember:
+==== item 18: Know how to construct key-dependent default values with __missing__
+===== Things to remember:
 the setdefault method of dict is a bad fit when creating the default value has high computational cost or 
 may raise exceptions.
 
@@ -182,9 +182,9 @@ value depend on the key being accessed.
 You can define your own dict subclass with a __missing__ method in order to construct default values that must know
 which key was being accessed.
 
-### CH 3 Functions
-#### item 19: Never Unpack More Than Three Variables When Functions Return Multiple Values
-##### Things to remember:
+=== CH 3 Functions
+==== item 19: Never Unpack More Than Three Variables When Functions Return Multiple Values
+===== Things to remember:
 
 You can have functions return multiple values by putting them in a tuple and having the caller take advantage of 
 Pythons' unpacking syntax.
@@ -193,7 +193,7 @@ Multiple return values from a function can also be unpacked by catch-all starred
 
 Unpacking into four or more variables is error prone and should be avoided, instead return a small class or namedtuple instance.
 
-#### item 20: Prefer Raising Exceptions to Returning None
+==== item 20: Prefer Raising Exceptions to Returning None
 Things to remember:
 Functions that return None to indicate special meaning are error prone because None and other values 
 Error Prone: zero and empty string all evaluate to False in conditional expressions
@@ -202,30 +202,30 @@ Raise exceptions to indicate special situations instead of returning None.
 
 Type annotations can be used to make it clear that a function will never return the value None, even in special situations
 
-#### item 21: Know How Closures Interact with Variable Scope
-##### Things to remember:
+==== item 21: Know How Closures Interact with Variable Scope
+===== Things to remember:
 1. Closure functions can refer to variables from any of the scopes in which they were defined
 2. By default, closures can't affect enclosing scopes by assigning variales.
 3. Use the nonlocal statement to indicate when a closure can modify a variable in its enclosing scopes
 4. Avoid using nonlocal statements for anything beyond simple functions.
 
-#### item 22: Reduce Visual Noise with Variable Positional Arguments
-##### Things to remember:
+==== item 22: Reduce Visual Noise with Variable Positional Arguments
+===== Things to remember:
 1. Functions can accept a variable number of positional arguments by using *args in the def statement.
 2. You can use the items from a sequence as the positional arguments for a function with the * operator.
 3. Using the * operator with a generator may cause a program to run out of memory and crash.
 4. Adding new positional parameters to functions that accept *args can introduce hard-to-detect bugs.
 
-#### item 23: Provide Optional Behavior with keyword Arguments
-##### Things to remember:
+==== item 23: Provide Optional Behavior with keyword Arguments
+===== Things to remember:
 1. Function arguments can be specified by position or by keyword
 2. keyword make it clear what the purpose of each argument is when it would be confusing with only positional argument.
 3. keyword arguments with default values make it easy to add new behaviors to a function without needing to migrate 
 all existing calls.
 4. Optional keyword arguments should always be passed by keyword instead of by position.
 
-#### item 24: Use None and Docstrings to Specify Dynamic Default Arguments
-##### Things to remember:
+==== item 24: Use None and Docstrings to Specify Dynamic Default Arguments
+===== Things to remember:
 1. A default argument value is evaluated only once: during function definition at module load time.
 This can cause odd behaviors for dynamic values like {}, [], or datetime.now()
 
@@ -235,8 +235,8 @@ Document the actual default behavior in the functions docstring.
 3. Using None to represent keyword argument default values also works correctly with type annotations.
 
 
-#### item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
-##### Things to remember:
+==== item 25: Enforce Clarity with Keyword-Only and Positional-only Argument
+===== Things to remember:
 1. Keyword-only arguments force callers to supply certain arguments by keyword (instead of by position), 
 which makes the intention of a function call clearer. Keyword-only arguments are defined after a single * in the argument list.
 
@@ -246,15 +246,15 @@ which helps reduce coupling. Positional-only arguments are defined before a sing
 3. Parameters between the / and * characters in the argument list may be supplied by position or keyword, 
 which is the default for Python parameters.
 
-#### item 26: Define Function Decorators with functools.wraps
+==== item 26: Define Function Decorators with functools.wraps
 
-##### Things to Remember
+===== Things to Remember
 1. Decorators in Python are syntax to allow one function to modify another function at runtime.
 2. Using decorators can cause strange behaviors in tools that do introspection, such as debuggers.
 3. Use the wraps decorator from the functools built-in module when you define your own decorators to avoid issues.
 
-#### item 27: Use comprehensions instead of map and filter
-##### Things to remember:
+==== item 27: Use comprehensions instead of map and filter
+===== Things to remember:
 1. List comprehensions are clearer than the map and filter built-in functions 
 because they don’t require lambda expressions
 
@@ -263,29 +263,29 @@ a behavior that map doesn’t support without help from filter.
 
 3. Dictionaries and sets may also be created using comprehensions.
 
-#### item 28: Avoid more than two control subexpressions in comprehensions
-##### Things to Remember
+==== item 28: Avoid more than two control subexpressions in comprehensions
+===== Things to Remember
 1. Comprehensions support multiple levels of loops and multiple con- ditions per loop level.
 2. Comprehensions with more than two control subexpressions are very difficult to read and should be avoided.
 
-#### item 29: Avoid Repeated Work in Comprehensions by Using Assignment Expressions
-##### Things to Remember
+==== item 29: Avoid Repeated Work in Comprehensions by Using Assignment Expressions
+===== Things to Remember
 1. Assignment expressions make it possible for comprehensions and generator expressions 
 to reuse the value from one condition else- where in the same comprehension, which can improve readability and performance.
 
 2. Although it’s possible to use an assignment expression outside of a comprehension or 
 generator expression’s condition, you should avoid doing so.
 
-#### item 30: Consider Generators instead of returning lists
-##### Things to remember:
+==== item 30: Consider Generators instead of returning lists
+===== Things to remember:
 1. using generators can be clearer than the alternative of having a function return a list of accumulated results.
 2. the iterator returned by a generator produces the set of values passed to yield expressions within the generator 
 function's body.
 3. Generators can produce a sequence of outputs for arbitrarily large inputs because their working memory doesn't 
 include all inputs and outputs.
 
-#### item 31: Be defensive when iterating over arguments
-##### Things to remember:
+==== item 31: Be defensive when iterating over arguments
+===== Things to remember:
 1. Beware of functions and methods that iterator over input arguments multiple times.
 If these arguments are iterators, you may see strange behavior and missing values.
 
@@ -298,8 +298,8 @@ for loops, and related expressions.
 as what you passed in. Alternatively, you can use the isinstance built-in function
 along with the collections.abc.Iterator class.
 
-#### item 32: Consider Generator expressions for large list comprehensions.
-##### Things to Remember:
+==== item 32: Consider Generator expressions for large list comprehensions.
+===== Things to Remember:
 1. List comprehensions can cause problems for large inputs by using too much memory
 2. Generator expressions avoid memory issues by producing outputs one at a time as iterators.
 3. Generator expressions can be composed by passing the iterator from one generator expression 
@@ -307,14 +307,14 @@ into the for subexpression of another.
 4. Generator expressions execute very quickly when chained together and are memory efficient.
 
 
-#### item 33: Compose Multiple Generators with yield from
-##### Things to Remember
+==== item 33: Compose Multiple Generators with yield from
+===== Things to Remember
 1. the yield from expression allows you to compose multiple nested generators together into a single combined generator.
 2. yield from provides better performance than manually itertating nested generators and yielding their outputs.
 
 
-#### item34: Avoid injecting data into generators with send
-##### Things to Remember
+==== item34: Avoid injecting data into generators with send
+===== Things to Remember
 1. The send method can be used to inject data into a generator by giving the yield expression a value that can be 
 assigned to a variable.
 
@@ -324,8 +324,8 @@ in the generator output
 3. Providing an input iterator to a set of composed generators is a better approach than using send method,
 which should be avoided.
 
-#### item35: Avoid Causing State Transitions in Generators with throw.
-##### Things to Remember:
+==== item35: Avoid Causing State Transitions in Generators with throw.
+===== Things to Remember:
 
 1. The throw method can be used to re-raise exceptions within generators at the position of the most recently 
 executed yield expression
@@ -336,8 +336,8 @@ exceptions
 3. A better way to provide exceptional behavior in generator is to use a class that implements the __iter__ method
 along with method to cause exceptional state transitions.
 
-#### item36: Consider itertools for working with iterators and generators
-##### Things to Remember:
+==== item36: Consider itertools for working with iterators and generators
+===== Things to Remember:
 1. The itertools functions fall into three main categories for working with iterators and generators:
    1. linking iterators together
    2. filtering items they output
@@ -345,16 +345,16 @@ along with method to cause exceptional state transitions.
 2. There are more advanced functions, additional parameters, and useful recipe available in the help(itertools)
 
 
-#### item37: Compose classes instead of Nesting built-in types
-##### Things-to-Remember:
+==== item37: Compose classes instead of Nesting built-in types
+===== Things-to-Remember:
 1. Avoid making dictionaries with values that are dictionaries, long tuples, or complex nesting of other built-in types
 2. Use namedtuple for lightweight, immutable data containers before you need to flexibility of a full class.
 3. Move you bookkeeping code to using multiple classes when you internal state dictionaries get complicated.
 
-#### item 38: Accept functions instead of classes for simple interfaces. 
+==== item 38: Accept functions instead of classes for simple interfaces. 
 ALl the defaultdict requires a function for the default value hook, choose wisely.
 
-##### Things-to-Remember:
+===== Things-to-Remember:
  1. Instead of defining and instantiating classes, you can often simply use functions for simple interfaces between
  components in Python.
 
@@ -365,23 +365,23 @@ ALl the defaultdict requires a function for the default value hook, choose wisel
  4. When you need a function to maintain state, consider defining a class that provide the __call__ method instead of
  defining a stateful closure.
 
-#### item 39: Use @classmethod polymorphism to construct objects
-##### # Things-to-Remember:
+==== item 39: Use @classmethod polymorphism to construct objects
+===== = Things-to-Remember:
 1. Python only support a single constructor per class: the __init__ method
 2. Use @classmethod to define alternative constructors for your classes.
 3. Use class method polymorphism to provide generic ways to build and connect many concrete subclasses.
 
 
-#### item 40: Initialize parent classes with super
-##### Things-to-Remember:
+==== item 40: Initialize parent classes with super
+===== Things-to-Remember:
 1. Python's standard method resolution order(MRO) solves the problems of superclass initialization
 and diamond inheritance.
 
 2. Use the super built-in function with zero arguments to initialize parent classes.
 
 
-#### item 41: Consider composing functionality with mix in classes.
-##### Things-To-Remember:
+==== item 41: Consider composing functionality with mix in classes.
+===== Things-To-Remember:
 1. Avoid using multiple inheritance with instance attributes and __init__ if mix-in classes can achieve the 
 same outcome.
 
@@ -391,8 +391,8 @@ same outcome.
 
 4. Compose mix-ns to create complex functionality from simple behaviors.
 
-#### item 42: Prefer Public attributes over private ones
-##### Things-to-Remember:
+==== item 42: Prefer Public attributes over private ones
+===== Things-to-Remember:
 1. Private attributes aren't rigorously enforced by the Python compiler
 
 2. Plan from the beginning to allow subclasses to do more with your internal APIs and attributes 
@@ -404,43 +404,43 @@ with private attributes
 4. Only consider using private attribute to avoid naming conflicts with subclasses that are out of your control
 
 
-#### item 43: Inherit from collections.abc from custom container types
-#####  Things to Remember:
+==== item 43: Inherit from collections.abc from custom container types
+=====  Things to Remember:
 1. Inherit directly from pythons' container types( list or dict) for simple use cases
 2. Beware of the largest number of methods required to implement custom container type correctly.
 3. Have your custom container types inherit from the interfaces defined in collections.abc to 
 ensure that your class match the required interfaces and behaviors.
 
-#### item44: Use plain attributes instead of setter and getter methods
-##### Things-to-Remember:
+==== item44: Use plain attributes instead of setter and getter methods
+===== Things-to-Remember:
 1. Define new class interfaces using simple public attributes and avoid defining setter and getter method
 2. Use @property to define special behavior when attributes are accessed on your objects, if necessary.
 3. Follow the rule of least surprise and avoid side effects in your @property methods
 4. Ensure that @property methods are fast; for slow or complex work -- especially involving I/O or causing
 side effects - use normal methods instead.
 
-#### item45: Consider @property instead of refactoring attributes
-##### Things-to-Remember:
+==== item45: Consider @property instead of refactoring attributes
+===== Things-to-Remember:
 1. Use @property to give existing instance attributes new functionality.
 2. Make incremental progress towards better data models by using @property.
 3. consider refactoring a class and all call sites when you find yourself using @property too heavily.
 
-#### item 46: Use Descriptor for reuseable @property methods
-##### Things-to-Remember:
+==== item 46: Use Descriptor for reuseable @property methods
+===== Things-to-Remember:
 1. Reuse the behavior and validation of @property methods by defining your own descriptor classes.
 2. Use WeakKeyDictionary to ensure that your descriptor classes don’t cause memory leaks.
 3. Don’t get bogged down trying to understand exactly
 how __getattribute__ uses the descriptor protocol for getting and set- ting attributes.
 
-#### item 47: use __getattr__ __getattribute__ __setatrr for lazy attributes 
-##### Things-to-Remember:
+==== item 47: use __getattr__ __getattribute__ __setatrr for lazy attributes 
+===== Things-to-Remember:
 1. Use __getattr__ and __setattr__ to lazily load and save attributes for an object.
 2. Understand that __getattr__ only gets called when accessing a missing attribute, whereas __getattribute__
 get called everytime any attribute is accessed.
 3. Avoid infinite recursion in __getatrribute__ and __setattr__ by using methods from super() to access
 instance attributes.
 
-### 2. The Python Standard Library
+=== 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
 
@@ -454,7 +454,7 @@ What Pythons's Standard Library Provide?
 
 5. Provides as a collection of packages, Collections of packages: python package index website
           https://pypi.org/
-### 1. Python Tutorial
+=== 1. Python Tutorial
 python3 this: The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly.
@@ -477,7 +477,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 
-# The following two lines: resolve ssl SSL: CERTIFICATE_VERIFY_FAILED problem
+==== The following two lines: resolve ssl SSL: CERTIFICATE_VERIFY_FAILED problem
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
