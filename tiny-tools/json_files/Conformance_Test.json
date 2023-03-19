@@ -19,7 +19,44 @@
   "What do we need to test?": [
     "the standards/scope of specifications"
   ],
-  "when to perform conformance testing?": [
+  "when to perform Conformance Testing?": [
+    "when the specification require the consistency, completeness and correction with the code."
+  ],
+  "How to  perform Conformance Testing?": [
+    "1. Analyzing requirements specification",
+    "2. Preparing test plan, selecting test tools and test suite",
+    "3. Preparing test cases and its purpose, design testing procedures",
+    "4. Create documentation for prepared test designs",
+    "5. Check necessary validations",
+    "6. Adapting relevant testing policies and certifications"
+  ],
+  "What the purpose of The Conformance Testing?": [
+    "1. ensure efficiency",
+    "2. ensure performance",
+    "3. avoid future risks for a software application"
+  ],
+  "Advantages of Conformance Testing": [
+    "1. Assure the proper implementation of specifications",
+    "2. Assures portability and interoperability",
+    "3. Provides appropriate utilization of standards",
+    "4. Make sure that interfaces and funcitons are working as expected."
+  ],
+  "Disadvantages of Conformance Testing" : [
+    "1. tested with suitable methodology",
+    "2. Categorizing specifications",
+    "3. predefining values"
+  ],
+  "Conformance Testing Summary": [
+    "1. Conformance testing used to check whether the system meet the specification requirement",
+    "2. Test tools and Test Methodology and Test program are critical for Conformance testing",
+    "3. Assuance of Standard  utilization and interoperability"
+  ],
+  "Vulkan Conformance Testing": [
+    "1. Vulkan Conformance Testing ensure whether the code APIs are meet the standards",
+    "2. Vulkan Conformance Testing ensure whether the code APIs will function correctly even in the corners",
+    "3. Comprehensive conformance testing is required when release new features"
+  ],
+  "Task sub-group(TSG)" : [
     ""
   ]
 }
