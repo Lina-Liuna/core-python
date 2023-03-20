@@ -70,9 +70,32 @@ print(Rectangle.interior_angles())
 print(Nonagon.interior_angles())
 
 # Error example to validate the validating happened when defining the subclass.
+"""
 print("before error example")
 class Line(Polygon):
     print("before define sides")
     sides = 2
     print('after define sides')
 print('after class')
+"""
+
+# Advanced feature: __init_subclass__ to validating to avoid metaclass entirely
+
+class BetterPolygon:
+
+    # sides must be specified by subclasses
+    sides = None
+
+    def __init_subclass__(cls):
+        super().__init_subclass__()
+        if cls.sides < 3:
+            raise ValueError("Polygon need 3+ sides")
+
+    @classmethod
+    def interior_angles(cls):
+        return (cls.sides - 2) * 180
+
+class Hexagon(BetterPolygon):
+    sides = 6
+
+print(Hexagon.interior_angles())
