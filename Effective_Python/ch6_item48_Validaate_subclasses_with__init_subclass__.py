@@ -68,3 +68,11 @@ class Nonagon(Polygon):
 print(Triangle.interior_angles() == 180)
 print(Rectangle.interior_angles())
 print(Nonagon.interior_angles())
+
+# Error example to validate the validating happened when defining the subclass.
+print("before error example")
+class Line(Polygon):
+    print("before define sides")
+    sides = 2
+    print('after define sides')
+print('after class')
