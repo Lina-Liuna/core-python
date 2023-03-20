@@ -149,3 +149,16 @@ class RedTriangle(Filled, Polygon):
 ruddy = RedTriangle()
 assert isinstance(ruddy, Filled)
 assert isinstance(ruddy, Polygon)
+
+# __init_subclass__ also works on diamond hierarchy.
+
+# Things-to-Remember:
+# 1. The __new__ method of metaclasses is run after the class statements entire body has been processed.
+
+# 2. Metaclass can be used to inspect or modify a class after it's defined but before its created,
+# but they are often more heavyweight than what you need.
+
+# 3. Use __init_subclass__ to ensure that subclasses are well formed at the time they are defined.
+
+# 4. Be sure to call super()__init_subclass__ from within your classes __init_subclass__ definition to enable validation
+# in multiple inheritance and layers

@@ -13,7 +13,7 @@ Sharing a common style with the larger Python community facilitates collaboratio
 
 Using a consistent style makes it easier to modify your own code later.
 
-====item 3: Know the difference between bytes and str
+==== item 3: Know the difference between bytes and str
 ===== Things to Remember
 
 bytes contains sequences of 8-bit values, and str contains sequences of Unicode code points.
@@ -376,7 +376,7 @@ ALl the defaultdict requires a function for the default value hook, choose wisel
  defining a stateful closure.
 
 ==== item 39: Use @classmethod polymorphism to construct objects
-===== = Things-to-Remember:
+===== Things-to-Remember:
 1. Python only support a single constructor per class: the __init__ method
 2. Use @classmethod to define alternative constructors for your classes.
 3. Use class method polymorphism to provide generic ways to build and connect many concrete subclasses.
@@ -449,6 +449,20 @@ how __getattribute__ uses the descriptor protocol for getting and set- ting attr
 get called everytime any attribute is accessed.
 3. Avoid infinite recursion in __getatrribute__ and __setattr__ by using methods from super() to access
 instance attributes.
+
+==== item 48: Validate subclasses with __init_subclass__
+===== Things-to-Remember:
+
+1. The __new__ method of metaclasses is run after the class statements entire body has been processed.
+
+2. Metaclass can be used to inspect or modify a class after it's defined but before its created,
+but they are often more heavyweight than what you need.
+
+3. Use __init_subclass__ to ensure that subclasses are well formed at the time they are defined.
+
+4. Be sure to call super()__init_subclass__ from within your classes __init_subclass__ definition to enable validation
+in multiple inheritance and layers
+
 
 === 2. The Python Standard Library
 
