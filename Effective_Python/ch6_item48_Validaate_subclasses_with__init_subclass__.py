@@ -31,3 +31,40 @@ class MySubclass(MyClass):
 
 
 # The __new__ in meta will validate all of the parameters of an associated class before its defined!
+
+# Exmple:
+# I want to represent any type of multisided polygen.
+# I can do this by defining a special validating metaclass and using it in the base class of my polygon class
+# hierarchy.
+
+
+class ValidatePolygon(type):
+    def __new__(meta, name, bases, class_dict):
+        # Only validate subclasses of the Polygon class
+        if bases:
+            if class_dict['sides'] < 3:
+                raise ValueError('Polygons need 3+ sides')
+        return type.__new__(meta, name, bases, class_dict)
+
+
+class Polygon(metaclass=ValidatePolygon):
+    sides = None  # Must be specified by subclasses
+    @classmethod
+    def interior_angles(cls):
+        return (cls.sides - 2) * 180
+
+
+class Triangle(Polygon):
+    sides = 3
+
+
+class Rectangle(Polygon):
+    sides = 4
+
+
+class Nonagon(Polygon):
+    sides = 9
+
+print(Triangle.interior_angles() == 180)
+print(Rectangle.interior_angles())
+print(Nonagon.interior_angles())
