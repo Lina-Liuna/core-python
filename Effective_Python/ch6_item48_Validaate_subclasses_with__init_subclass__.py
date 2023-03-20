@@ -99,3 +99,23 @@ class Hexagon(BetterPolygon):
     sides = 6
 
 print(Hexagon.interior_angles())
+
+
+# Problems when using metaclass to validating subclass:
+# You can only specify a single metaclass per class definition
+# Error happens: if I define a second metaclass to validating the fill color used for a region.
+class ValidateFilled(type):
+    def __new__(meta, name, bases, class_dict):
+        # Only validate subclasses of the Filled class
+        if bases:
+            if class_dict['color'] not in ('red', 'green'):
+                raise ValueError('Fill color must be supported')
+        return type.__new__(meta, name, bases, class_dict)
+
+
+class Filled(metaclass=ValidateFilled):
+    color = None  # Must be specified by subclasses
+
+class RedPentagon(Filled, Polygon):
+    color = 'red'
+    sides = 5
