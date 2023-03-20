@@ -116,6 +116,36 @@ class ValidateFilled(type):
 class Filled(metaclass=ValidateFilled):
     color = None  # Must be specified by subclasses
 
-class RedPentagon(Filled, Polygon):
+# class RedPentagon(Filled, Polygon):
+    # color = 'red'
+    # sides = 5   # Error happened here for multi-metaclass validating
+
+
+# IF I use __init_subclass__ not such error happens
+class Filled:
+    color = None  # Must be specified by subclasses
+    def __init_subclass__(cls):
+        super().__init_subclass__()
+        if cls.color not in ('red', 'green', 'blue'):
+            raise ValueError('Fills need a valid color')
+
+class BetterPolygon:
+    # sides must be specified by subclasses
+    sides = None
+    def __init_subclass__(cls):
+        super().__init_subclass__()
+        if cls.sides < 3:
+            raise ValueError("Polygon need 3+ sides")
+
+    @classmethod
+    def interior_angles(cls):
+        return (cls.sides - 2) * 180
+
+
+class RedTriangle(Filled, Polygon):
     color = 'red'
-    sides = 5
+    sides = 3
+
+ruddy = RedTriangle()
+assert isinstance(ruddy, Filled)
+assert isinstance(ruddy, Polygon)
