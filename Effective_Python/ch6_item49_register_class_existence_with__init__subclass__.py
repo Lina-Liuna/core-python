@@ -55,3 +55,58 @@ print('Serialized:', data)
 after = Point2D.deserialize(data)
 print('After:     ', after)
 
+# Problem: the above code only works if you know the intended type of the serialized data
+# ahead of time.
+
+# Ideal Condition:
+# A large number of classes serializing to JSON and one common function that could
+# deserialize any of them back to a corresponding Python object.
+
+# Include the serialized object's class name in the JSON data.
+
+class Serializable:
+    def __init__(self, *args):
+        self.args = args
+
+    def serialize(self):
+        return json.dumps({
+            'class': self.__class__.__name__,
+            'args': self.args,
+        })
+
+    def __repr__(self):
+        name = self.__class__.__name__
+        arg_str = ','.join(str(x) for x in self.args)
+        return f'{name}({arg_str})'
+
+# Then maintain a mapping of class names back to constructors for those objects.
+# The general deserialize function works for any classes passed to register_class.
+
+
+registry = {}
+
+def register_class(target_class):
+    registry[target_class.__name__] = target_class
+
+def deserialize(data):
+    params = json.loads(data)
+    name = params['class']
+    target_class = registry[name]
+    return target_class(*params['args'])
+
+
+class Point2D(Serializable):
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.x = x
+        self.y = y
+
+register_class(Point2D)
+
+before = Point2D(5, 3)
+print('Before:    ', before)
+data = before.serialize()
+print('Serialized:', data)
+after = deserialize(data)
+print('After:     ', after)
+
