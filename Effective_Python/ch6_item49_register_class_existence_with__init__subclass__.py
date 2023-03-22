@@ -155,3 +155,12 @@ print('Before:    ', before)
 data = before.serialize()
 print('Serialized:', data)
 print('After:     ', deserialize(data))
+
+
+# use __init_subclass__ for class registration, you can ensure you'll never miss registering a class
+# this works for:
+# 1. serialization,
+# 2. database object-relational mappings(ORMs),
+# 3. extensible plug-in system
+# 4. callback hooks
+
