@@ -463,6 +463,13 @@ but they are often more heavyweight than what you need.
 4. Be sure to call super()__init_subclass__ from within your classes __init_subclass__ definition to enable validation
 in multiple inheritance and layers
 
+==== item 49: Register class existence with __init_subclass__ functiion
+===== Things-to-Remember:
+1. Class registration is a helpful pattern for building modular python programs
+2. Metaclasses let you run registration code automatically each time a base class is subclassed in a program.
+3. Using metaclasses for class registration helps you avoid errors by ensuring that you never miss a registration call.
+4. Prefer __init_subclass__ over standard metaclass machinery because it’s clearer and easier for beginners to understand.
+
 
 === 2. The Python Standard Library
 

@@ -164,3 +164,12 @@ print('After:     ', deserialize(data))
 # 3. extensible plug-in system
 # 4. callback hooks
 
+
+# Things-to-Remember:
+# 1. Class registration is a helpful pattern for building modular python programs
+# 2. Metaclasses let you run registration code automatically each time a base class is subclassed in a program.
+# 3. Using metaclasses for class registration helps you avoid errors by ensuring that you never miss a registration call.
+# 4. Prefer __init_subclass__ over standard metaclass machinery because it’s clearer and easier for beginners to understand.
+
+
+
