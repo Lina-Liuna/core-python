@@ -110,3 +110,32 @@ print('Serialized:', data)
 after = deserialize(data)
 print('After:     ', after)
 
+
+# Problem: Must Reister_class first, to store class name inside registry dictionary
+# Solution: Use metaclasses to intercepting the class statement when subclasses are defined.
+# Example: Use a metaclass to register the new type imdediately after the class's body.
+
+
+class Meta(type):
+    def __new__(meta, name, bases, class_dict):
+        cls = type.__new__(meta, name, bases, class_dict)
+        register_class(cls)
+        return cls
+
+class RegisteredSerializable(Serializable, metaclass=Meta):
+    pass
+
+class Vector3D(RegisteredSerializable):
+    def __init__(self, x, y, z):
+        super().__init__(x, y, z)
+        self.x, self.y, self.z = x, y, z
+
+before = Vector3D(10, -7, 3)
+print('Before:    ', before)
+data = before.serialize()
+print('Serialized:', data)
+print('After:     ', deserialize(data))
+
+
+
+
