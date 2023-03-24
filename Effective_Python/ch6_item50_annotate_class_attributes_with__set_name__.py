@@ -73,9 +73,9 @@ class Meta(type):
         cls = type.__new__(meta, name, bases, class_dict)
         return cls
 
+
 class DatabaseRow(metaclass=Meta):
     pass
-
 
 
 class BetterCustomer(DatabaseRow):
@@ -88,3 +88,36 @@ cust = BetterCustomer()
 print(f'Before: {cust.first_name!r} {cust.__dict__}')
 cust.first_name = 'LinaLLLLLL'
 print(f'After: {cust.first_name!r} {cust.__dict__}')
+
+
+# Problem: DatabaseRow seems no good, how to remove it without error?
+# Solution: use __set_name__(self, owner, name)
+class Field:
+    def __init__(self):
+        self.name = None
+        self.internal_name = None
+
+    def __set_name__(self, owner, name):
+        # Called on class Creation for each descriptor
+        self.name = name
+        self.internal_name = '_' + name
+
+    def __get__(self, instance, instance_type):
+        if instance is None:
+            return self
+        return getattr(instance, self.internal_name, '')
+
+    def __set__(self, instance, value):
+        setattr(instance, self.internal_name, value)
+
+
+class FixedCustomer:
+    first_name = Field()
+    last_name = Field()
+    prefix = Field()
+    suffix = Field()
+
+cust = FixedCustomer()
+print(f'Before:{cust.first_name!r} {cust.__dict__}')
+cust.first_name = 'LINAAAA'
+print(f'After:{cust.first_name!r} {cust.__dict__}')
