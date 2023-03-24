@@ -38,3 +38,53 @@ cust.first_name = 'Lina'
 print(f'After:{cust.first_name!r}{cust.__dict__}')
 
 
+# Problem: in Customer class: fist_name property redundant with string first_name
+# Questions: How to solve the  class property redundant problem?
+# Reason why: first the constuctor is called as Field('first_name),
+            # Second, the return value of that is assigned to Customer.field_name
+            # third, the return vlaue of that is assigned to Customer.field_name.
+            # There is no way for a Field instance to know upfront which class attribute it will be assigned to.
+# SOlution: metaclass
+
+# Metaclass let you hook the class statement directly and take action as soon as a class body is finished.
+# use the metaclass to assign Field.name and Field.internal_name on the descriptor automatically
+# instead of manually specifying the field name multiple times.
+
+class Field:
+    def __init__(self):
+        # These will be assigned by the metaclass
+        self.name = None
+        self.internal_name = None
+
+    def __get__(self, instance, instance_type):
+        if instance is None:
+            return self
+        return getattr(instance, self.internal_name, '')
+
+    def __set__(self, instance, value):
+        setattr(instance, self.internal_name, value)
+
+class Meta(type):
+    def __new__(meta, name, bases, class_dict):
+        for key, value in class_dict.items():
+            if isinstance(value, Field):
+                value.name = key
+                value.internal_name = '_' + key
+        cls = type.__new__(meta, name, bases, class_dict)
+        return cls
+
+class DatabaseRow(metaclass=Meta):
+    pass
+
+
+
+class BetterCustomer(DatabaseRow):
+    first_name = Field()
+    last_name = Field()
+    prefix = Field()
+suffix = Field()
+
+cust = BetterCustomer()
+print(f'Before: {cust.first_name!r} {cust.__dict__}')
+cust.first_name = 'LinaLLLLLL'
+print(f'After: {cust.first_name!r} {cust.__dict__}')
