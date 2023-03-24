@@ -182,7 +182,24 @@
             "comformance": [
               "the fact of following the rules or standards of something",
               "You need to ensure conformance to strict quality guidelines"
-             ]
+             ],
+            "interoperability": [
+              "the ability of computer system/software to exchange/make use of information"
+            ],
+            "rigorous": [
+              "extremely accurate",
+              "the rigorous testing of consumer products"
+            ],
+            "heinous": [
+              "very bad and shocking",
+              "a heinous crime"
+            ],
+            "annotate": [
+              "metaclass can modify/annotate properties after a class is defined but before the class is used.",
+              "add notes to giving explanation or comment",
+              "documentation should be annotated with explanatory notes."
+            ]
+
 
 
  }
