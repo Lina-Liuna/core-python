@@ -470,6 +470,13 @@ in multiple inheritance and layers
 3. Using metaclasses for class registration helps you avoid errors by ensuring that you never miss a registration call.
 4. Prefer __init_subclass__ over standard metaclass machinery because it’s clearer and easier for beginners to understand.
 
+==== item 50: Annotate class attribute with __set_name__ class
+===== Things-to-Remember:
+1. Metaclasses enable you to modify a class's attributes before the class is fully defined.
+2. Descriptor and metaclasses make a powerful combination for declarative behavior and runtime introspeciton
+3. Define __set_name__ on your descriptor class to allow them to take into account their surrounding class
+4. Avoid memory leaks and the weakref built-in module by having descriptors store data they mnaipulate direclty
+within a class's instance dirctory.
 
 === 2. The Python Standard Library
 

@@ -121,3 +121,10 @@ cust = FixedCustomer()
 print(f'Before:{cust.first_name!r} {cust.__dict__}')
 cust.first_name = 'LINAAAA'
 print(f'After:{cust.first_name!r} {cust.__dict__}')
+
+# Things-to-Remember:
+# 1. Metaclasses enable you to modify a class's attributes before the class is fully defined.
+# 2. Descriptor and metaclasses make a powerful combination for declarative behavior and runtime introspeciton
+# 3. Define __set_name__ on your descriptor class to allow them to take into account their surrounding class
+# 4. Avoid memory leaks and the weakref built-in module by having descriptors store data they mnaipulate direclty
+# within a class's instance dirctory.
