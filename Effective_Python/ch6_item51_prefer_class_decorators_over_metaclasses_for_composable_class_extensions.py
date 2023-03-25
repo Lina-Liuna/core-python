@@ -73,5 +73,11 @@ class TraceMeta(type):
         return klass
 
 
+# what a annoying part of metaclass is the following declare part:
+class TraceDict(dict, metaclass=TraceMeta):
+    pass
 
+trace_dict = TraceDict([('LinaMe', 2), ('Sat', 8)])
+trace_dict['weather'] = 'good'
+trace_dict['LinaMe'] = 'hi'
 
