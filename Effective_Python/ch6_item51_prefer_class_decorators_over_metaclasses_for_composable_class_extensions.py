@@ -81,3 +81,42 @@ trace_dict = TraceDict([('LinaMe', 2), ('Sat', 8)])
 trace_dict['weather'] = 'good'
 trace_dict['LinaMe'] = 'hi'
 
+# class decorators
+# to Solve what kind of problem?
+# Problem: metaclass instance does not inherit from OtherMeta.
+
+# Use class decorator instead!!!!
+# class decorator is similar like function decorator
+
+
+def my_class_decorator(klass):
+    klass.extra_param = 'hello'
+    return klass
+
+
+@my_class_decorator
+class MyClass:
+    pass
+
+
+print(MyClass)
+print(MyClass.extra_param)
+
+
+def trace(klass):
+    for key in dir(klass):
+        value = getattr(klass, key)
+        if isinstance(value, trace_types):
+            wrapped = trace_func(value)
+            setattr(klass, key, wrapped)
+    return klass
+
+
+@trace
+class TraceDict(dict):
+    pass
+
+
+trace_dict = TraceDict([('LinaMe', 2), ('Sat', 8)])
+trace_dict['weather'] = 'good'
+trace_dict['LinaMe'] = 'hi'
