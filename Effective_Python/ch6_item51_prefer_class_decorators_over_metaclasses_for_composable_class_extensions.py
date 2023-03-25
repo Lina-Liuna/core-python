@@ -120,3 +120,13 @@ class TraceDict(dict):
 trace_dict = TraceDict([('LinaMe', 2), ('Sat', 8)])
 trace_dict['weather'] = 'good'
 trace_dict['LinaMe'] = 'hi'
+
+# Things-to-Remember:
+
+# 1. A class decorator is a simple function that receives a class instance as a parameter and returns either
+# a new class or a modified version of the original class.
+
+# 2. Class decorators are useful when you want to modify every method or attribute of a class with minimal boilerplate
+
+# 3. metaclasses can't be composed together easily, while many class decorators can be used to
+# extend the same class without conflicts.

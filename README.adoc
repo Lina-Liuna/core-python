@@ -478,6 +478,19 @@ in multiple inheritance and layers
 4. Avoid memory leaks and the weakref built-in module by having descriptors store data they mnaipulate direclty
 within a class's instance dirctory.
 
+==== item 51:
+===== Things-to-Remember:
+
+1. A class decorator is a simple function that receives a class instance as a parameter and returns either
+a new class or a modified version of the original class.
+
+2. Class decorators are useful when you want to modify every method or attribute of a class with minimal boilerplate
+
+3. metaclasses can't be composed together easily, while many class decorators can be used to
+extend the same class without conflicts.
+
+
+
 === 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?
