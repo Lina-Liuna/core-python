@@ -45,5 +45,33 @@ trace_dict = TraceDict([('LinaMe', 2), ('Sat', 8)])
 trace_dict['weather'] = 'good'
 trace_dict['LinaMe'] = 'hi'
 
+# Problem: redefine all of the methods that I wanted to decorate with @trace_func.
+# it is a redundant boilerplate that's hard to read and error prone.
+# Solution: metaclass automatically decorate all methods of a class.
+
+import types
+
+
+trace_types = (
+    types.MethodType,
+    types.FunctionType,
+    types.BuiltinFunctionType,
+    types.BuiltinMethodType,
+    types.MemberDescriptorType,
+    types.ClassMethodDescriptorType
+)
+
+class TraceMeta(type):
+    def __new__(meta, name, bases, class_dict):
+        klass = super().__new__(meta, name, bases, class_dict)
+
+        for key in dir(klass):
+            value = getattr(klass, key)
+            if isinstance(value, trace_types):
+                wrapped = trace_func(value)
+                setattr(klass, key, wrapped)
+        return klass
+
+
 
 
