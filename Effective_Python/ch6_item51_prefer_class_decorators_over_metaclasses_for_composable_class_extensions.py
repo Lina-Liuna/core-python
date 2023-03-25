@@ -4,6 +4,7 @@
 
 from functools import wraps
 
+
 def trace_func(func):
     if hasattr(func, 'tracing'):
         return func
