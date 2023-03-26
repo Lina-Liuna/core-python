@@ -48,3 +48,13 @@ result = subprocess.run(
 result.check_returncode()
 print(result.stdout)
 
+
+# what is supprocess's parent process?
+    # the python interpreter
+
+# Example: use subprocess.Popen class and poll child process status periodically while python does other work.
+
+proc = subprocess.Popen(['sleep', '1'])
+while proc.poll() is None:
+    print('python working...')
+print('Exist status', proc.poll())
