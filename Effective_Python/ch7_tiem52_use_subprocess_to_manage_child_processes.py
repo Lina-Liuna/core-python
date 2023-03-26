@@ -30,3 +30,21 @@
 
 # The thing is:
     # it can be very difficult to make concurrent python code truly run in parallel.
+
+# Python provide battle-hardened libraries for running and managing child processes.
+    # built-in module: subprocess
+
+
+# Example: use the subprocess run convenience function to start a process, read its output,
+# and verify that it terminated cleanly
+
+import subprocess
+
+result = subprocess.run(
+    ['echo', "Hello spring! "],
+    capture_output=True,
+    encoding='utf-8')
+
+result.check_returncode()
+print(result.stdout)
+
