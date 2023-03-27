@@ -116,4 +116,39 @@ for proc in procs:
     print(out[-10:])
 
 
+# create chains of parallel processes, just like unix pipelines
+# connecting the output of one child process to the input of another.
+
+# starts the openssl cmd-line tool as a subprocess to generate a whirlpool has of the input stream:
+
+def run_hash(input_stdin):
+    return subprocess.Popen(
+        ['openssl', 'dgst', '-whirlpool', '-binary'],
+        stdin=input_stdin,
+        stdout=subprocess.PIPE)
+
+
+encrypt_procs = []
+hash_procs = []
+for _ in range(3):
+    data = os.urandom(100)
+
+    encrypt_proc = run_encrypt(data)
+    encrypt_procs.append(encrypt_proc)
+
+    hash_proc = run_hash(encrypt_proc.stdout)
+    hash_procs.append(hash_proc)
+
+    encrypt_proc.stdout.close()
+    encrypt_proc.stdout = None
+
+for proc in encrypt_procs:
+    proc.communicate()
+    assert proc.returncode == 0
+
+for proc in hash_procs:
+    out, _ = proc.communicate()
+    print(out[-10:])
+    assert proc.returncode == 0
+
 
