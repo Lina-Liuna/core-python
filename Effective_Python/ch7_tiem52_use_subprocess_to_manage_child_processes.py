@@ -162,3 +162,9 @@ except subprocess.TimeoutExpired:
     proc.terminate()
     proc.wait()
 print('Exit status', proc.poll())
+
+# Things-to-Remember:
+# 1. Use the subprocess module to run child processes and manage their input and output streams.
+# 2. child processes run in parallel with the python interpreter, enabling you to maximize your usage of CPU cores.
+# 3. Use the run convenience function for simple usage, and the Popen class for advanced usage like Unix-style pipelines
+# 4. use the timeout parameter of the communicate method to avoid deadlocks and haning child processes.
