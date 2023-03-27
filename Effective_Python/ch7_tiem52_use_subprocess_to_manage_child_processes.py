@@ -81,4 +81,39 @@ delta = end - start
 print(f'Finished in {delta:.3} seconds')
 
 
+# pipe data from a python program into a subprocess and retrieve its output
+# this allows you to utilize many other programs to do work in parallel
+
+# For example:
+# I want to use the openssl command-line tool to encrypt some data.
+# starting the child process with command-line arguments and I/O pipes.
+
+import os
+
+def run_encrypt(data):
+    env = os.environ.copy()
+    env['password'] = 'jdkf;asdkdfjsa'
+    proc = subprocess.Popen(
+        ['openssl', 'enc', '-des3', '-pass', 'env:password'],
+        env=env,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE)
+
+    proc.stdin.write(data)
+    proc.stdin.flush()
+    return proc
+
+procs = []
+for _ in range(3):
+    data = os.urandom(10)
+    proc = run_encrypt(data)
+    procs.append(proc)
+
+# wait all the child processes to finish and then retrieve their final output
+
+for proc in procs:
+    out, _ = proc.communicate()
+    print(out[-10:])
+
+
 
