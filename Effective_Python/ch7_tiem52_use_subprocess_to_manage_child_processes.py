@@ -58,3 +58,27 @@ proc = subprocess.Popen(['sleep', '1'])
 while proc.poll() is None:
     print('python working...')
 print('Exist status', proc.poll())
+
+# Example: Decoupling the child process from the parent frees up the parent process to run many child processes
+# in parallel
+# starting all the child processes together with Popen unfront.
+
+import time
+
+start = time.time()
+sleep_procs = []
+for _ in range(10):
+    proc = subprocess.Popen(['sleep', '1'])
+    sleep_procs.append(proc)
+
+
+# wait for all the child processes to finish their I/O and terminate with the communicate method.
+for proc in sleep_procs:
+    proc.communicate()
+
+end = time.time()
+delta = end - start
+print(f'Finished in {delta:.3} seconds')
+
+
+
