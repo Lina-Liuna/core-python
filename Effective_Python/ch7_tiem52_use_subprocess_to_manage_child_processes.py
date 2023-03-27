@@ -151,4 +151,14 @@ for proc in hash_procs:
     print(out[-10:])
     assert proc.returncode == 0
 
+# what happend if one subprocess hanged, waiting forever?
+# pass the timeout parameter to the communicate method.
+# give the chance to terminate the misbehaving subprocesses.
 
+proc = subprocess.Popen(['sleep', '10'])
+try:
+    proc.communicate(timeout=0.1)
+except subprocess.TimeoutExpired:
+    proc.terminate()
+    proc.wait()
+print('Exit status', proc.poll())
