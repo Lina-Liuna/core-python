@@ -34,7 +34,8 @@ def factorize(number):
 import time
 
 
-numbers = [340284, 909093092, 998993]
+# numbers = [340284, 909093092, 998993]
+numbers = [123, 456, 789]
 start = time.time()
 
 for number in numbers:
@@ -46,6 +47,43 @@ print(f'Took {delta:.3f} seconds')
 
 # The above code really took such a long time.
 
+# use multiple threads to do this computation would make sense in other language
+# because by using multiple threads could take advantage of all the CPU cores of my computer
+# define a python thread for doing the same computation as before:
 
+from threading import Thread
+
+
+class FactorizeThread(Thread):
+    def __init__(self, number):
+        super().__init__()
+        self.number = number
+
+    def run(self):
+        self.factors = list(factorize(self.number))
+
+
+# Start a thread for each number to factorize in parallel:
+start = time.time()
+numbers = [340284, 909093092, 998993]
+threads = []
+for number in numbers:
+    thread = FactorizeThread(number)
+    thread.start()
+    threads.append(thread)
+
+for thread in threads:
+    thread.join()
+
+end = time.time()
+delta = end - start
+print(f'Took {delta:.3f} seconds')
+
+# Surprisingly, this takes even longer than running factorize in serial!!!!!
+
+# Why?
+
+# This demonstrates the effect of the GIL(lock contention and scheduling overhead)
+# GIL on programs running in the standard CPython interpreter.
 
 
