@@ -23,3 +23,29 @@
 # GIL reach for threads to do parallel computation and this may not speed up your python programs.
 
 
+# Example: I want to do something computationally intensive with Python
+# I use a navie number factorization algorithm as a proxy.
+
+def factorize(number):
+    for i in range(1, number + 1):
+        if number % i == 0:
+            yield i
+
+import time
+
+
+numbers = [340284, 909093092, 998993]
+start = time.time()
+
+for number in numbers:
+    list(factorize(number))
+
+end = time.time()
+delta = end - start
+print(f'Took {delta:.3f} seconds')
+
+# The above code really took such a long time.
+
+
+
+
