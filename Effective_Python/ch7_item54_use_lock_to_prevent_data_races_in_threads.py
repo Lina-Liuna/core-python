@@ -47,3 +47,47 @@ found = counter.count
 print(f'Counter should be {expected}, got {found}')
 
 # why expected and found not the same?
+
+# In python, the python interpreter enforces fairness between all of the threads
+# that are executing to ensure they get roughly equal processing time.
+
+# Python suspends a thread as it's running and rsumes another.
+# you don't know exactly when python will suspend your threads.
+
+# The only operation is simple:
+# counter.count += 1
+# but the bytecode instruction looks like it split three operations:
+value = getattr(counter, 'count')
+result = value + 1
+setattr(counter, 'count', result)
+
+# Solution:
+# to prevent data races like these,
+# Python includes a robust set of tools in the threading built-in module.
+# the simplest and most useful of them is the Lock class, a mutual-exclusion lock(mutex)
+
+from threading import Lock
+
+class LockingCounter:
+    def __init__(self):
+        self.lock = Lock()
+        self.count = 0
+
+    def increment(self, offset):
+        with self.lock:
+            self.count += offset
+
+counter = LockingCounter()
+
+for i in range(5):
+    thread = Thread(target=worker,
+                    args=(i, how_many, counter))
+    threads.append(thread)
+    thread.start()
+
+for thread in threads:
+    thread.join()
+
+expected = how_many * 5
+found = counter.count
+print(f"Counter should be {expected}, got{found}")
