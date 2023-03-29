@@ -509,7 +509,7 @@ extend the same class without conflicts.
 4. use the timeout parameter of the communicate method to avoid deadlocks and haning child processes.
 
 
-==== item 53:
+==== item 53: use threads for blocking I/O avoid for parallelism
 ===== Things-to-Remember:
 
 1. Python threads can't run in parallel on multiple CPU cores because of the global interpreter lock(GIL)
