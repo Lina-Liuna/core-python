@@ -520,6 +520,19 @@ seemingly at the same time.
 3. Use Python threads to make multiple system calls in parallel.
 This allows you to do blocking I/O at the same time as computation.
 
+==== item 54: Use Lock to prevent data races in threads
+===== Things-to-Remember:
+
+1. Even though python has a global interpreter lock, you're still responsible for protecting
+against data races between the threads in your programs
+
+2. You programs will corrupt their data structures if you allow multiple threads to modify
+the same objects without mutual-exclusion locks(mutex)
+
+3. Use the Lock class from the threading built-in module to enforce your programs
+invariants between multiple threads.
+
+
 === 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

@@ -91,3 +91,18 @@ for thread in threads:
 expected = how_many * 5
 found = counter.count
 print(f"Counter should be {expected}, got{found}")
+
+
+# Things-to-Remember:
+# 1. Even though python has a global interpreter lock, you're still responsible for protecting
+# against data races between the threads in your programs
+
+# 2. You programs will corrupt their data structures if you allow multiple threads to modify
+# the same objects without mutual-exclusion locks(mutex)
+
+# 3. Use the Lock class from the threading built-in module to enforce your programs
+# invariants between multiple threads.
+
+
+
+
