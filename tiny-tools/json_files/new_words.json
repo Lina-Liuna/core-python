@@ -198,6 +198,50 @@
               "metaclass can modify/annotate properties after a class is defined but before the class is used.",
               "add notes to giving explanation or comment",
               "documentation should be annotated with explanatory notes."
+            ],
+            "seemingly": [
+              "appearing to be something, especially when this is not true",
+              "he remains confident and seemingly untroubled by his recent problems",
+              "so as to give the impression of having a certain quality; apparently",
+              "a seemingly competent and well-organized person",
+              "according to the facts as one knows them; as far as one knows",
+              "it's touch and go, seemingly, and she's asking for you"
+            ],
+            "decoupling": [
+              "separate, disengage, or dissociate from something else",
+              "the mountaings effectively decouple movement of the engine from those of the wheels",
+              "decoupling can be defined as reducing the amount of resources used to generate economic growth",
+              "while decreasing environmental deterioration and ecological scarcity"
+            ],
+            "whirlpool": [
+              "a repidly rotating mass of water in a river/sea into which objects may be drawn,",
+              "typically caused by the meeting of conflicting currents",
+              "water moving rapidly in acircle so as to produce a depression in the center into which floating object",
+              "may be drawn"
+            ],
+            "preemptive": [
+              "serving or intended to preempt or forestall something, ",
+              "especially to prevent attack by disablling the enemy",
+              "a preemptive strike",
+              "relating to the purchase of goods or shars by one person or",
+              "party before the opportunity is offered to others",
+              "denoting a bid, typically an opening bid, intened to be so high that prevents or interferes with",
+              "effective bidding by the opponents",
+              "taken as a measure against something possible, anticipated, or feared";
+              "a preemptive tactic against a ruthless business rival"
+            ],
+            "FACTORIZATION:": [
+              " factorization is when you break a number down into smaller number that",
+              "multiplied together, give you that original number"
+            ],
+            "forgo": [
+              "omit or decline to take(someething pleasant or valuable); go without",
+              "she wanted to forgo the dessert and leave while they could",
+              "refrain from",
+              "we forgo any comparison between the two men",
+              "to give up the enjoyment or advantage of: do without",
+              "Never forwent an opportunity of honest profix.",
+              "python programmers assume they can forgo using mutual-exclusion locks in their code"
             ]
 
 
