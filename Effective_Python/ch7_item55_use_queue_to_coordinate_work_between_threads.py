@@ -170,6 +170,38 @@ my_queue.put(object())
 print("Producer done")
 thread.join()
 
+# How to solve the pipeline backup issue?
+# The queue class lets your specify the maximum amount of pending work to allow between two phases.
+# the buffer size causes calls to put to block when the queue is already full.
+
+# define a thread that waits for a while before consuming a queue.
+
+my_queue = Queue()
+
+def consumer():
+    time.sleep(0.1)
+    my_queue.get()
+    print('Consumer got 1')
+    my_queue.get()
+    print('Consumer got 2')
+    print('Consumer Done')
+
+thread = Thread(target=consumer)
+thread.start()
+
+my_queue.put(object())
+print("Producer put 1")
+my_queue.put(object())
+print("Producer put 2")
+print("Producer done")
+thread.join()
+
+
+# The wait allow the producer thread to put both objects on the queue before the consumer thread ever calls get.
+# the queue size is one, this means the producer adding items to the queue will have to wait for the consumer thread to call
+# get at least one before the second call to put will stop blocking and add the second item to the queue.
+
+
 
 
 
