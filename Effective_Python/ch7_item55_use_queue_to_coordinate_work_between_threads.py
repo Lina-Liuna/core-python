@@ -118,4 +118,29 @@ while len(done_queue.items) < 1000:
     ...
 
 print('all the processes are done')
+processed = len(done_queue.items)
+polled = sum(t.polled_count for t in threads)
+print(f'Processed {processed} item after polling {polled} items')
+
+# The problems above:
+# 1. the worker functions vary in their respective speeds, determining that all of the input work is complete
+# requires yet another busy wait on the done_queue.
+
+# 2. Second, in worker, the run method will execute forever in its busy loop.
+# there is no obvious way to signal to a worker thread that it's time to exit
+
+# 3. a backup in the pipeline can cause the program to crash arbitrarily.
+
+# if the first phase makes rapid progress but the second phase makes slow progress, then the queue conncting
+# the first phase to the second phase will constantly increase in size.
+# the second phase won't be able to keep up.
+# Given enough time and input data, the program will eventually run out ot memory and die.
+
+# The above lesson isn't that pipelines are bed,
+# it's that it's hard to build a good producer-consumer queue yourself.
+
+
+
+
+
 
