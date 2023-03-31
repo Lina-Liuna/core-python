@@ -140,6 +140,36 @@ print(f'Processed {processed} item after polling {polled} items')
 # it's that it's hard to build a good producer-consumer queue yourself.
 
 
+# How to Solve the problems above?
+# Solution: Queue to the rescue
+
+# Queue class from the queue built-in module solve all the problems
+
+# Why?
+# 1. Queue eliminates the busy waiting in the worker by making the get method block until the new data is available
+
+# Example:
+# 1. Start a thread that waits for some input data on a queue:
+
+from queue import Queue
+
+my_queue = Queue()
+
+def consumer():
+    print("Consumer waiting")
+    my_queue.get()
+    print("Consumer done")
+
+thread = Thread(target=consumer)
+thread.start()
+
+# The above thread is running first
+# the above thread won't finish until an item is put on the Queue instance and the get method has something to return.
+print("Producer putting")
+my_queue.put(object())
+print("Producer done")
+thread.join()
+
 
 
 
