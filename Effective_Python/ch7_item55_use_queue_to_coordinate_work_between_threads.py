@@ -304,3 +304,39 @@ upload_queue.join()
 print(done_queue.qsize(), 'items finished')
 for thread in threads:
     thread.join()
+
+
+
+# extended to use multiple worker threads per phase to
+# increase I/O parallelism and speed up this type of program significantly
+
+def start_threads(count, *args):
+    threads = [StoppableWorker(*args) for _ in range(count)]
+    for thread in threads:
+        thread.start()
+    return threads
+
+def stop_threads(closable_queue, threads):
+    for _ in threads:
+        closable_queue.close()
+
+    closable_queue.join()
+    for thread in threads:
+        thread.join()
+
+download_queue = ClosableQueue()
+resize_queue = ClosableQueue()
+upload_queue = ClosableQueue()
+done_queue = ClosableQueue()
+
+download_threads = start_threads(3, download, download_queue, resize_queue)
+resize_threads = start_threads(6, resize, resize_queue, upload_queue)
+upload_threads = start_threads(7, upload, upload_queue, done_queue)
+
+for _ in range(1000):
+    download_queue.put(object())
+
+stop_threads(download_queue, download_threads)
+stop_threads(resize_queue, resize_threads)
+stop_threads(upload_queue, upload_threads)
+print(done_queue.qsize(), 'items finished')
