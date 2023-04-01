@@ -532,21 +532,21 @@ the same objects without mutual-exclusion locks(mutex)
 3. Use the Lock class from the threading built-in module to enforce your programs
 invariants between multiple threads.
 
-==== item55:
+==== item55: Use Queue to coordinate work between threads
 ===== Things-to-Remember:
 
-# 1. Pipelines are a great way to organize sequences of work-especially I/O bound programs
-# pipeline works perfect on I/O that runs concurrently using multiple python threads
+ 1. Pipelines are a great way to organize sequences of work-especially I/O bound programs
+ pipeline works perfect on I/O that runs concurrently using multiple python threads
 
-# 2. problems in building concurrent pipelines:
-#   1. busy waiting
-#   2. how to tell workers to stop
-#   3. potential memory explosion
+ 2. problems in building concurrent pipelines:
+   1. busy waiting
+   2. how to tell workers to stop
+   3. potential memory explosion
 
-# 3. the Queue class has all the facilities you need to build robust pipelins:
-#   1. blocking operations
-#   2. buffer sizes
-#   3. joining
+ 3. the Queue class has all the facilities you need to build robust pipelins:
+   1. blocking operations
+   2. buffer sizes
+   3. joining
 
 === 2. The Python Standard Library
 
