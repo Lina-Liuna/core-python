@@ -340,3 +340,19 @@ stop_threads(download_queue, download_threads)
 stop_threads(resize_queue, resize_threads)
 stop_threads(upload_queue, upload_threads)
 print(done_queue.qsize(), 'items finished')
+
+
+# Things-to-Remember:
+# 1. Pipelines are a great way to organize sequences of work-especially I/O bound programs
+# pipeline works perfect on I/O that runs concurrently using multiple python threads
+
+# 2. problems in building concurrent pipelines:
+#   1. busy waiting
+#   2. how to tell workers to stop
+#   3. potential memory explosion
+
+# 3. the Queue class has all the facilities you need to build robust pipelins:
+#   1. blocking operations
+#   2. buffer sizes
+#   3. joining
+
