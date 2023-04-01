@@ -101,6 +101,7 @@ threads = [
     Worker(upload, upload_queue, done_queue)
 ]
 
+"""
 # starts threads
 for thread in threads:
     thread.start()
@@ -121,6 +122,9 @@ print('all the processes are done')
 processed = len(done_queue.items)
 polled = sum(t.polled_count for t in threads)
 print(f'Processed {processed} item after polling {polled} items')
+"""
+
+
 
 # The problems above:
 # 1. the worker functions vary in their respective speeds, determining that all of the input work is complete
@@ -159,7 +163,7 @@ def consumer():
     print("Consumer waiting")
     my_queue.get()
     print("Consumer done")
-
+"""
 thread = Thread(target=consumer)
 thread.start()
 
@@ -169,6 +173,8 @@ print("Producer putting")
 my_queue.put(object())
 print("Producer done")
 thread.join()
+"""
+
 
 # How to solve the pipeline backup issue?
 # The queue class lets your specify the maximum amount of pending work to allow between two phases.
@@ -185,7 +191,7 @@ def consumer():
     my_queue.get()
     print('Consumer got 2')
     print('Consumer Done')
-
+"""
 thread = Thread(target=consumer)
 thread.start()
 
@@ -195,12 +201,44 @@ my_queue.put(object())
 print("Producer put 2")
 print("Producer done")
 thread.join()
+"""
+
 
 
 # The wait allow the producer thread to put both objects on the queue before the consumer thread ever calls get.
 # the queue size is one, this means the producer adding items to the queue will have to wait for the consumer thread to call
 # get at least one before the second call to put will stop blocking and add the second item to the queue.
 
+
+
+# The queue class use task_done method to track the progress of work.
+# track_done:
+# lets you wait for a phase's input queue to drain and eliminates the need to poll the last phase of a pipeline.
+
+in_queue = Queue()
+
+def consumer():
+    print("Consumer waiting")
+    work = in_queue.get()
+    print("Consumer working")
+    # doing sth
+    ...
+    print("Consumer done")
+    in_queue.task_done()
+
+thread = Thread(target=consumer)
+thread.start()
+
+# the producer code doesn't have to join the consumer thread or poll.
+# the producer wait for the in_queue to finish by calling join on the Queue instance.
+# Even once it's empty, the in_queue won't be joinable until after task_done is called for every item that was
+# ever enqueued:
+print("Producer putting")
+in_queue.put(object())
+print("Producer waiting")
+in_queue.join()
+print("Producer done")
+thread.join()
 
 
 
