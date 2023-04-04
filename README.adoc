@@ -548,6 +548,16 @@ invariants between multiple threads.
    2. buffer sizes
    3. joining
 
+==== item 56: Know how to recognize when concurrency is necessary
+===== Things-to-Remember:
+
+1. A program often grows to require multiple concurrent lines of execution as its scope and complexity increases
+
+2. The most common types of concurrency coordination are fan-out(generating new units of concurrency)
+fan-in(waiting for existing units of concurrency to complete)
+
+3. Python has many different ways of achieving fan-out and fan-in
+
 === 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

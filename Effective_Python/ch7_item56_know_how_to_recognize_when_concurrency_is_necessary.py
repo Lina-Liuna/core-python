@@ -170,4 +170,9 @@ for i in range(5):
 # slow down the whole program,
 
 # Things-to-Remember:
-# 1.
+# 1. A program often grows to require multiple concurrent lines of execution as its scope and complexity increases
+
+# 2. The most common types of concurrency coordination are fan-out(generating new units of concurrency)
+# fan-in(waiting for existing units of concurrency to complete)
+
+# 3. Python has many different ways of achieving fan-out and fan-in
