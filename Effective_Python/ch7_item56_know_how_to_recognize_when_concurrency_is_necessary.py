@@ -137,20 +137,6 @@ def simulate(grid):
             step_cell(y, x, grid.get, next_grid.set)
     return next_grid
 
-class ColumnPrinter:
-    def __init__(self, height, width):
-        self.height = height
-        self.width = width
-        self.rows = []
-
-        for _ in range(self.height):
-            self.rows.append([EMPTY] * self.width)
-
-    def __str__(self):
-        rst_str = ""
-        for row in self.rows:
-            rst_str += ' '.join(row) + '\n'
-        return rst_str
 
 for i in range(5):
     grid = simulate(grid)
