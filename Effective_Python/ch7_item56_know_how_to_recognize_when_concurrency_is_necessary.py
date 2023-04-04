@@ -143,5 +143,31 @@ for i in range(5):
     print("\n")
     print(grid)
 
+# Problem:
+# the above works great for a program that can run in one thread on a single machine,
+# if the program's requirements have changed, I need to do some I/O(with a socket) from within the game_logic func
+# This might be required if I am trying to build a massively meltiplayer online game where  teh state transitions
+# are determined by a combination of the grid state and communication with other players over the internet.
 
+# Solution:
+# add blocking I/O directly into the game_logic function.
 
+# Problem again:
+# the latency of the I/O required is 100 milliseconds, there are 45 cells in the grid
+# each generation will take a minimum 4.5 seconds to evaluate because
+# each cell is processed serially in the simulate function.
+
+# Solution:
+# do the I/O in parallel so each generation takes roughly 100 milliseconds,
+
+# fan-out:
+# The process of spawning a concurrent line of execution for each unit of work is called fan-out
+
+# fan-in:
+# waiting for all of those concurrent units of work to finish before moveing on to next phase in a coorinated process
+# is called fan-in
+
+# slow down the whole program,
+
+# Things-to-Remember:
+# 1.
