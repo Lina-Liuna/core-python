@@ -558,6 +558,18 @@ fan-in(waiting for existing units of concurrency to complete)
 
 3. Python has many different ways of achieving fan-out and fan-in
 
+==== item 57: Avoid Creating new thread instances for on-demand fan-out
+
+===== Things-to-Remember:
+1. Threads have many downsides:
+     they're costly to start and run if you need a lot of them,
+     they each require a significant amount of memory
+     they require special tools like Lock instances for coordination
+
+2. threads don't provide a built-in way to raise exceptions back in the code that started a thread
+     threads makes difficult to debug.
+
+
 === 2. The Python Standard Library
 
 What Pythons's Standard Library Provide?

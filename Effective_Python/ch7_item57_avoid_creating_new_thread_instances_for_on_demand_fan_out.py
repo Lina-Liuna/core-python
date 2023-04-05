@@ -138,3 +138,11 @@ for i in range(5):
 # threads are not the solution if you need to constantly create and finish new concurrent functions
 # python provide a better fit: Queue
 
+# Things-to-Remember:
+# 1. Threads have many downsides:
+    # they're costly to start and run if you need a lot of them,
+    # they each require a significant amount of memory
+    # they require special tools like Lock instances for coordination
+
+# 2. threads don't provide a built-in way to raise exceptions back in the code that started a thread
+    # threads makes difficult to debug.
