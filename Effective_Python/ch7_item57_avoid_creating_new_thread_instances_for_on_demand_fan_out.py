@@ -127,5 +127,14 @@ for i in range(5):
     grid = simulate_threaded(grid)
     print(grid)
 
+# Problems:
+# 1. The thread instances requires sepcial tools to coordinate with each other safety
+# 2. Threads requires a lot of memory - 8MB per executing thread
+# 3. starting a thread is costly, and threads have a negative performance impact when they run
+# due to context switching between them.
+# 4. code hard to debug when something went wrong.
 
+# Solution:
+# threads are not the solution if you need to constantly create and finish new concurrent functions
+# python provide a better fit: Queue
 
