@@ -153,3 +153,27 @@ for thread in threads:
     in_queue.close()
 for thread in threads:
     thread.join()
+
+# Problem:
+# 1. The simulate_pipeline function is even harder to follow than simulate_threaded approach from the previous item
+
+# 2. Extra support classes were required for ClosableQueue and StoppableWorker in order to make the code easier to read
+
+# 3. specifiy the amount of potential parallelism - the number of threads running game_logic_thread --upfront based on my expectations of the workload
+# instead of having the system automatically scale up parallelism as needed.
+
+# 4. in order to enable debugging, have to manually catch exceptions in worker threads, propagate them on a queue,
+# and then re-raise them in the main thread.
+
+# 5. The biggest problem is if the requirement changes, the code have to change.
+
+# 6. the Queue does to solve fan-out and fan-in problems, but the overhead is very high.
+
+# 7. there is some better ways.
+
+
+
+
+
+
+
