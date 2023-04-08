@@ -171,6 +171,15 @@ for thread in threads:
 
 # 7. there is some better ways.
 
+# Things-to-Remember:
+# 1. Using Queue Instances with a fixed number of worker thread imporoves the scalability of fan-out and fan-in
+# using thread threads
+
+# 2. it takes a significant amount of work to refactor existing code to use Queue, especially when multiple
+# stages of a pipeline are required.
+
+# 3. Using Queue fundamentally limits the total amount of I/O parallism a program can leverage compared to
+# alternative approaches provided by other built-in python features and modules.
 
 
 
