@@ -1,11 +1,12 @@
-from googlesearch import search
-
+import googlesearch
 # Define the search query
 query = "nephrotomy"
 
-# Perform the search and retrieve the results
-search_results = search(query )  # You can specify the number of results you want
+# Create an instance of GoogleSearch
+results = googlesearch.search(query)
+
+
 
 # Iterate over the search results and print them
-for result in search_results:
+for result in results:
     print(result)
