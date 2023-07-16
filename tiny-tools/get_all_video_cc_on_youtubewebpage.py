@@ -3,6 +3,8 @@ import re
 import youtube_dl
 import os
 from youtube_transcript_api import YouTubeTranscriptApi
+from datetime import date
+
 
 
 
@@ -37,9 +39,19 @@ def get_cc(filename, urllink):
             f.write('\n')
 
 def write_all_cc_to_file(titles, urlinks):
+    today = date.today()
+    formatted_date = today.strftime("%d_%m_%Y")
+    folder_path = '/Users/linaliu/code/Booklist/gallery/youtube/news' + formatted_date  + '/'
+    if not os.path.exists(folder_path):
+        # Create the folder
+        os.makedirs(folder_path)
+        print(f"Folder created: {folder_path}")
+    else:
+        print(f"Folder already exists: {folder_path}")
     for title, linkstr in zip(titles, urlinks):
         print(title)
-        get_cc('/Users/linaliu/code/Booklist/gallery/youtube/newstoday/'+ title +'.txt', linkstr)
+
+        get_cc(folder_path  + title +'.txt', linkstr)
 
 
 write_all_cc_to_file(youtube_titles,youtube_links)
