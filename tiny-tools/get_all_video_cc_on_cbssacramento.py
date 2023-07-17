@@ -5,10 +5,6 @@ import os
 from youtube_transcript_api import YouTubeTranscriptApi
 from datetime import date
 
-
-
-
-
 # Make an HTTP request to the website
 youtubesite = "https://www.youtube.com/@cbssacramento/videos"  # Replace with the URL of the website you want to parse
 
@@ -34,14 +30,37 @@ def get_cc(filename, urllink):
         srt = YouTubeTranscriptApi.get_transcript(urllink)
     except Exception as e:
         print(f"Transcript retrieval failed: {e}")
-        return
+        return False
 
 
-    filename = filename.replace('/', '_')
+
     with open(filename, 'w') as f:
         for item in srt:
             f.write(list(item.values())[0], )
             f.write('\n')
+
+    return True
+
+def split_sentences_in_srt(srt_file_path):
+    with open(srt_file_path, 'r') as file:
+        srt_data = file.read()
+
+    # Split the SRT data into subtitle entries
+    subtitle_entries = srt_data.split('\n\n')
+
+    # Split the subtitle text into sentences
+    for entry in subtitle_entries:
+        lines = entry.split('\n')
+        subtitle_text = ' '.join(lines[2:])  # Join lines excluding number and time range
+
+        sentences = subtitle_text.split('. ')  # Split into sentences using '. ' as delimiter
+
+        with open(srt_file_path, 'w') as f:
+            for sentence in sentences:
+                print(sentence)
+                f.write(sentence, )
+                f.write('\n')
+
 
 def write_all_cc_to_file(titles, urlinks):
     today = date.today()
@@ -55,8 +74,11 @@ def write_all_cc_to_file(titles, urlinks):
         print(f"Folder already exists: {folder_path}")
     for title, linkstr in zip(titles, urlinks):
         print(title)
+        title = title.replace('/', '_')
+        flag = get_cc(folder_path  + title +'.txt', linkstr)
+        if flag:
+            split_sentences_in_srt(folder_path  + title +'.txt')
 
-        get_cc(folder_path  + title +'.txt', linkstr)
 
 
 write_all_cc_to_file(youtube_titles,youtube_links)
