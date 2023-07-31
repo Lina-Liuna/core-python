@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from svg.path import parse_path, Line, CubicBezier, QuadraticBezier
 
-# Create a list of paths representing the stroke order of the character "你"
 character_strokes = [
     "M 132 240 Q 132 80 336 80",    # Stroke 1: Left vertical curve
     "M 336 80 C 540 80 540 240 336 240",    # Stroke 2: Top horizontal curve
