@@ -45,7 +45,7 @@ red = int(red_str[0]) if red_str[0] else 0
 
 # but the repeat of red green opacity made it more complicated.
 
-# solution: reuse the logic repeatly
+# solution: write a helper function to reuse the logic repeatly
 
 def get_first_int(values, key, default=0):
     found = values.get(key, [''])

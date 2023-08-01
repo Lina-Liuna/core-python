@@ -40,7 +40,6 @@ class WordsList:
         pdf.set_font('BreadleySansRegular-MVyEB', '', 10)
         pdf.add_page()
         for rank, (word, meaning_example) in enumerate(words_dict.items(), 1):
-
             pdf.cell(w=2, h=10, txt=f'{rank}:{word}:{meaning_example[0]}', ln=1)
         pdf.output(pdf_name, 'F')
 
@@ -144,8 +143,6 @@ class WordsList:
             }
 
         for rank, (word, meaning_example) in enumerate(new_words.items(), 1):
-
-
             print(f'#{rank}: word = {word}; meaning_example = {list(meaning_example)}')
         return new_words
 

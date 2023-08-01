@@ -128,6 +128,7 @@ class GenericInputData:
     def generate_inputs(cls, config):
         raise NotImplementedError
 
+
 class PathInputData(GenericInputData):
     def __init__(self, path):
         super().__init__()
@@ -177,7 +178,6 @@ def mapreduce(worker_class, input_class, config):
 config = {'data_dir': tmpdir}
 result = mapreduce(LineCountWorker, PathInputData, config)
 print(f'There are {result} lines')
-
 
 # Things-to-Remember:
 # 1. Python only support a single constructor per class: the __init__ method

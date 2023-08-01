@@ -10,6 +10,7 @@ print(text.title())
 print(text.capitalize())
 print(text.swapcase())
 
+
 print('student id\tstudent name\tstudent grade\t student GPA'.expandtabs())
 print('student id\tstudent name\tstudent grade\t student GPA'.expandtabs(4))
 

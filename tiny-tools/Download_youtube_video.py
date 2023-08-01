@@ -6,7 +6,7 @@ ydl_opts = {
     'outtmpl': '/Users/linaliu/Movies/youtube/game_of_throne'
 } #
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download(['https://www.youtube.com/watch?v=iN8PKcNGcuI'])
+    ydl.download(['https://youtu.be/ptIPlGTuuJo?list=PLlW7FKuvkLmwNRNnlMY8WedlcKptZ7TfJ&t=2022'])
 
 print('done')
 

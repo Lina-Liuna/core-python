@@ -44,7 +44,7 @@ class JsonToPDF:
 
         pdf.output(self.pdf_property.pdf_name, 'F')
 
-json_name = 'quiz_data'
+json_name = 'new_words'
 json_data = JsonData('json_files/'+ json_name + '.json')
 
 

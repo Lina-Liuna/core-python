@@ -5,9 +5,7 @@ import schedule
 import time
 
 
-
-file = os.path.basename(__file__)
-
+file = os.getcwd()
 
 
 def log_msg(file=os.path.basename(__file__), message="auto-sumbit-message:", when=None):
@@ -25,7 +23,7 @@ def git_submit(file=os.path.basename(__file__)):
 
 def auto_submit(file=os.path.basename(__file__)):
     #schedule.every().day.at("01:00").do(git_submit, 'It is 01:00')o
-    schedule.every(1).minutes.do(git_submit, 'It is 01:00')
+    schedule.every(0.2).minutes.do(git_submit, 'It is 01:00')
 
     while True:
         # Checks whether a scheduled task

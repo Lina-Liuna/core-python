@@ -8,3 +8,7 @@ print(l)
 # output all files under current directory
 l = glob.glob('*.*')
 print(l)
+
+print(help(glob.glob))
+l = glob.glob('*.*')
+print(l)

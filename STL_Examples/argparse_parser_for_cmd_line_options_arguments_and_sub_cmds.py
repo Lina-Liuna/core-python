@@ -33,10 +33,16 @@ dir = '/Users/linaliu/code/core-python/STL_Examples/'
 # parse_cmd_line_in_file(dir+'args.txt')
 
 def parse_cmd_line():
-    parser = argparse.ArgumentParser(description='Data Type and Function mapping between clickhouse and proton')
+    parser = argparse.ArgumentParser(description='Data Type and Function mapping ')
     parser.add_argument('-dtm', metavar='--data-type-mapping', type=bool, action='store',help='display data type mapping')
+    parser.add_argument('-fm', metavar='--func-mapping', type=bool, action='store', help='display function mapping')
+    parser.add_argument('-sm', metavar='--single-mapping', type=str, action='store', help='display a single mapping')
+    parser.add_argument('-o', metavar='--output', type=str, action='store', help='output all the displays into a file')
     args = parser.parse_args()
     print(args)
     print(args.dtm)
+    print(args.fm)
+    print(args.sm)
+    print(args.o)
 
 parse_cmd_line()

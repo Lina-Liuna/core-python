@@ -66,12 +66,6 @@ def linalg_svd_apply_all_colors(path, output_img):
     # pyplot.imsave(output_img, approx_img,cmap='gray')
 
 
-
-
-
-
-
-
 curdir = os.getcwd()
 img_gray = turn_img_gray(curdir + '/data/unicorn.png', curdir + '/data/unicorn_gray.png')
 use_linalg_svd(img_gray, curdir + '/data/unicorn_blur.png')

@@ -24,3 +24,4 @@ with dbm.open('cache', 'c') as db:
     # db['www.yahoo.com'] = 4
 
 # db is automatically closed when leaving the with statement.
+ 

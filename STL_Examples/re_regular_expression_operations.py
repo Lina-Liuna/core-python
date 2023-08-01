@@ -1,6 +1,30 @@
 # re - regular expression operations
 import re
 
+def split_chapters_mark(mark_name, mark_line_number, mark_type):
+    mark = mark_type
+    mark_number = int((mark_line_number - len(mark_name)) / 2)
+    print(f'\n{mark * mark_number} {mark_name} {mark * mark_number}')
+
+# pat = '[ |\(](\w+)\s*\('
+def special_char_expression():
+    special_char_exp_dict = dict()
+    special_char_exp_dict = {
+        '.' : 'this matches any character except a newline, if the DOTALL flag set, it will include newline',
+        '^' : 'matches the start of the string, and in MULTILINE mode also matches immediately after each newline',
+        '$' : 'matches the end of the string or just before the newline at the end of the string, MULTILINE mode works'
+              'example: foo matches foobar, foo$ matches only foo.',
+        '*' : 'causes the resulting RE to match 0 or more repetitions of the preceding RE.'
+              'example: ab* match a, ab, abbbb',
+        '+' : 'Causes the resulting RE to match 1 or more repetitions of the preceding RE.'
+              'example: ab+: ab, abb, abbb',
+        '?' : 'Causes the resulting RE to match 0 or 1 repetions of the preceding RE.',
+
+        '[]': 'used to indicate a set of characters.',
+        '|' : 'A|B, where A and B can be arbitrary REs, creates a regular expression that will match either A or B.'
+    }
+
+
 m = re.search('(?<=abc)def', 'abcdef')
 print(m.group())
 
@@ -93,15 +117,16 @@ print(result)
 # replacement can be a string or a function, if a string, any backslash escapes in it are processed.
 # \n is converted to a single newline character, \r is converted to a carriage return
 # \6 are replaced with the substring matched by gorup of 6 in the pattern.
-
-result = re.sub(r'def\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
+split_chapters_mark('sustitute',100, '*')
+s = 'def'
+result = re.sub(rf'{s}\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
                 r'static PyObject*\npy_\1(void)\n{',
                 'def myfunc():')
 print(result)
 
-result = re.sub(r'def\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
-                r'static PyObject*\npy_\0(void)\n{',
-                'def myfunc():')
+result = re.sub(r'def\s+([a-z])\s*([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
+                r'static PyObject*\npy_\2(void)\n{',
+                'def b myfunc():')
 print(result)
 
 # if replacement is a function, it is called for every non-overlapping occurrence of pattern.
@@ -114,7 +139,7 @@ def dashrepl(matchobj):
 result = re.sub('-{1,2}',dashrepl, 'pro----gram-files')
 print(result)
 
-
+split_chapters_mark('sustitute',100, '*')
 # what is pattern groups mean?
 pattern = re.compile('-')
 result = re.search(pattern, 'pro----gram-files')

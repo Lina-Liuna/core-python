@@ -157,7 +157,7 @@ class Quiz:
     def display_title(self):
 
         # The title to be shown
-        title = Label(gui, text="Self Motivation QUIZ",
+        title = Label(gui, text="Chinese 中文 QUIZ",
                       width=60, bg="green", fg="white", font=("ariel", 20, "bold"))
 
         # place of the title
@@ -201,16 +201,17 @@ gui = Tk()
 gui.geometry("800x450")
 
 # set the title of the Window
-gui.title("Self Motivation Quiz")
+gui.title("Chinese 中文 Quiz")
 
 # get the data from the json file
-with open('quiz_data.json') as f:
+with open('json_files/Chinese_1.json') as f:
     data = json.load(f)
 
 # set the question, options, and answer
 question = (data['question'])
 options = (data['options'])
 answer = (data['answer'])
+print(list(data.keys()))
 
 # create an object of the Quiz Class.
 quiz = Quiz()

@@ -227,7 +227,7 @@
               "party before the opportunity is offered to others",
               "denoting a bid, typically an opening bid, intened to be so high that prevents or interferes with",
               "effective bidding by the opponents",
-              "taken as a measure against something possible, anticipated, or feared";
+              "taken as a measure against something possible, anticipated, or feared",
               "a preemptive tactic against a ruthless business rival"
             ],
             "FACTORIZATION:": [
@@ -242,6 +242,95 @@
               "to give up the enjoyment or advantage of: do without",
               "Never forwent an opportunity of honest profix.",
               "python programmers assume they can forgo using mutual-exclusion locks in their code"
+            ],
+            "sentinel":[
+              "a soldier or guard whose job is to stand and keep watch",
+              "station a soldier or guard by (a place ) to keep watch",
+              " a wide course had been roped off and sentineled with police"
+            ],
+            "ambiguity": [
+              "the quality of being open to more than one interpretation",
+              "we can detect no ambiguity in this section of the act",
+              "embracing ambiguity as it comes",
+              "uncertainty",
+              "a word or expression that can be understood in two or more possible ways"
+            ],
+            "inspire": [
+              "fill someone with the urge or ability to do or feel somthing, especially to do something creative",
+              "his passion for romantic literature inspireed him to begin writing",
+              "breath in air",
+              "they can expand their lungs and inspire enough gas to satisfy oxygen requirements",
+              "inspire means to excite, encourage, or breathe life into",
+              "inspire comes from the Latin means to inflame or to blow in to",
+              "A film can be inspired by a true story"
+            ],
+            "collaborative": [
+              "an effort in which people work together",
+              "used in a positive context to refer to two or more parties successfully working together on a goal"
+            ],
+            "astrology": [
+              "the divination of the supposed influences of the stars and ",
+              "planets on human affairs and terrestrial events by their positions",
+              "Chinese astrology"
+            ],
+            "interlude": [
+              "an intervening period of time",
+              "enjoy a lunchtime interlude",
+              "a pause between the acts of a play",
+              "something performed during a theater intermission",
+              "an orchestral interlude"
+            ],
+            "amicable": [
+              "relating to behavior between people that is pleasant and friendly",
+              " His manner was perfectly amicable, but I felt uncomfortable",
+              "relating to agreement or decision that achieved without being unpleasant",
+              "Few people have amicable divorces",
+              "Eventually we reached an amicable settlement",
+              "Friendly in attitude without unpleasant argument",
+              "I predicted the whole issue would be resolved in an amicable manner"
+            ],
+            "courteous": [
+              "polite and showing respect",
+              "although she often disagreed with me, she was always courteous",
+              "The ticket clerk was courteous and helpful"
+            ],
+            "frown": [
+              "to bring your eyebrows together so that there are lines on your face between you eyes",
+              "she frowned at me, clearly annoyed",
+              "he frowned as he read the instructions, as if puzzled.",
+              "don't frown so, it spoils your pretty face"
+            ],
+            "blunt": [
+              "saying what you think without trying to be polite or consider other people's feelings",
+              "I'll be blunt - that last piece of work you did  was terrible.",
+              "to make a feeling less strong",
+              " my recent bad experience has blunted my enthusiasm for travel",
+              "not having a sharp edge or point",
+              "use a blunt instrument to smash the ginger and onion into the garlic"
+            ],
+            "patronizing": [
+              "speaking or behaving toward someone as if they are stupid",
+              "it's that patronizing tone of hers that I can't bear",
+              "a patronizing tone/attitude",
+              ""
+            ],
+            "unsympathetic": [
+              "not sympathetic",
+              "showing that you not care about someone's suffering"
+            ],
+            "stern": [
+              "a stern look/warnning/voice",
+              "she is her own sternest critic",
+              "if a job is tern, it is difficult",
+              "the back part of a ship or boat",
+              "he sternly reminded his son to drive carefully"
+            ],
+            "vintage": [
+              "produced in the past, and typical of the period in which it was made",
+              "a vintage airplane",
+              "a vintage comic book",
+              "she loves buying vintage clothing",
+              "a classic vintage dress"
             ]
 
 
