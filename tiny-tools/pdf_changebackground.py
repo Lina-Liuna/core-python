@@ -11,14 +11,14 @@ def change_white_to_yellow(input_image_path, output_image_path):
         for y in range(height):
             pixel = image.getpixel((x, y))
             if pixel == (255, 255, 255, 255):  # White color
-                pixels[x, y] = (255, 255, 0, 255)  # Change to yellow
+                pixels[x, y] = (255, 195, 0, 255)  # Change to yellow
             else:
                 pixels[x, y] = pixel
 
     new_image.save(output_image_path)
 
 input_image_path = "/Users/linaliu/Documents/PGMovie.png"  # Specify your input PNG image file
-output_image_path = "/Users/linaliu/Documents/PGMovie_yellow.png"  # Specify the output PNG image file
+output_image_path = "/Users/linaliu/Documents/PGMovie_orange_yellow.png"  # Specify the output PNG image file
 
 change_white_to_yellow(input_image_path, output_image_path)
 

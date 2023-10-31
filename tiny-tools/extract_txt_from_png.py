@@ -24,9 +24,11 @@ def set_pdf_text(text, file):
     with open(file, 'a') as f:
         f.write(text)
 
-image_path = '/Users/linaliu/code/core-python/tiny-tools/pdf_files/how_to_talk_to_anyone/'
 
-txt_file = '/Users/linaliu/code/core-python/tiny-tools/pdf_files/talkanyone.txt'
+dir = '/Users/linaliu/books/librarybooks/from_LA_Library/englishhomework/'
+image_path = '/Users/linaliu/code/DVC/CS-110-5129-intro-programming/extracttxt/'
+image_path = dir + '/ALongWalktoWater/'
+txt_file = image_path + 'ALongWalktoWater.txt'
 # Extract text from the image using Tesseract
 pdf2text(image_path, txt_file)
 
