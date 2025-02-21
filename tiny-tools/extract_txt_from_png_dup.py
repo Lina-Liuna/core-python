@@ -25,10 +25,15 @@ def set_pdf_text(text, file):
         f.write(text)
 
 
-dir = '/Users/linaliu/books/librarybooks/from_LA_Library/linuxhomework/'
+dir = '/Users/linaliu/books/librarybooks/from_LA_Library/englishhomework/'
 image_path = '/Users/linaliu/code/DVC/CS-110-5129-intro-programming/extracttxt/'
-image_path = dir + '/dict/'
-txt_file = image_path + 'dict.txt'
+image_path = '/Users/linaliu/books/librarybooks/from_LA_Library/english_vocabulary/dict/WebstersWordPowerEnglishDictionaryWithIPAandeasytofollowpronunciation/'
+image_path = '/Users/linaliu/books/librarybooks/kidslearning/math_english/WhatYourKindergartnerNeedstoKnow/'
+image_path = '/Users/linaliu/books/librarybooks/from_LA_Library/Elon_Musk/'
+image_path = '/Users/linaliu/books/librarybooks/from_LA_Library/bigideasforyoungthinkers/'
+image_path = '/Users/linaliu/books/librarybooks/from_LA_Library/criticalthinking/RaisingCriticalThinkers/'
+
+txt_file = image_path + 'RaisingCriticalThinkers.txt'
 # Extract text from the image using Tesseract
 pdf2text(image_path, txt_file)
 
