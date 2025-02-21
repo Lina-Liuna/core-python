@@ -1,6 +1,7 @@
 = Python lecture:
-https://xxx[https://www.youtube.com/playlist?list=PLlW7FKuvkLmxYCJR-8Nq_EmuKUzecEYuN
-]
+
+https://www.youtube.com/playlist?list=PLlW7FKuvkLmxYCJR-8Nq_EmuKUzecEYuN
+
 
 = core-python
 === 3. Effective Python 
